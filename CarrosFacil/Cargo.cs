@@ -12,7 +12,7 @@ namespace CarrosFacil
         public DateTime data_cadastro { get; set; }
         public int status { get; set; }
 
-        private Cargo()
+        public Cargo()
         {
             this.id = 0;
             this.nome = null;
@@ -33,7 +33,10 @@ namespace CarrosFacil
         // METHODS
         public int Cadastrar()
         {
-            string query = string.Format("INSERT INTO cargo VALUES (0, '%s', '%s', NOW(), 1);", nome, observacao);
+            string query = string.Format("INSERT INTO cargo VALUES (0, '{0}', '{1}', NOW(), 1);", nome, observacao);
+            Conexao conexao = new Conexao();
+
+            return conexao.ExecutaQuery(query);
         }
     }
 }

@@ -24,6 +24,31 @@ namespace CarrosFacil
         private Color borderColor = Color.MediumSlateBlue;
         private int borderSize = 1;
 
+        private Color disabledBackColor = Color.FromArgb(245, 245, 245);
+        private Color disabledTextColor = Color.FromArgb(131, 131, 131);
+        private Color disabledBorderColor = Color.FromArgb(227, 227, 227);
+
+        [Category("RJ Code - Appearance")]
+        public Color DisabledBackColor
+        {
+            get => disabledBackColor;
+            set { disabledBackColor = value; if (!this.Enabled) ApplyDisabledColors(); }
+        }
+
+        [Category("RJ Code - Appearance")]
+        public Color DisabledTextColor
+        {
+            get => disabledTextColor;
+            set { disabledTextColor = value; if (!this.Enabled) ApplyDisabledColors(); }
+        }
+
+        [Category("RJ Code - Appearance")]
+        public Color DisabledBorderColor
+        {
+            get => disabledBorderColor;
+            set { disabledBorderColor = value; if (!this.Enabled) ApplyDisabledColors(); }
+        }
+
         //Items
         private ComboBox cmbList;
         private Label lblText;
@@ -82,6 +107,7 @@ namespace CarrosFacil
             base.BackColor = borderColor; //Border Color
             this.Load += new System.EventHandler(this.RJComboBox_Load);
             this.ResumeLayout();
+
             AdjustComboBoxDimensions();
         }
         #endregion
@@ -305,6 +331,27 @@ namespace CarrosFacil
                 this.Height = cmbList.Height + (this.borderSize*2);
             }
         }
+
+        private void ApplyEnabledColors()
+        {
+            lblText.BackColor = backColor;
+            lblText.ForeColor = this.ForeColor;
+            btnIcon.BackColor = backColor;
+            cmbList.BackColor = listBackColor;
+            cmbList.ForeColor = listTextColor;
+            base.BackColor = borderColor; // borda normal
+        }
+
+        private void ApplyDisabledColors()
+        {
+            lblText.BackColor = disabledBackColor;
+            lblText.ForeColor = disabledTextColor;
+            btnIcon.BackColor = disabledBackColor;
+            cmbList.BackColor = disabledBackColor;
+            cmbList.ForeColor = disabledTextColor;
+            base.BackColor = disabledBorderColor; // borda desativada
+        }
+
         #endregion
 
         #region -> Event methods
@@ -380,11 +427,47 @@ namespace CarrosFacil
             if (DesignMode)
                 AdjustComboBoxDimensions();
         }
+
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+
+            if (this.Enabled)
+                ApplyEnabledColors();
+            else
+                ApplyDisabledColors();
+        }
+
+
         #endregion
 
         private void RJComboBox_Load(object sender, EventArgs e)
         {
             AdjustComboBoxDimensions();
+
+            Console.WriteLine("olá");
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // RJComboBox
+            // 
+            this.Name = "RJComboBox";
+            this.Load += new System.EventHandler(this.RJComboBox_Load_2);
+            this.ResumeLayout(false);
+
+        }
+
+        private void RJComboBox_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RJComboBox_Load_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,5 +46,42 @@ namespace CarrosFacil
         {
 
         }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Cargo cargo = new Cargo();
+
+            cargo.nome = tbNomeCargo.Texts;
+            if (string.IsNullOrEmpty(cargo.nome))
+            {
+                tbNomeCargo.BackColor = ColorTranslator.FromHtml("#F88E8E");
+                ShowWarning("Aviso - Nome do Cargo", "Preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            cargo.observacao = tbObservacao.Texts;
+            int resp = cargo.Cadastrar();
+            if (resp == 1)
+            {
+                MessageBox.Show("Cargo: " + cargo.nome + " cadastrado com sucesso!", "Sistema Loja Cosméticos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearForm();
+            } else
+            {
+                ShowWarning("Erro", "Não foi possível cadastrar o cargo " + cargo.nome + "");
+            }
+        }
+
+        private void ClearForm()
+        {
+            tbNomeCargo.BackColor = Color.White;
+
+            tbNomeCargo.Texts = "";
+            tbObservacao.Texts = "";
+        }
+
+        private void ShowWarning(string title, string message)
+        {
+            MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }
