@@ -47,7 +47,6 @@ namespace CarrosFacil
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -88,6 +87,7 @@ namespace CarrosFacil
             this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -256,14 +256,6 @@ namespace CarrosFacil
             this.textBox5.Size = new System.Drawing.Size(229, 30);
             this.textBox5.TabIndex = 20;
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Calibri", 14F);
-            this.textBox6.Location = new System.Drawing.Point(784, 221);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(223, 30);
-            this.textBox6.TabIndex = 22;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -276,9 +268,9 @@ namespace CarrosFacil
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox6);
             this.groupBox1.Controls.Add(this.maskedTextBox2);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBox2);
@@ -704,6 +696,16 @@ namespace CarrosFacil
             this.comboBox5.Size = new System.Drawing.Size(317, 31);
             this.comboBox5.TabIndex = 25;
             // 
+            // comboBox6
+            // 
+            this.comboBox6.Enabled = false;
+            this.comboBox6.Font = new System.Drawing.Font("Calibri", 14F);
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(784, 222);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(223, 31);
+            this.comboBox6.TabIndex = 31;
+            // 
             // FormFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -755,7 +757,6 @@ namespace CarrosFacil
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -796,5 +797,6 @@ namespace CarrosFacil
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }
