@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Collections;
 
 namespace CarrosFacil
 {
@@ -37,6 +37,11 @@ namespace CarrosFacil
             Conexao conexao = new Conexao();
 
             return conexao.ExecutaQuery(query);
+        }
+
+        public Cargo[] ObterCargos()
+        {
+
         }
     }
 }
