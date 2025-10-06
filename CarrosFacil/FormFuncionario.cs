@@ -78,7 +78,11 @@ namespace CarrosFacil
             cbTipoAcesso.SelectedIndex = 0;
 
             // CARGO - ALIMENTADA PELO DB
-            cB
+            Cargo cargo = new Cargo();
+            cbCargo.DataSource = cargo.CarregarCargo();
+            cbCargo.DisplayMember = "nome";
+            cbCargo.ValueMember = "id";
+            cbCargo.SelectedIndex = -1;
         }
     }
 }

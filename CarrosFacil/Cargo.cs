@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Data;
 
 namespace CarrosFacil
 {
@@ -39,9 +39,12 @@ namespace CarrosFacil
             return conexao.ExecutaQuery(query);
         }
 
-        public Cargo[] ObterCargos()
+        public DataTable CarregarCargo()
         {
+            string query = "SELECT id, nome FROM cargo WHERE status = 1; ";
 
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
         }
     }
 }
