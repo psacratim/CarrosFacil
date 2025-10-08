@@ -63,8 +63,8 @@ namespace CarrosFacil
             cbEstado.SelectedItem = "SP";
 
             // SEXO
-            cbSexo.Items.Add("Macho");
-            cbSexo.Items.Add("Fêmea");
+            cbSexo.Items.Add("Masculino");
+            cbSexo.Items.Add("Feminino");
             cbSexo.Items.Add("Indefinido");
             cbSexo.SelectedIndex = 0;
 
@@ -165,6 +165,7 @@ namespace CarrosFacil
             tbEndereco.Text == "" ||
             !mtbCpf.MaskFull ||
             !mtbTelefoneRecado.MaskFull ||
+            cbCargo.SelectedIndex == -1 || 
             cbTipoAcesso.SelectedIndex == -1)
             {
                 return false;
@@ -188,6 +189,7 @@ namespace CarrosFacil
             mtbCpf.BackColor = color;
             mtbTelefoneRecado.BackColor = color;
             cbTipoAcesso.BackColor = color;
+            cbCargo.BackColor = color;
         }
 
         private void Limpar()
