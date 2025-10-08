@@ -66,6 +66,18 @@ namespace CarrosFacil
             formFuncionario.Show();
         }
 
+        private void menuCadMarcas_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormMarca>().Count() > 0)
+            {
+                MessageBox.Show("O cadastro de marcas já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormMarca formMarca = new FormMarca();
+            formMarca.Show();
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{

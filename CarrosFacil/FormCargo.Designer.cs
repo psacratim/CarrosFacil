@@ -30,331 +30,199 @@ namespace CarrosFacil
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCargo));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.rjLine1 = new CarrosFacil.RJControls.RJLine();
-            this.btnSair = new CarrosFacil.RJButton();
-            this.btnExcluir = new CarrosFacil.RJButton();
-            this.btnAtualizar = new CarrosFacil.RJButton();
-            this.btnCadastrar = new CarrosFacil.RJButton();
-            this.tbObservacao = new CarrosFacil.RJTextBox();
-            this.tbNomeCargo = new CarrosFacil.RJTextBox();
-            this.tbStatus = new CarrosFacil.RJTextBox();
-            this.dtpDataCadastro = new CarrosFacil.RJDatePicker();
-            this.tbCodigoCargo = new CarrosFacil.RJTextBox();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbObservacao = new System.Windows.Forms.TextBox();
+            this.tbNome = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // cbCargo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label1.Location = new System.Drawing.Point(28, 86);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 27);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "* Código:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label2.Location = new System.Drawing.Point(228, 87);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 27);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "* Data Cadastro";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label3.Location = new System.Drawing.Point(457, 86);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 27);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "* Status:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label4.Location = new System.Drawing.Point(28, 174);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 27);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "* Nome do cargo:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label5.Location = new System.Drawing.Point(28, 269);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 27);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Observação:";
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Calibri", 20F);
-            this.lbTitle.Location = new System.Drawing.Point(226, 21);
-            this.lbTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(188, 33);
-            this.lbTitle.TabIndex = 0;
-            this.lbTitle.Text = "Cadastrar Cargo";
-            this.lbTitle.Click += new System.EventHandler(this.lbTitle_Click);
-            // 
-            // rjLine1
-            // 
-            this.rjLine1.BackColor = System.Drawing.Color.Transparent;
-            this.rjLine1.BorderRadius = 1;
-            this.rjLine1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.rjLine1.LineThickness = 3;
-            this.rjLine1.Location = new System.Drawing.Point(15, 61);
-            this.rjLine1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.rjLine1.Name = "rjLine1";
-            this.rjLine1.Orientation = CarrosFacil.RJControls.SeparatorOrientation.Horizontal;
-            this.rjLine1.Size = new System.Drawing.Size(611, 3);
-            this.rjLine1.TabIndex = 27;
+            this.cbCargo.Enabled = false;
+            this.cbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Location = new System.Drawing.Point(12, 138);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(297, 30);
+            this.cbCargo.TabIndex = 55;
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
-            this.btnSair.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
-            this.btnSair.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.btnSair.BorderRadius = 6;
-            this.btnSair.BorderSize = 2;
-            this.btnSair.FlatAppearance.BorderSize = 0;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnSair.ForeColor = System.Drawing.Color.Black;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(540, 422);
+            this.btnSair.Location = new System.Drawing.Point(504, 394);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSair.Size = new System.Drawing.Size(84, 42);
-            this.btnSair.TabIndex = 26;
+            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
+            this.btnSair.Size = new System.Drawing.Size(89, 46);
+            this.btnSair.TabIndex = 54;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.TextColor = System.Drawing.Color.Black;
-            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.UseVisualStyleBackColor = true;
             // 
-            // btnExcluir
+            // btnDeletar
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnExcluir.BorderRadius = 6;
-            this.btnExcluir.BorderSize = 2;
-            this.btnExcluir.Enabled = false;
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnExcluir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(310, 422);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExcluir.Size = new System.Drawing.Size(100, 42);
-            this.btnExcluir.TabIndex = 25;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnDeletar.Enabled = false;
+            this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
+            this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeletar.Location = new System.Drawing.Point(316, 394);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
+            this.btnDeletar.Size = new System.Drawing.Size(111, 46);
+            this.btnDeletar.TabIndex = 53;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeletar.UseVisualStyleBackColor = true;
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAtualizar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAtualizar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAtualizar.BorderRadius = 6;
-            this.btnAtualizar.BorderSize = 2;
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.FlatAppearance.BorderSize = 0;
-            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnAtualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(172, 422);
+            this.btnAtualizar.Location = new System.Drawing.Point(169, 394);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAtualizar.Size = new System.Drawing.Size(120, 42);
-            this.btnAtualizar.TabIndex = 24;
+            this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
+            this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
+            this.btnAtualizar.TabIndex = 52;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtualizar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-            this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(238)))), ((int)(((byte)(78)))));
-            this.btnCadastrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(238)))), ((int)(((byte)(78)))));
-            this.btnCadastrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(159)))), ((int)(((byte)(16)))));
-            this.btnCadastrar.BorderRadius = 6;
-            this.btnCadastrar.BorderSize = 2;
-            this.btnCadastrar.FlatAppearance.BorderSize = 0;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnCadastrar.ForeColor = System.Drawing.Color.Black;
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(28, 422);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 394);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnCadastrar.Size = new System.Drawing.Size(126, 42);
-            this.btnCadastrar.TabIndex = 23;
+            this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
+            this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
+            this.btnCadastrar.TabIndex = 51;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.TextColor = System.Drawing.Color.Black;
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.Enabled = false;
+            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(333, 138);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(260, 30);
+            this.cbStatus.TabIndex = 50;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 22F);
+            this.label12.Location = new System.Drawing.Point(198, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(209, 37);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Cadastrar Cargo";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 16F);
+            this.label26.ForeColor = System.Drawing.Color.Red;
+            this.label26.Location = new System.Drawing.Point(109, 57);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(387, 27);
+            this.label26.TabIndex = 48;
+            this.label26.Text = "Todos os campos com * são obrigatorios.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label6.Location = new System.Drawing.Point(12, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 23);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "* Cargo:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label7.Location = new System.Drawing.Point(333, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 23);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "* Status:";
             // 
             // tbObservacao
             // 
-            this.tbObservacao.BackColor = System.Drawing.SystemColors.Window;
-            this.tbObservacao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.tbObservacao.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.tbObservacao.BorderRadius = 6;
-            this.tbObservacao.BorderSize = 2;
             this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbObservacao.ForeColor = System.Drawing.Color.Black;
-            this.tbObservacao.Location = new System.Drawing.Point(28, 298);
-            this.tbObservacao.Margin = new System.Windows.Forms.Padding(4);
+            this.tbObservacao.Location = new System.Drawing.Point(12, 310);
             this.tbObservacao.Multiline = true;
             this.tbObservacao.Name = "tbObservacao";
-            this.tbObservacao.Padding = new System.Windows.Forms.Padding(5);
-            this.tbObservacao.PasswordChar = false;
-            this.tbObservacao.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbObservacao.PlaceholderText = "";
-            this.tbObservacao.Size = new System.Drawing.Size(596, 107);
-            this.tbObservacao.TabIndex = 22;
-            this.tbObservacao.Texts = "";
-            this.tbObservacao.UnderlinedStyle = false;
+            this.tbObservacao.Size = new System.Drawing.Size(581, 66);
+            this.tbObservacao.TabIndex = 44;
             // 
-            // tbNomeCargo
+            // tbNome
             // 
-            this.tbNomeCargo.BackColor = System.Drawing.SystemColors.Window;
-            this.tbNomeCargo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.tbNomeCargo.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.tbNomeCargo.BorderRadius = 6;
-            this.tbNomeCargo.BorderSize = 2;
-            this.tbNomeCargo.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbNomeCargo.ForeColor = System.Drawing.Color.Black;
-            this.tbNomeCargo.Location = new System.Drawing.Point(28, 204);
-            this.tbNomeCargo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNomeCargo.Multiline = false;
-            this.tbNomeCargo.Name = "tbNomeCargo";
-            this.tbNomeCargo.Padding = new System.Windows.Forms.Padding(5);
-            this.tbNomeCargo.PasswordChar = false;
-            this.tbNomeCargo.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbNomeCargo.PlaceholderText = "Vendedor";
-            this.tbNomeCargo.Size = new System.Drawing.Size(596, 34);
-            this.tbNomeCargo.TabIndex = 21;
-            this.tbNomeCargo.Texts = "";
-            this.tbNomeCargo.UnderlinedStyle = false;
+            this.tbNome.Font = new System.Drawing.Font("Calibri", 14F);
+            this.tbNome.Location = new System.Drawing.Point(12, 224);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(581, 30);
+            this.tbNome.TabIndex = 42;
             // 
-            // tbStatus
+            // label8
             // 
-            this.tbStatus.BackColor = System.Drawing.SystemColors.Window;
-            this.tbStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.tbStatus.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.tbStatus.BorderRadius = 6;
-            this.tbStatus.BorderSize = 2;
-            this.tbStatus.Enabled = false;
-            this.tbStatus.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbStatus.ForeColor = System.Drawing.Color.Black;
-            this.tbStatus.Location = new System.Drawing.Point(457, 116);
-            this.tbStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.tbStatus.Multiline = false;
-            this.tbStatus.Name = "tbStatus";
-            this.tbStatus.Padding = new System.Windows.Forms.Padding(5);
-            this.tbStatus.PasswordChar = false;
-            this.tbStatus.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.tbStatus.PlaceholderText = "";
-            this.tbStatus.Size = new System.Drawing.Size(167, 34);
-            this.tbStatus.TabIndex = 20;
-            this.tbStatus.Texts = "";
-            this.tbStatus.UnderlinedStyle = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label8.Location = new System.Drawing.Point(12, 281);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(107, 23);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Observação:";
             // 
-            // dtpDataCadastro
+            // label9
             // 
-            this.dtpDataCadastro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.dtpDataCadastro.BorderRadius = 6;
-            this.dtpDataCadastro.BorderSize = 2;
-            this.dtpDataCadastro.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dtpDataCadastro.CustomFormat = "M/d/yyyy h:mm tt";
-            this.dtpDataCadastro.Enabled = false;
-            this.dtpDataCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataCadastro.Location = new System.Drawing.Point(228, 116);
-            this.dtpDataCadastro.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpDataCadastro.MinimumSize = new System.Drawing.Size(4, 35);
-            this.dtpDataCadastro.Name = "dtpDataCadastro";
-            this.dtpDataCadastro.Size = new System.Drawing.Size(200, 35);
-            this.dtpDataCadastro.SkinColor = System.Drawing.Color.White;
-            this.dtpDataCadastro.TabIndex = 19;
-            this.dtpDataCadastro.TextColor = System.Drawing.Color.Black;
-            // 
-            // tbCodigoCargo
-            // 
-            this.tbCodigoCargo.BackColor = System.Drawing.SystemColors.Window;
-            this.tbCodigoCargo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.tbCodigoCargo.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.tbCodigoCargo.BorderRadius = 6;
-            this.tbCodigoCargo.BorderSize = 2;
-            this.tbCodigoCargo.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbCodigoCargo.ForeColor = System.Drawing.Color.Black;
-            this.tbCodigoCargo.Location = new System.Drawing.Point(28, 116);
-            this.tbCodigoCargo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCodigoCargo.Multiline = false;
-            this.tbCodigoCargo.Name = "tbCodigoCargo";
-            this.tbCodigoCargo.Padding = new System.Windows.Forms.Padding(5);
-            this.tbCodigoCargo.PasswordChar = false;
-            this.tbCodigoCargo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbCodigoCargo.PlaceholderText = "";
-            this.tbCodigoCargo.Size = new System.Drawing.Size(167, 34);
-            this.tbCodigoCargo.TabIndex = 18;
-            this.tbCodigoCargo.Texts = "";
-            this.tbCodigoCargo.UnderlinedStyle = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label9.Location = new System.Drawing.Point(8, 196);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(145, 23);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "* Nome do cargo:";
             // 
             // FormCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(654, 485);
-            this.Controls.Add(this.rjLine1);
+            this.ClientSize = new System.Drawing.Size(604, 456);
+            this.Controls.Add(this.cbCargo);
             this.Controls.Add(this.btnSair);
-            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.cbStatus);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tbObservacao);
-            this.Controls.Add(this.tbNomeCargo);
-            this.Controls.Add(this.tbStatus);
-            this.Controls.Add(this.dtpDataCadastro);
-            this.Controls.Add(this.tbCodigoCargo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbTitle);
+            this.Controls.Add(this.tbNome);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "FormCargo";
@@ -366,21 +234,19 @@ namespace CarrosFacil
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbTitle;
-        private RJTextBox tbCodigoCargo;
-        private RJDatePicker dtpDataCadastro;
-        private RJTextBox tbStatus;
-        private RJTextBox tbNomeCargo;
-        private RJTextBox tbObservacao;
-        private RJButton btnCadastrar;
-        private RJButton btnAtualizar;
-        private RJButton btnExcluir;
-        private RJButton btnSair;
-        private RJControls.RJLine rjLine1;
+        private System.Windows.Forms.ComboBox cbCargo;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbObservacao;
+        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

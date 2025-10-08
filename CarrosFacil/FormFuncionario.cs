@@ -147,6 +147,8 @@ namespace CarrosFacil
             {
                 string nome = funcionario.nome_social == "" ? funcionario.nome : funcionario.nome_social;
                 MessageBox.Show("Funcionário: "+ nome +" cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Limpar();
             }
         }
 

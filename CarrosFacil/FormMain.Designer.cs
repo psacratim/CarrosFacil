@@ -35,14 +35,15 @@ namespace CarrosFacil
             this.menuCadastros = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadCargos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsultas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -69,7 +70,8 @@ namespace CarrosFacil
             // 
             this.menuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCadCargos,
-            this.menuCadFuncionarios});
+            this.menuCadFuncionarios,
+            this.menuCadMarcas});
             this.menuCadastros.Image = ((System.Drawing.Image)(resources.GetObject("menuCadastros.Image")));
             this.menuCadastros.Name = "menuCadastros";
             this.menuCadastros.Size = new System.Drawing.Size(143, 36);
@@ -78,7 +80,7 @@ namespace CarrosFacil
             // menuCadCargos
             // 
             this.menuCadCargos.Name = "menuCadCargos";
-            this.menuCadCargos.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.menuCadCargos.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.menuCadCargos.Size = new System.Drawing.Size(232, 30);
             this.menuCadCargos.Text = "Cargos";
             this.menuCadCargos.Click += new System.EventHandler(this.menuCadCargos_Click);
@@ -86,10 +88,18 @@ namespace CarrosFacil
             // menuCadFuncionarios
             // 
             this.menuCadFuncionarios.Name = "menuCadFuncionarios";
-            this.menuCadFuncionarios.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.menuCadFuncionarios.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.menuCadFuncionarios.Size = new System.Drawing.Size(232, 30);
             this.menuCadFuncionarios.Text = "Funcionarios";
             this.menuCadFuncionarios.Click += new System.EventHandler(this.menuCadFuncionarios_Click);
+            // 
+            // menuCadMarcas
+            // 
+            this.menuCadMarcas.Name = "menuCadMarcas";
+            this.menuCadMarcas.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.menuCadMarcas.Size = new System.Drawing.Size(232, 30);
+            this.menuCadMarcas.Text = "Marcas";
+            this.menuCadMarcas.Click += new System.EventHandler(this.menuCadMarcas_Click);
             // 
             // menuConsultas
             // 
@@ -136,11 +146,11 @@ namespace CarrosFacil
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
-            // statusLbMensagem
+            // statusLbHora
             // 
-            this.statusLbMensagem.Name = "statusLbMensagem";
-            this.statusLbMensagem.Size = new System.Drawing.Size(109, 25);
-            this.statusLbMensagem.Text = "Mensagem";
+            this.statusLbHora.Name = "statusLbHora";
+            this.statusLbHora.Size = new System.Drawing.Size(57, 25);
+            this.statusLbHora.Text = "Hora";
             // 
             // statusLbData
             // 
@@ -148,11 +158,11 @@ namespace CarrosFacil
             this.statusLbData.Size = new System.Drawing.Size(53, 25);
             this.statusLbData.Text = "Data";
             // 
-            // statusLbHora
+            // statusLbMensagem
             // 
-            this.statusLbHora.Name = "statusLbHora";
-            this.statusLbHora.Size = new System.Drawing.Size(57, 25);
-            this.statusLbHora.Text = "Hora";
+            this.statusLbMensagem.Name = "statusLbMensagem";
+            this.statusLbMensagem.Size = new System.Drawing.Size(109, 25);
+            this.statusLbMensagem.Text = "Mensagem";
             // 
             // timerPrincipal
             // 
@@ -197,6 +207,7 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripStatusLabel statusLbData;
         private System.Windows.Forms.ToolStripStatusLabel statusLbHora;
         private System.Windows.Forms.Timer timerPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem menuCadMarcas;
     }
 }
 

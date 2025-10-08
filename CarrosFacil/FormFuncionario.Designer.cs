@@ -175,7 +175,7 @@ namespace CarrosFacil
             // 
             this.cbSexo.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbSexo.FormattingEnabled = true;
-            this.cbSexo.Location = new System.Drawing.Point(524, 138);
+            this.cbSexo.Location = new System.Drawing.Point(524, 139);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(229, 31);
             this.cbSexo.TabIndex = 11;
@@ -184,7 +184,7 @@ namespace CarrosFacil
             // 
             this.cbEstadoCivil.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbEstadoCivil.FormattingEnabled = true;
-            this.cbEstadoCivil.Location = new System.Drawing.Point(784, 138);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(784, 139);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(225, 31);
             this.cbEstadoCivil.TabIndex = 13;
@@ -203,7 +203,7 @@ namespace CarrosFacil
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label8.Location = new System.Drawing.Point(10, 193);
+            this.label8.Location = new System.Drawing.Point(10, 186);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 23);
             this.label8.TabIndex = 15;
@@ -214,7 +214,7 @@ namespace CarrosFacil
             this.dtpDataNascimento.CustomFormat = "";
             this.dtpDataNascimento.Font = new System.Drawing.Font("Calibri", 14F);
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(10, 222);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(10, 215);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(229, 30);
             this.dtpDataNascimento.TabIndex = 16;
@@ -223,7 +223,7 @@ namespace CarrosFacil
             // 
             this.cbCargo.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Location = new System.Drawing.Point(264, 221);
+            this.cbCargo.Location = new System.Drawing.Point(264, 214);
             this.cbCargo.Name = "cbCargo";
             this.cbCargo.Size = new System.Drawing.Size(229, 31);
             this.cbCargo.TabIndex = 18;
@@ -232,7 +232,7 @@ namespace CarrosFacil
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label9.Location = new System.Drawing.Point(264, 193);
+            this.label9.Location = new System.Drawing.Point(264, 186);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 23);
             this.label9.TabIndex = 17;
@@ -242,7 +242,7 @@ namespace CarrosFacil
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label10.Location = new System.Drawing.Point(524, 194);
+            this.label10.Location = new System.Drawing.Point(524, 187);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 23);
             this.label10.TabIndex = 19;
@@ -251,7 +251,7 @@ namespace CarrosFacil
             // tbSalario
             // 
             this.tbSalario.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbSalario.Location = new System.Drawing.Point(524, 222);
+            this.tbSalario.Location = new System.Drawing.Point(524, 215);
             this.tbSalario.Name = "tbSalario";
             this.tbSalario.Size = new System.Drawing.Size(229, 30);
             this.tbSalario.TabIndex = 20;
@@ -260,7 +260,7 @@ namespace CarrosFacil
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label11.Location = new System.Drawing.Point(784, 193);
+            this.label11.Location = new System.Drawing.Point(784, 186);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 23);
             this.label11.TabIndex = 21;
@@ -290,7 +290,7 @@ namespace CarrosFacil
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(12, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 278);
+            this.groupBox1.Size = new System.Drawing.Size(1015, 270);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Pessoais";
@@ -300,7 +300,7 @@ namespace CarrosFacil
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(784, 222);
+            this.cbStatus.Location = new System.Drawing.Point(784, 215);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(223, 31);
             this.cbStatus.TabIndex = 31;
@@ -331,9 +331,9 @@ namespace CarrosFacil
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.tbUsuario);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(11, 394);
+            this.groupBox2.Location = new System.Drawing.Point(12, 374);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1015, 126);
+            this.groupBox2.Size = new System.Drawing.Size(1015, 106);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados de Acesso";
@@ -343,7 +343,7 @@ namespace CarrosFacil
             // 
             this.cbTipoAcesso.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbTipoAcesso.FormattingEnabled = true;
-            this.cbTipoAcesso.Location = new System.Drawing.Point(692, 77);
+            this.cbTipoAcesso.Location = new System.Drawing.Point(693, 59);
             this.cbTipoAcesso.Name = "cbTipoAcesso";
             this.cbTipoAcesso.Size = new System.Drawing.Size(317, 31);
             this.cbTipoAcesso.TabIndex = 25;
@@ -352,7 +352,7 @@ namespace CarrosFacil
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label13.Location = new System.Drawing.Point(692, 48);
+            this.label13.Location = new System.Drawing.Point(693, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(142, 23);
             this.label13.TabIndex = 30;
@@ -361,7 +361,7 @@ namespace CarrosFacil
             // tbSenha
             // 
             this.tbSenha.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbSenha.Location = new System.Drawing.Point(351, 77);
+            this.tbSenha.Location = new System.Drawing.Point(352, 59);
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(314, 30);
             this.tbSenha.TabIndex = 27;
@@ -370,7 +370,7 @@ namespace CarrosFacil
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label14.Location = new System.Drawing.Point(351, 48);
+            this.label14.Location = new System.Drawing.Point(352, 30);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 23);
             this.label14.TabIndex = 28;
@@ -379,7 +379,7 @@ namespace CarrosFacil
             // tbUsuario
             // 
             this.tbUsuario.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbUsuario.Location = new System.Drawing.Point(10, 77);
+            this.tbUsuario.Location = new System.Drawing.Point(11, 59);
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(314, 30);
             this.tbUsuario.TabIndex = 23;
@@ -388,7 +388,7 @@ namespace CarrosFacil
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label12.Location = new System.Drawing.Point(10, 48);
+            this.label12.Location = new System.Drawing.Point(11, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 23);
             this.label12.TabIndex = 24;
@@ -404,9 +404,9 @@ namespace CarrosFacil
             this.groupBox3.Controls.Add(this.tbEmail);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Location = new System.Drawing.Point(11, 547);
+            this.groupBox3.Location = new System.Drawing.Point(12, 495);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1015, 133);
+            this.groupBox3.Size = new System.Drawing.Size(1015, 107);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados de Contato";
@@ -414,7 +414,7 @@ namespace CarrosFacil
             // mtbTelefoneResidencial
             // 
             this.mtbTelefoneResidencial.Font = new System.Drawing.Font("Calibri", 14F);
-            this.mtbTelefoneResidencial.Location = new System.Drawing.Point(433, 83);
+            this.mtbTelefoneResidencial.Location = new System.Drawing.Point(433, 63);
             this.mtbTelefoneResidencial.Mask = "(00) 00000-0000";
             this.mtbTelefoneResidencial.Name = "mtbTelefoneResidencial";
             this.mtbTelefoneResidencial.Size = new System.Drawing.Size(183, 30);
@@ -423,7 +423,7 @@ namespace CarrosFacil
             // mtbTelefoneCelular
             // 
             this.mtbTelefoneCelular.Font = new System.Drawing.Font("Calibri", 14F);
-            this.mtbTelefoneCelular.Location = new System.Drawing.Point(222, 83);
+            this.mtbTelefoneCelular.Location = new System.Drawing.Point(222, 63);
             this.mtbTelefoneCelular.Mask = "(00) 00000-0000";
             this.mtbTelefoneCelular.Name = "mtbTelefoneCelular";
             this.mtbTelefoneCelular.Size = new System.Drawing.Size(183, 30);
@@ -432,7 +432,7 @@ namespace CarrosFacil
             // mtbTelefoneRecado
             // 
             this.mtbTelefoneRecado.Font = new System.Drawing.Font("Calibri", 14F);
-            this.mtbTelefoneRecado.Location = new System.Drawing.Point(10, 83);
+            this.mtbTelefoneRecado.Location = new System.Drawing.Point(10, 63);
             this.mtbTelefoneRecado.Mask = "(00) 00000-0000";
             this.mtbTelefoneRecado.Name = "mtbTelefoneRecado";
             this.mtbTelefoneRecado.Size = new System.Drawing.Size(183, 30);
@@ -442,7 +442,7 @@ namespace CarrosFacil
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label18.Location = new System.Drawing.Point(433, 54);
+            this.label18.Location = new System.Drawing.Point(433, 34);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(163, 23);
             this.label18.TabIndex = 40;
@@ -452,7 +452,7 @@ namespace CarrosFacil
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label16.Location = new System.Drawing.Point(222, 54);
+            this.label16.Location = new System.Drawing.Point(222, 34);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(131, 23);
             this.label16.TabIndex = 38;
@@ -461,7 +461,7 @@ namespace CarrosFacil
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbEmail.Location = new System.Drawing.Point(645, 83);
+            this.tbEmail.Location = new System.Drawing.Point(645, 63);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(361, 30);
             this.tbEmail.TabIndex = 35;
@@ -470,7 +470,7 @@ namespace CarrosFacil
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label15.Location = new System.Drawing.Point(645, 54);
+            this.label15.Location = new System.Drawing.Point(645, 34);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 23);
             this.label15.TabIndex = 36;
@@ -480,7 +480,7 @@ namespace CarrosFacil
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label17.Location = new System.Drawing.Point(10, 54);
+            this.label17.Location = new System.Drawing.Point(10, 34);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(147, 23);
             this.label17.TabIndex = 32;
@@ -502,9 +502,9 @@ namespace CarrosFacil
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.tbEndereco);
             this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Location = new System.Drawing.Point(12, 707);
+            this.groupBox4.Location = new System.Drawing.Point(12, 618);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1015, 198);
+            this.groupBox4.Size = new System.Drawing.Size(1015, 186);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Dados de Endereço";
@@ -512,7 +512,7 @@ namespace CarrosFacil
             // mtbCep
             // 
             this.mtbCep.Font = new System.Drawing.Font("Calibri", 14F);
-            this.mtbCep.Location = new System.Drawing.Point(13, 72);
+            this.mtbCep.Location = new System.Drawing.Point(13, 65);
             this.mtbCep.Mask = "00000-000";
             this.mtbCep.Name = "mtbCep";
             this.mtbCep.Size = new System.Drawing.Size(179, 30);
@@ -522,7 +522,7 @@ namespace CarrosFacil
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label25.Location = new System.Drawing.Point(652, 118);
+            this.label25.Location = new System.Drawing.Point(652, 110);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(123, 23);
             this.label25.TabIndex = 55;
@@ -531,7 +531,7 @@ namespace CarrosFacil
             // tbComplemento
             // 
             this.tbComplemento.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbComplemento.Location = new System.Drawing.Point(652, 147);
+            this.tbComplemento.Location = new System.Drawing.Point(652, 139);
             this.tbComplemento.Name = "tbComplemento";
             this.tbComplemento.Size = new System.Drawing.Size(351, 30);
             this.tbComplemento.TabIndex = 54;
@@ -540,7 +540,7 @@ namespace CarrosFacil
             // 
             this.cbEstado.Font = new System.Drawing.Font("Calibri", 14F);
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(408, 147);
+            this.cbEstado.Location = new System.Drawing.Point(408, 139);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(200, 31);
             this.cbEstado.TabIndex = 53;
@@ -549,7 +549,7 @@ namespace CarrosFacil
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label24.Location = new System.Drawing.Point(408, 119);
+            this.label24.Location = new System.Drawing.Point(408, 111);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(80, 23);
             this.label24.TabIndex = 52;
@@ -559,7 +559,7 @@ namespace CarrosFacil
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label23.Location = new System.Drawing.Point(13, 119);
+            this.label23.Location = new System.Drawing.Point(13, 111);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(80, 23);
             this.label23.TabIndex = 50;
@@ -568,7 +568,7 @@ namespace CarrosFacil
             // tbCidade
             // 
             this.tbCidade.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbCidade.Location = new System.Drawing.Point(13, 148);
+            this.tbCidade.Location = new System.Drawing.Point(13, 140);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(351, 30);
             this.tbCidade.TabIndex = 49;
@@ -577,7 +577,7 @@ namespace CarrosFacil
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label22.Location = new System.Drawing.Point(745, 43);
+            this.label22.Location = new System.Drawing.Point(745, 36);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(75, 23);
             this.label22.TabIndex = 48;
@@ -586,7 +586,7 @@ namespace CarrosFacil
             // tbBairro
             // 
             this.tbBairro.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbBairro.Location = new System.Drawing.Point(745, 72);
+            this.tbBairro.Location = new System.Drawing.Point(745, 65);
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(259, 30);
             this.tbBairro.TabIndex = 47;
@@ -595,7 +595,7 @@ namespace CarrosFacil
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label21.Location = new System.Drawing.Point(599, 43);
+            this.label21.Location = new System.Drawing.Point(599, 36);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(91, 23);
             this.label21.TabIndex = 46;
@@ -604,7 +604,7 @@ namespace CarrosFacil
             // tbNumero
             // 
             this.tbNumero.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbNumero.Location = new System.Drawing.Point(599, 72);
+            this.tbNumero.Location = new System.Drawing.Point(599, 65);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(118, 30);
             this.tbNumero.TabIndex = 45;
@@ -613,7 +613,7 @@ namespace CarrosFacil
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label20.Location = new System.Drawing.Point(220, 43);
+            this.label20.Location = new System.Drawing.Point(220, 36);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(100, 23);
             this.label20.TabIndex = 44;
@@ -622,7 +622,7 @@ namespace CarrosFacil
             // tbEndereco
             // 
             this.tbEndereco.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbEndereco.Location = new System.Drawing.Point(220, 72);
+            this.tbEndereco.Location = new System.Drawing.Point(220, 65);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(351, 30);
             this.tbEndereco.TabIndex = 43;
@@ -631,7 +631,7 @@ namespace CarrosFacil
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label19.Location = new System.Drawing.Point(13, 43);
+            this.label19.Location = new System.Drawing.Point(13, 36);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(44, 23);
             this.label19.TabIndex = 42;
@@ -642,7 +642,7 @@ namespace CarrosFacil
             this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(11, 922);
+            this.btnCadastrar.Location = new System.Drawing.Point(11, 818);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
             this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
@@ -658,7 +658,7 @@ namespace CarrosFacil
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(163, 922);
+            this.btnAtualizar.Location = new System.Drawing.Point(163, 818);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
             this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
@@ -673,7 +673,7 @@ namespace CarrosFacil
             this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
             this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(305, 922);
+            this.btnDeletar.Location = new System.Drawing.Point(305, 818);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
             this.btnDeletar.Size = new System.Drawing.Size(111, 46);
@@ -687,7 +687,7 @@ namespace CarrosFacil
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(938, 922);
+            this.btnSair.Location = new System.Drawing.Point(938, 818);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -712,7 +712,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 981);
+            this.ClientSize = new System.Drawing.Size(1038, 873);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnDeletar);

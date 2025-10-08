@@ -17,66 +17,59 @@ namespace CarrosFacil
             InitializeComponent();
         }
 
-        private void lbTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormCargo_Load(object sender, EventArgs e)
         {
-
+            cbStatus.Items.Add("Desativado");
+            cbStatus.Items.Add("Ativado");
+            cbStatus.SelectedIndex = 1;
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            Cargo cargo = new Cargo();
-
-            cargo.nome = tbNomeCargo.Texts;
-            if (string.IsNullOrEmpty(cargo.nome))
+            if (!ValidarCampos())
             {
-                tbNomeCargo.BackColor = ColorTranslator.FromHtml("#F88E8E");
-                ShowWarning("Aviso - Nome do Cargo", "Preencha todos os campos obrigatórios.");
+                DefinirCorCamposObrigatorios(Color.Red);
+
+                MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
-            cargo.observacao = tbObservacao.Texts;
-            int resp = cargo.Cadastrar();
-            if (resp == 1)
+            Cargo cargo = new Cargo();
+            cargo.nome = tbNome.Text;
+            cargo.observacao = tbObservacao.Text;
+            cargo.status = cbStatus.SelectedIndex;
+
+            int resultado = cargo.Cadastrar();
+            if (resultado == 0)
+            { // ERRO
+                MessageBox.Show("Erro ao cadastrar cargo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
-                MessageBox.Show("Cargo: " + cargo.nome + " cadastrado com sucesso!", "Sistema Loja Cosméticos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearForm();
-            } else
-            {
-                ShowWarning("Erro", "Não foi possível cadastrar o cargo " + cargo.nome + "");
+                MessageBox.Show("Cargo: " + cargo.nome + " cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void ClearForm()
+        private bool ValidarCampos()
         {
-            tbNomeCargo.BackColor = Color.White;
+            if (tbNome.Text == "")
+            {
+                return false;
+            }
 
-            tbNomeCargo.Texts = "";
-            tbObservacao.Texts = "";
+            return true;
+        }
+
+        private void DefinirCorCamposObrigatorios(Color color)
+        {
+            tbNome.BackColor = color;
+        }
+
+        private void Limpar()
+        {
+            tbNome.Clear();
+            tbObservacao.Clear();
         }
 
         private void ShowWarning(string title, string message)
