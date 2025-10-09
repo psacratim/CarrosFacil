@@ -227,6 +227,7 @@ namespace CarrosFacil
             this.cbCargo.Name = "cbCargo";
             this.cbCargo.Size = new System.Drawing.Size(229, 31);
             this.cbCargo.TabIndex = 18;
+            this.cbCargo.SelectedIndexChanged += new System.EventHandler(this.cbCargo_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -517,6 +518,7 @@ namespace CarrosFacil
             this.mtbCep.Name = "mtbCep";
             this.mtbCep.Size = new System.Drawing.Size(179, 30);
             this.mtbCep.TabIndex = 25;
+            this.mtbCep.TextChanged += new System.EventHandler(this.mtbCep_TextChanged);
             // 
             // label25
             // 

@@ -36,6 +36,7 @@ namespace CarrosFacil
             this.menuCadCargos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadMarcas = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadModelos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsultas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVendas = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.menuCadCaracteristicas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +73,9 @@ namespace CarrosFacil
             this.menuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCadCargos,
             this.menuCadFuncionarios,
-            this.menuCadMarcas});
+            this.menuCadMarcas,
+            this.menuCadModelos,
+            this.menuCadCaracteristicas});
             this.menuCadastros.Image = ((System.Drawing.Image)(resources.GetObject("menuCadastros.Image")));
             this.menuCadastros.Name = "menuCadastros";
             this.menuCadastros.Size = new System.Drawing.Size(143, 36);
@@ -100,6 +104,14 @@ namespace CarrosFacil
             this.menuCadMarcas.Size = new System.Drawing.Size(232, 30);
             this.menuCadMarcas.Text = "Marcas";
             this.menuCadMarcas.Click += new System.EventHandler(this.menuCadMarcas_Click);
+            // 
+            // menuCadModelos
+            // 
+            this.menuCadModelos.Name = "menuCadModelos";
+            this.menuCadModelos.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuCadModelos.Size = new System.Drawing.Size(232, 30);
+            this.menuCadModelos.Text = "Modelos";
+            this.menuCadModelos.Click += new System.EventHandler(this.menuCadModelos_Click);
             // 
             // menuConsultas
             // 
@@ -169,6 +181,13 @@ namespace CarrosFacil
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
             // 
+            // menuCadCaracteristicas
+            // 
+            this.menuCadCaracteristicas.Name = "menuCadCaracteristicas";
+            this.menuCadCaracteristicas.Size = new System.Drawing.Size(232, 30);
+            this.menuCadCaracteristicas.Text = "Caracteristicas";
+            this.menuCadCaracteristicas.Click += new System.EventHandler(this.menuCadCaracteristicas_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -208,6 +227,8 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripStatusLabel statusLbHora;
         private System.Windows.Forms.Timer timerPrincipal;
         private System.Windows.Forms.ToolStripMenuItem menuCadMarcas;
+        private System.Windows.Forms.ToolStripMenuItem menuCadModelos;
+        private System.Windows.Forms.ToolStripMenuItem menuCadCaracteristicas;
     }
 }
 

@@ -5,6 +5,12 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
+using CarrosFacil.Entities;
+using System.Threading.Tasks;
+using Nito.AsyncEx;
 
 namespace CarrosFacil
 {
@@ -30,7 +36,7 @@ namespace CarrosFacil
 
         }
 
-        private void FormFuncionario_Load(object sender, EventArgs e)
+        private async void FormFuncionario_Load(object sender, EventArgs e)
         {
             //ESTADOS
             cbEstado.Items.Add("AC"); // Acre
@@ -87,12 +93,21 @@ namespace CarrosFacil
             cbStatus.SelectedIndex = 1;
 
             // CARGO - ALIMENTADA PELO DB
-            Cargo cargo = new Cargo();
-            cbCargo.DataSource = cargo.CarregarCargo();
-            cbCargo.DisplayMember = "nome";
-            cbCargo.ValueMember = "id";
-            cbCargo.SelectedIndex = -1;
+            _ = Task.Run(() =>
+            {
+                Cargo cargo = new Cargo();
+                DataTable cargos = cargo.CarregarCargo();
+
+                this.Invoke((Action)(() =>
+                {
+                    cbCargo.DataSource = cargos;
+                    cbCargo.DisplayMember = "nome";
+                    cbCargo.ValueMember = "id";
+                    cbCargo.SelectedIndex = -1;
+                }));
+            });
         }
+
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -220,6 +235,37 @@ namespace CarrosFacil
             mtbCep.Clear();
             cbTipoAcesso.SelectedIndex = 0;
             cbStatus.SelectedIndex = 1;
+        }
+
+        private async void mtbCep_TextChanged(object sender, EventArgs e)
+        {
+            if (mtbCep.MaskFull)
+            {
+                string cep = mtbCep.Text.Replace("-", "");
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri("https://viacep.com.br/ws/" + cep + "/json/"));
+                webRequest.Method = "GET";
+                webRequest.ContentType = "application/json";
+
+                string jsonString;
+                WebResponse response = await webRequest.GetResponseAsync();
+                using (Stream stream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8);
+                    jsonString = reader.ReadToEnd();
+                }
+
+                Cep data = JsonConvert.DeserializeObject<Cep>(jsonString);
+
+                tbEndereco.Text = data.logradouro;
+                tbBairro.Text = data.bairro;
+                tbCidade.Text = data.localidade;
+                cbEstado.SelectedItem = data.uf;
+            }
+        }
+
+        private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

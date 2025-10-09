@@ -51,7 +51,7 @@ namespace CarrosFacil
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(299, 67);
+            this.label26.Location = new System.Drawing.Point(180, 67);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 34;
@@ -81,10 +81,9 @@ namespace CarrosFacil
             // tbObservacao
             // 
             this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbObservacao.Location = new System.Drawing.Point(12, 242);
-            this.tbObservacao.Multiline = true;
+            this.tbObservacao.Location = new System.Drawing.Point(251, 234);
             this.tbObservacao.Name = "tbObservacao";
-            this.tbObservacao.Size = new System.Drawing.Size(961, 66);
+            this.tbObservacao.Size = new System.Drawing.Size(483, 30);
             this.tbObservacao.TabIndex = 3;
             this.tbObservacao.TextChanged += new System.EventHandler(this.tbNomeSocial_TextChanged);
             // 
@@ -92,7 +91,7 @@ namespace CarrosFacil
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label3.Location = new System.Drawing.Point(12, 213);
+            this.label3.Location = new System.Drawing.Point(251, 205);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 23);
             this.label3.TabIndex = 4;
@@ -103,7 +102,7 @@ namespace CarrosFacil
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(384, 28);
+            this.label12.Location = new System.Drawing.Point(265, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(216, 37);
             this.label12.TabIndex = 35;
@@ -114,7 +113,7 @@ namespace CarrosFacil
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label1.Location = new System.Drawing.Point(753, 130);
+            this.label1.Location = new System.Drawing.Point(12, 205);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 23);
             this.label1.TabIndex = 6;
@@ -137,7 +136,7 @@ namespace CarrosFacil
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(753, 159);
+            this.cbStatus.Location = new System.Drawing.Point(12, 234);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(220, 30);
             this.cbStatus.TabIndex = 36;
@@ -148,7 +147,7 @@ namespace CarrosFacil
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(884, 326);
+            this.btnSair.Location = new System.Drawing.Point(645, 289);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -164,7 +163,7 @@ namespace CarrosFacil
             this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
             this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(316, 326);
+            this.btnDeletar.Location = new System.Drawing.Point(316, 289);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
             this.btnDeletar.Size = new System.Drawing.Size(111, 46);
@@ -180,7 +179,7 @@ namespace CarrosFacil
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(169, 326);
+            this.btnAtualizar.Location = new System.Drawing.Point(169, 289);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
             this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
@@ -195,7 +194,7 @@ namespace CarrosFacil
             this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(12, 326);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 289);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
             this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
@@ -220,7 +219,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 380);
+            this.ClientSize = new System.Drawing.Size(747, 349);
             this.Controls.Add(this.cbMarca);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnDeletar);

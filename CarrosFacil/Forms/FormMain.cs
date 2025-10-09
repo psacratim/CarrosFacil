@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarrosFacil.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,6 +77,31 @@ namespace CarrosFacil
 
             FormMarca formMarca = new FormMarca();
             formMarca.Show();
+        }
+
+        private void menuCadModelos_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormModelo>().Count() > 0)
+            {
+                MessageBox.Show("O cadastro de modelos já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormModelo formModelo = new FormModelo();
+            formModelo.Show();
+        }
+
+        private void menuCadCaracteristicas_Click(object sender, EventArgs e)
+        {
+
+            if (Application.OpenForms.OfType<FormCaracteristica>().Count() > 0)
+            {
+                MessageBox.Show("O cadastro de características já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormCaracteristica formCaracteristicas = new FormCaracteristica();
+            formCaracteristicas.Show();
         }
 
 
