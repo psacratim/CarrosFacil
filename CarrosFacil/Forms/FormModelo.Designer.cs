@@ -63,7 +63,7 @@ namespace CarrosFacil
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(659, 283);
+            this.btnSair.Location = new System.Drawing.Point(636, 283);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -123,14 +123,14 @@ namespace CarrosFacil
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(521, 153);
             this.cbMarca.Name = "cbMarca";
-            this.cbMarca.Size = new System.Drawing.Size(227, 30);
+            this.cbMarca.Size = new System.Drawing.Size(204, 30);
             this.cbMarca.TabIndex = 50;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(270, 22);
+            this.label12.Location = new System.Drawing.Point(258, 22);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(235, 37);
             this.label12.TabIndex = 49;
@@ -141,7 +141,7 @@ namespace CarrosFacil
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(194, 61);
+            this.label26.Location = new System.Drawing.Point(182, 61);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 48;
@@ -190,7 +190,7 @@ namespace CarrosFacil
             this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbObservacao.Location = new System.Drawing.Point(396, 228);
             this.tbObservacao.Name = "tbObservacao";
-            this.tbObservacao.Size = new System.Drawing.Size(352, 30);
+            this.tbObservacao.Size = new System.Drawing.Size(329, 30);
             this.tbObservacao.TabIndex = 56;
             // 
             // label2
@@ -227,7 +227,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 345);
+            this.ClientSize = new System.Drawing.Size(747, 345);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbObservacao);

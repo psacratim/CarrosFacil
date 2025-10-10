@@ -83,11 +83,11 @@ namespace CarrosFacil
             this.label20 = new System.Windows.Forms.Label();
             this.tbEndereco = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
-            this.btnDeletar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -312,7 +312,7 @@ namespace CarrosFacil
             this.mtbRg.Location = new System.Drawing.Point(264, 139);
             this.mtbRg.Mask = "00,000,000-0";
             this.mtbRg.Name = "mtbRg";
-            this.mtbRg.Size = new System.Drawing.Size(223, 30);
+            this.mtbRg.Size = new System.Drawing.Size(229, 30);
             this.mtbRg.TabIndex = 24;
             // 
             // mtbCpf
@@ -639,35 +639,31 @@ namespace CarrosFacil
             this.label19.TabIndex = 42;
             this.label19.Text = "CEP:";
             // 
-            // btnCadastrar
+            // label26
             // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
-            this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(11, 818);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
-            this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
-            this.btnCadastrar.TabIndex = 27;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 16F);
+            this.label26.ForeColor = System.Drawing.Color.Red;
+            this.label26.Location = new System.Drawing.Point(362, 48);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(387, 27);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "Todos os campos com * são obrigatorios.";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
-            // btnAtualizar
+            // btnSair
             // 
-            this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
-            this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(163, 818);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
-            this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
-            this.btnAtualizar.TabIndex = 28;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(938, 818);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
+            this.btnSair.Size = new System.Drawing.Size(89, 46);
+            this.btnSair.TabIndex = 30;
+            this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.UseVisualStyleBackColor = true;
             // 
             // btnDeletar
             // 
@@ -684,31 +680,35 @@ namespace CarrosFacil
             this.btnDeletar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeletar.UseVisualStyleBackColor = true;
             // 
-            // btnSair
+            // btnAtualizar
             // 
-            this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(938, 818);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
-            this.btnSair.Size = new System.Drawing.Size(89, 46);
-            this.btnSair.TabIndex = 30;
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Enabled = false;
+            this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
+            this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAtualizar.Location = new System.Drawing.Point(163, 818);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
+            this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
+            this.btnAtualizar.TabIndex = 28;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
-            // label26
+            // btnCadastrar
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(362, 48);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(387, 27);
-            this.label26.TabIndex = 31;
-            this.label26.Text = "Todos os campos com * são obrigatorios.";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
+            this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
+            this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastrar.Location = new System.Drawing.Point(11, 818);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
+            this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
+            this.btnCadastrar.TabIndex = 27;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // FormFuncionario
             // 
@@ -728,7 +728,7 @@ namespace CarrosFacil
             this.Font = new System.Drawing.Font("Calibri", 16F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormFuncionario";
-            this.Text = "FormFuncionario";
+            this.Text = "a";
             this.Load += new System.EventHandler(this.FormFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

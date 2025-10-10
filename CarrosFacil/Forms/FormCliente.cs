@@ -1,42 +1,28 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using System.Collections;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Net;
-using System.IO;
+﻿using CarrosFacil.Entities;
 using Newtonsoft.Json;
-using CarrosFacil.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
-using Nito.AsyncEx;
+using System.Windows.Forms;
 
-namespace CarrosFacil
+namespace CarrosFacil.Forms
 {
-    public partial class FormFuncionario : Form
+    public partial class FormCliente : Form
     {
-        public FormFuncionario()
+        public FormCliente()
         {
             InitializeComponent();
         }
 
-        private void label26_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormFuncionario_Load(object sender, EventArgs e)
+        private void FormCliente_Load(object sender, EventArgs e)
         {
             //ESTADOS
             cbEstado.Items.Add("AC"); // Acre
@@ -95,23 +81,17 @@ namespace CarrosFacil
             // CARGO - ALIMENTADA PELO DB
             _ = Task.Run(() =>
             {
-                Cargo cargo = new Cargo();
-                DataTable cargos = cargo.CarregarCargo();
+                Cliente cliente = new Cliente();
+                DataTable clientes = cliente.CarregarClientes();
 
                 this.Invoke((Action)(() =>
                 {
-                    cbCargo.DataSource = cargos;
-                    cbCargo.DisplayMember = "nome";
-                    cbCargo.ValueMember = "id";
-                    cbCargo.SelectedIndex = -1;
+                    cbCliente.DataSource = clientes;
+                    cbCliente.DisplayMember = "nome";
+                    cbCliente.ValueMember = "id";
+                    cbCliente.SelectedIndex = -1;
                 }));
             });
-        }
-
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -125,43 +105,38 @@ namespace CarrosFacil
                 return;
             }
 
-            Funcionario funcionario = new Funcionario();
-            funcionario.id_cargo = Convert.ToInt32(cbCargo.SelectedValue.ToString());
-            funcionario.cpf = mtbCpf.Text;
-            funcionario.rg = mtbRg.MaskFull ? mtbRg.Text : "";
-            funcionario.nome = tbNome.Text;
-            funcionario.nome_social = tbNomeSocial.Text;
-            funcionario.senha = tbSenha.Text;
+            Cliente cliente = new Cliente();
+            cliente.cpf = mtbCpf.Text;
+            cliente.rg = mtbRg.MaskFull ? mtbRg.Text : "";
+            cliente.nome_completo = tbNome.Text;
+            cliente.data_nascimento = dtpDataNascimento.Value;
 
-            funcionario.salario = tbSalario.Text != "" ? Convert.ToDouble(tbSalario.Text) : 0;
+            cliente.usuario = tbUsuario.Text;
+            cliente.senha = tbSenha.Text;
 
-            funcionario.cep = mtbCep.MaskFull ? mtbCep.Text : "";
-            funcionario.endereco = tbEndereco.Text;
-            funcionario.numero = Convert.ToInt32(tbNumero.Text);
-            funcionario.complemento = tbComplemento.Text;
-            funcionario.bairro = tbBairro.Text;
-            funcionario.cidade = tbCidade.Text;
-            funcionario.estado = cbEstado.SelectedItem.ToString();
+            cliente.endereco = tbEndereco.Text;
+            cliente.cep = mtbCep.MaskFull ? mtbCep.Text : "";
+            cliente.numero = Convert.ToInt32(tbNumero.Text);
+            cliente.complemento = tbComplemento.Text;
+            cliente.bairro = tbBairro.Text;
+            cliente.cidade = tbCidade.Text;
+            cliente.estado = cbEstado.SelectedItem.ToString();
 
-            funcionario.sexo = cbSexo.SelectedItem.ToString().First().ToString();
-            funcionario.usuario = tbUsuario.Text;
-            funcionario.estado_civil = cbEstadoCivil.SelectedItem.ToString();
-            funcionario.data_nascimento = dtpDataNascimento.Value;
-            funcionario.tipo_acesso = cbTipoAcesso.SelectedIndex;
-            funcionario.telefone_recado = mtbTelefoneRecado.Text;
-            funcionario.telefone_celular = mtbTelefoneCelular.MaskFull ? mtbTelefoneCelular.Text : "";
-            funcionario.telefone_residencial =  mtbTelefoneResidencial.MaskFull ? mtbTelefoneResidencial.Text : "";
-            funcionario.email = tbEmail.Text;
-            funcionario.foto = "";
+            cliente.telefone1 = mtbTelefone1.Text;
+            cliente.telefone2 = mtbTelefone2.MaskFull ? mtbTelefone2.Text : "";
+            cliente.email = tbEmail.Text;
+            cliente.estado_civil = cbEstadoCivil.SelectedItem.ToString();
 
-            int response = funcionario.Cadastrar();
+            cliente.sexo = cbSexo.SelectedItem.ToString().First().ToString();
+
+            int response = cliente.Cadastrar();
             if (response == 0)
             {
-                MessageBox.Show("Não foi possível cadastrar o funcionário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+                MessageBox.Show("Não foi possível cadastrar o cliente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
-                string nome = funcionario.nome_social == "" ? funcionario.nome : funcionario.nome_social;
-                MessageBox.Show("Funcionário: "+ nome +" cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cliente: " + cliente.nome_completo + " cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Limpar();
             }
@@ -169,21 +144,19 @@ namespace CarrosFacil
 
         private bool ValidarCampos()
         {
-            if (tbNome.Text == "" ||
-            cbSexo.SelectedIndex == -1 ||
-            cbEstadoCivil.SelectedIndex == -1 ||
-            dtpDataNascimento.Text == " / /" ||
-            tbSenha.Text == "" ||
+            if (!mtbCpf.MaskFull ||
+            tbNome.Text == "" ||
+            dtpDataNascimento.Value.Year == DateTime.Now.Year ||
             tbUsuario.Text == "" ||
-            cbEstado.SelectedIndex == -1 ||
-            tbCidade.Text == "" ||
-            tbBairro.Text == "" ||
-            tbNumero.Text == "" ||
+            tbSenha.Text == "" ||
             tbEndereco.Text == "" ||
-            !mtbCpf.MaskFull ||
-            !mtbTelefoneRecado.MaskFull ||
-            cbCargo.SelectedIndex == -1 || 
-            cbTipoAcesso.SelectedIndex == -1)
+            tbNumero.Text == "" ||
+            tbBairro.Text == "" ||
+            tbCidade.Text == "" ||
+            cbEstado.SelectedIndex == -1 ||
+            !mtbTelefone1.MaskFull ||
+            cbEstadoCivil.SelectedIndex == -1 ||
+            cbSexo.SelectedIndex == -1)
             {
                 return false;
             }
@@ -192,49 +165,37 @@ namespace CarrosFacil
 
         private void DefinirCorCamposObrigatorios(Color color)
         {
-            tbNome.BackColor = color;
-            cbSexo.BackColor = color;
-            cbEstadoCivil.BackColor = color;
-            dtpDataNascimento.BackColor = color;
-            tbSenha.BackColor = color;
-            tbUsuario.BackColor = color;
-            cbEstado.BackColor = color;
-            tbCidade.BackColor = color;
-            tbBairro.BackColor = color;
-            tbNumero.BackColor = color;
-            tbEndereco.BackColor = color;
             mtbCpf.BackColor = color;
-            mtbTelefoneRecado.BackColor = color;
-            cbTipoAcesso.BackColor = color;
-            cbCargo.BackColor = color;
+            tbNome.BackColor = color;
+            dtpDataNascimento.BackColor = color;
+            tbUsuario.BackColor = color;
+            tbSenha.BackColor = color;
+            tbEndereco.BackColor = color;
+            tbNumero.BackColor = color;
+            tbBairro.BackColor = color;
+            tbCidade.BackColor = color;
+            cbEstado.BackColor = color;
+            mtbTelefone1.BackColor = color;
+            cbEstadoCivil.BackColor = color;
+            cbSexo.BackColor = color;
         }
 
         private void Limpar()
         {
-            tbNome.Clear();
-            tbNomeSocial.Clear();
-            cbSexo.SelectedIndex = 0;
-            cbEstadoCivil.SelectedIndex = 0;
-            dtpDataNascimento.Value = DateTime.Now;
-            cbCargo.SelectedIndex = -1;
-            tbSalario.Clear();
-            tbSenha.Clear();
-            tbUsuario.Clear();
-            tbEmail.Clear();
-            tbComplemento.Clear();
-            cbEstado.SelectedValue = "SP";
-            tbCidade.Clear();
-            tbBairro.Clear();
-            tbNumero.Clear();
-            tbEndereco.Clear();
-            mtbRg.Clear();
             mtbCpf.Clear();
-            mtbTelefoneResidencial.Clear();
-            mtbTelefoneCelular.Clear();
-            mtbTelefoneRecado.Clear();
-            mtbCep.Clear();
-            cbTipoAcesso.SelectedIndex = 0;
-            cbStatus.SelectedIndex = 1;
+            tbNome.Clear();
+            dtpDataNascimento.Value = DateTime.Now;
+            tbUsuario.Clear();
+            tbSenha.Clear();
+            tbEndereco.Clear();
+            tbNumero.Clear();
+            tbComplemento.Clear();
+            tbBairro.Clear();
+            tbCidade.Clear();
+            cbEstado.SelectedValue = "SP";
+            mtbTelefone1.Clear();
+            cbEstadoCivil.SelectedIndex = 0;
+            cbEstadoCivil.SelectedIndex = 0;
         }
 
         private async void mtbCep_TextChanged(object sender, EventArgs e)
@@ -263,9 +224,13 @@ namespace CarrosFacil
             }
         }
 
-        private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        private void tbNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 13 && e.KeyChar != 27)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
