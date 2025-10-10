@@ -140,6 +140,12 @@
     </Compile>
     <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Forms\FormVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVeiculo.Designer.cs">
+      <DependentUpon>FormVeiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FormCaracteristica.resx">
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormModelo.resx">
       <DependentUpon>FormModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVeiculo.resx">
+      <DependentUpon>FormVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
