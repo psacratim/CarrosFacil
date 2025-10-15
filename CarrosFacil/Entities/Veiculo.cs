@@ -7,6 +7,7 @@ namespace CarrosFacil
     class Veiculo
     {
         public int id { get; set; }
+        public int id_vendedor { get; set; }
         public int id_modelo { get; set; }
         public string categoria { get; set; }
         public string estado_do_veiculo { get; set; }
@@ -27,6 +28,7 @@ namespace CarrosFacil
         public Veiculo()
         {
             this.id = 0;
+            this.id_vendedor = 0;
             this.id_modelo = 0;
             this.categoria = null;
             this.estado_do_veiculo = null;

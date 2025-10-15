@@ -80,6 +80,17 @@ namespace CarrosFacil.Forms
                     cbModelo.ValueMember = "id";
                     cbModelo.SelectedIndex = -1;
                 }));
+
+                Cliente cliente = new Cliente();
+                DataTable clientes = cliente.CarregarClientes();
+
+                this.Invoke((Action)(() =>
+                {
+                    cbVendedor.DataSource = clientes;
+                    cbVendedor.DisplayMember = "nome";
+                    cbVendedor.ValueMember = "id";
+                    cbVendedor.SelectedIndex = -1;
+                }));
             });
 
             // Carros de passeio
@@ -141,7 +152,28 @@ namespace CarrosFacil.Forms
                 return;
             }
 
+            Veiculo veiculo = new Veiculo();
+            veiculo.id_modelo = (int) cbModelo.SelectedValue;
+            veiculo.categoria = cbCategoria.SelectedItem.ToString();
+            veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
+            veiculo.tipo_cambio = cbTipoCambio.SelectedItem.ToString();
+            veiculo.tempo_de_uso = Convert.ToInt32(tbTempoUso.Text);
+            veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
+            veiculo.final_placa = tbPlaca.Text;
+            veiculo.cor = cbColor.SelectedItem.ToString();
+            veiculo.status = cbStatus.SelectedIndex;
+            veiculo.id_vendedor = (int) cbVendedor.SelectedValue;
 
+            int response = veiculo.Cadastrar();
+            if (response == 0)
+            {
+                MessageBox.Show("Não foi possível cadastrar o veículo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                MessageBox.Show("Veiculo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Limpar();
+            }
         }
 
 
@@ -154,8 +186,7 @@ namespace CarrosFacil.Forms
             tbTempoUso.Text == "" ||
             tbKmsRodado.Text == "" ||
             tbPlaca.Text == "" ||
-            cbColor.SelectedIndex == -1||
-            cbVendedor.SelectedIndex == -1)
+            cbColor.SelectedIndex == -1)
             {
                 return false;
             }
@@ -172,7 +203,6 @@ namespace CarrosFacil.Forms
             tbKmsRodado.BackColor = color;
             tbPlaca.BackColor = color;
             cbColor.BackColor = color;
-            cbVendedor.BackColor = color;
         }
 
         private void Limpar()
