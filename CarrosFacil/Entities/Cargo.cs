@@ -22,15 +22,6 @@ namespace CarrosFacil
             this.status = 0;
         }
 
-        public Cargo(int id, String nome, String observacao, DateTime data_cadastro, int status)
-        {
-            this.id = id;
-            this.nome = nome;
-            this.observacao = observacao;
-            this.data_cadastro = data_cadastro;
-            this.status = status;
-        }
-
         // METHODS
         public int Cadastrar()
         {

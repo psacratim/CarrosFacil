@@ -116,6 +116,18 @@ namespace CarrosFacil
             formCliente.Show();
         }
 
+        private void menuCadVeiculo_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormVeiculo>().Count() > 0)
+            {
+                MessageBox.Show("O cadastro de veículos já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormVeiculo formVeiculo = new FormVeiculo();
+            formVeiculo.Show();
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{

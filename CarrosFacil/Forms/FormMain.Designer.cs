@@ -48,6 +48,7 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.menuCadVeiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@ namespace CarrosFacil
             this.menuCadMarcas,
             this.menuCadModelos,
             this.menuCadCaracteristicas,
-            this.menuCadCliente});
+            this.menuCadCliente,
+            this.menuCadVeiculo});
             this.menuCadastros.Image = ((System.Drawing.Image)(resources.GetObject("menuCadastros.Image")));
             this.menuCadastros.Name = "menuCadastros";
             this.menuCadastros.Size = new System.Drawing.Size(143, 36);
@@ -198,6 +200,14 @@ namespace CarrosFacil
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
             // 
+            // menuCadVeiculo
+            // 
+            this.menuCadVeiculo.Name = "menuCadVeiculo";
+            this.menuCadVeiculo.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.menuCadVeiculo.Size = new System.Drawing.Size(232, 30);
+            this.menuCadVeiculo.Text = "Veiculo";
+            this.menuCadVeiculo.Click += new System.EventHandler(this.menuCadVeiculo_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -240,6 +250,7 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripMenuItem menuCadModelos;
         private System.Windows.Forms.ToolStripMenuItem menuCadCaracteristicas;
         private System.Windows.Forms.ToolStripMenuItem menuCadCliente;
+        private System.Windows.Forms.ToolStripMenuItem menuCadVeiculo;
     }
 }
 

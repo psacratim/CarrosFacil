@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Caracteristica.cs" />
+    <Compile Include="Entities\Veiculo.cs" />
     <Compile Include="Entities\Cargo.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Entities\Cep.cs" />

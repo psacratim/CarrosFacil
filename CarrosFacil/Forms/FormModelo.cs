@@ -31,13 +31,17 @@ namespace CarrosFacil
                 Marca marca = new Marca();
                 DataTable marcas = marca.CarregarMarcas();
 
-                this.Invoke((Action)(() =>
+                try // TODO: Adicionar isso em todos os outros tasks.
                 {
-                    cbMarca.DataSource = marcas;
-                    cbMarca.DisplayMember = "nome";
-                    cbMarca.ValueMember = "id";
-                    cbMarca.SelectedIndex = -1;
-                }));
+                    this.Invoke((Action)(() =>
+                    {
+                        cbMarca.DataSource = marcas;
+                        cbMarca.DisplayMember = "nome";
+                        cbMarca.ValueMember = "id";
+                        cbMarca.SelectedIndex = -1;
+                    }));
+                }
+                catch (Exception) { }
             });
         }
 

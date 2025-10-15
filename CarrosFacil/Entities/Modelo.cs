@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,14 @@ namespace CarrosFacil.Entities
             Conexao conexao = new Conexao();
 
             return conexao.ExecutaQuery(query);
+        }
+
+        public DataTable CarregarModelos()
+        {
+            string query = "SELECT id, nome FROM modelo WHERE status = 1; ";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
         }
     }
 }
