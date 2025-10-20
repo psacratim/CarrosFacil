@@ -49,7 +49,8 @@ namespace CarrosFacil
         // METHODS
         public int Cadastrar()
         {
-            string query = string.Format("INSERT INTO veiculo VALUES (0, {0}, '{1}', '{2}', {3}, {4}, {5}, '{6}', '{7}', '{8}', {9}, '{10}', '{11}', {12}, NOW(), 1);",
+            string query = string.Format("INSERT INTO veiculo VALUES (0, {0}, {1}, '{2}', '{3}', {4}, {5}, '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}', {13}, NOW(), 1);",
+                id_vendedor,
                 id_modelo,
                 categoria,
                 estado_do_veiculo,

@@ -95,7 +95,7 @@ namespace CarrosFacil
 
         public DataTable CarregarClientes()
         {
-            string query = "SELECT id, nome FROM cliente WHERE status = 1; ";
+            string query = "SELECT id, nome_completo FROM cliente WHERE status = 1;";
 
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);

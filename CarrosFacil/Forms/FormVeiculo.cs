@@ -71,7 +71,10 @@ namespace CarrosFacil.Forms
             _ = Task.Run(() =>
             {
                 Modelo modelo = new Modelo();
+                Cliente cliente = new Cliente();
+
                 DataTable modelos = modelo.CarregarModelos();
+                DataTable clientes = cliente.CarregarClientes();
 
                 this.Invoke((Action)(() =>
                 {
@@ -79,15 +82,9 @@ namespace CarrosFacil.Forms
                     cbModelo.DisplayMember = "nome";
                     cbModelo.ValueMember = "id";
                     cbModelo.SelectedIndex = -1;
-                }));
 
-                Cliente cliente = new Cliente();
-                DataTable clientes = cliente.CarregarClientes();
-
-                this.Invoke((Action)(() =>
-                {
                     cbVendedor.DataSource = clientes;
-                    cbVendedor.DisplayMember = "nome";
+                    cbVendedor.DisplayMember = "nome_completo";
                     cbVendedor.ValueMember = "id";
                     cbVendedor.SelectedIndex = -1;
                 }));

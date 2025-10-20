@@ -212,6 +212,7 @@ namespace CarrosFacil.Forms
             this.mtbCep.Name = "mtbCep";
             this.mtbCep.Size = new System.Drawing.Size(179, 30);
             this.mtbCep.TabIndex = 25;
+            this.mtbCep.TextChanged += new System.EventHandler(this.mtbCep_TextChanged);
             // 
             // label25
             // 
