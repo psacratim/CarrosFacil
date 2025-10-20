@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,6 +109,28 @@ namespace CarrosFacil
             return conexao.ExecutaQuery(query);
         }
 
+        public DataTable ConsultarPorCidade(string cidade)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.cidade = '" + cidade + "' ORDER BY funcionario.nome;";
 
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorCargo(int idCargo)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.id_cargo = " + idCargo + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorSexo(string sexo)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.sexo = '" + sexo + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }
