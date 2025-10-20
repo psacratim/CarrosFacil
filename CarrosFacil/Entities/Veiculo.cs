@@ -55,7 +55,7 @@ namespace CarrosFacil
                 categoria,
                 estado_do_veiculo,
                 tempo_de_uso,
-                preco,
+                preco.ToString().Replace(",", "."),
                 kms_rodado,
                 final_placa,
                 cor,

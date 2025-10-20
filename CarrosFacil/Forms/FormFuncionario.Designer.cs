@@ -98,6 +98,7 @@ namespace CarrosFacil
             // 
             this.tbNome.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbNome.Location = new System.Drawing.Point(10, 70);
+            this.tbNome.MaxLength = 60;
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(483, 30);
             this.tbNome.TabIndex = 0;
@@ -137,6 +138,7 @@ namespace CarrosFacil
             // 
             this.tbNomeSocial.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbNomeSocial.Location = new System.Drawing.Point(528, 70);
+            this.tbNomeSocial.MaxLength = 60;
             this.tbNomeSocial.Name = "tbNomeSocial";
             this.tbNomeSocial.Size = new System.Drawing.Size(481, 30);
             this.tbNomeSocial.TabIndex = 3;
@@ -253,6 +255,7 @@ namespace CarrosFacil
             // 
             this.tbSalario.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbSalario.Location = new System.Drawing.Point(524, 215);
+            this.tbSalario.MaxLength = 11;
             this.tbSalario.Name = "tbSalario";
             this.tbSalario.Size = new System.Drawing.Size(229, 30);
             this.tbSalario.TabIndex = 20;
@@ -363,6 +366,7 @@ namespace CarrosFacil
             // 
             this.tbSenha.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbSenha.Location = new System.Drawing.Point(352, 59);
+            this.tbSenha.MaxLength = 26;
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(314, 30);
             this.tbSenha.TabIndex = 27;
@@ -381,6 +385,7 @@ namespace CarrosFacil
             // 
             this.tbUsuario.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbUsuario.Location = new System.Drawing.Point(11, 59);
+            this.tbUsuario.MaxLength = 20;
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(314, 30);
             this.tbUsuario.TabIndex = 23;
@@ -463,6 +468,7 @@ namespace CarrosFacil
             // 
             this.tbEmail.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbEmail.Location = new System.Drawing.Point(645, 63);
+            this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(361, 30);
             this.tbEmail.TabIndex = 35;
@@ -534,6 +540,7 @@ namespace CarrosFacil
             // 
             this.tbComplemento.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbComplemento.Location = new System.Drawing.Point(652, 139);
+            this.tbComplemento.MaxLength = 200;
             this.tbComplemento.Name = "tbComplemento";
             this.tbComplemento.Size = new System.Drawing.Size(351, 30);
             this.tbComplemento.TabIndex = 54;
@@ -571,6 +578,7 @@ namespace CarrosFacil
             // 
             this.tbCidade.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbCidade.Location = new System.Drawing.Point(13, 140);
+            this.tbCidade.MaxLength = 50;
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(351, 30);
             this.tbCidade.TabIndex = 49;
@@ -589,6 +597,7 @@ namespace CarrosFacil
             // 
             this.tbBairro.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbBairro.Location = new System.Drawing.Point(745, 65);
+            this.tbBairro.MaxLength = 32;
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(259, 30);
             this.tbBairro.TabIndex = 47;
@@ -607,9 +616,11 @@ namespace CarrosFacil
             // 
             this.tbNumero.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbNumero.Location = new System.Drawing.Point(599, 65);
+            this.tbNumero.MaxLength = 5;
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(118, 30);
             this.tbNumero.TabIndex = 45;
+            this.tbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumero_KeyPress);
             // 
             // label20
             // 
@@ -625,6 +636,7 @@ namespace CarrosFacil
             // 
             this.tbEndereco.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbEndereco.Location = new System.Drawing.Point(220, 65);
+            this.tbEndereco.MaxLength = 60;
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(351, 30);
             this.tbEndereco.TabIndex = 43;

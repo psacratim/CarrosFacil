@@ -149,17 +149,31 @@ namespace CarrosFacil.Forms
                 return;
             }
 
+            if (tbPrecoVenda.Text == "")
+            {
+                MessageBox.Show("Por favor, insira o preço do veículo e o percentual de lucro.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                tbPreco.BackColor = Color.Red;
+                tbPercentualLucro.BackColor = Color.Red;
+                return;
+            }
+
             Veiculo veiculo = new Veiculo();
+            veiculo.id_vendedor = (int) cbVendedor.SelectedValue;
             veiculo.id_modelo = (int) cbModelo.SelectedValue;
             veiculo.categoria = cbCategoria.SelectedItem.ToString();
-            veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
-            veiculo.tipo_cambio = cbTipoCambio.SelectedItem.ToString();
+            veiculo.estado_do_veiculo = cbEstadoVeiculo.SelectedItem.ToString();
             veiculo.tempo_de_uso = Convert.ToInt32(tbTempoUso.Text);
+            veiculo.preco = Convert.ToDecimal(tbPrecoVenda.Text);
             veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
             veiculo.final_placa = tbPlaca.Text;
             veiculo.cor = cbColor.SelectedItem.ToString();
-            veiculo.status = cbStatus.SelectedIndex;
-            veiculo.id_vendedor = (int) cbVendedor.SelectedValue;
+            veiculo.descricao = tbDescricao.Text;
+            veiculo.ano = Convert.ToInt32(tbAno.Text);
+            veiculo.tipo_cambio = cbTipoCambio.SelectedItem.ToString();
+            veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
+            veiculo.estoque = 0;
+            veiculo.status = 1;
 
             int response = veiculo.Cadastrar();
             if (response == 0)
@@ -178,12 +192,15 @@ namespace CarrosFacil.Forms
         {
             if (cbModelo.SelectedIndex == -1 ||
             cbCategoria.SelectedIndex == -1 ||
-            cbTipoCombustivel.SelectedIndex == -1 ||
-            cbTipoCambio.SelectedIndex == -1 ||
+            cbEstadoVeiculo.SelectedIndex == -1 ||
             tbTempoUso.Text == "" ||
             tbKmsRodado.Text == "" ||
             tbPlaca.Text == "" ||
-            cbColor.SelectedIndex == -1)
+            cbColor.SelectedIndex == -1 ||
+            tbDescricao.Text == "" ||
+            tbAno.Text == "" ||
+            cbTipoCambio.SelectedIndex == -1 ||
+            cbTipoCombustivel.SelectedIndex == -1)
             {
                 return false;
             }
@@ -194,25 +211,141 @@ namespace CarrosFacil.Forms
         {
             cbModelo.BackColor = color;
             cbCategoria.BackColor = color;
-            cbTipoCombustivel.BackColor = color;
-            cbTipoCambio.BackColor = color;
+            cbEstadoVeiculo.BackColor = color;
             tbTempoUso.BackColor = color;
             tbKmsRodado.BackColor = color;
             tbPlaca.BackColor = color;
             cbColor.BackColor = color;
+            tbDescricao.BackColor = color;
+            tbAno.BackColor = color;
+            cbTipoCambio.BackColor = color;
+            cbTipoCombustivel.BackColor = color;
+            tbPreco.BackColor = color;
+            tbPercentualLucro.BackColor = color;
+            cbVendedor.BackColor = color;
         }
 
         private void Limpar()
         {
             cbModelo.SelectedIndex = -1;
             cbCategoria.SelectedIndex = -1;
-            cbTipoCombustivel.SelectedIndex = -1;
-            cbTipoCambio.SelectedIndex = -1;
-            tbTempoUso.Text = "";
-            tbKmsRodado.Text = "";
-            tbPlaca.Text = "";
+            cbEstadoVeiculo.SelectedIndex = -1;
+            tbTempoUso.Clear();
+            tbKmsRodado.Clear();
+            tbPlaca.Clear();
             cbColor.SelectedIndex = -1;
-            cbVendedor.SelectedIndex = -1;
+            tbDescricao.Clear();
+            tbAno.Clear();
+            cbTipoCambio.SelectedIndex = -1;
+            cbTipoCombustivel.SelectedIndex = -1;
+            tbPrecoVenda.Clear();
+            tbPreco.Clear();
+            tbPercentualLucro.Clear();
+        }
+
+        private void tbDescricao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPercentualLucro_TextChanged(object sender, EventArgs e)
+        {
+            AtualizarPrecoVendas();
+        }
+
+        private void tbPreco_TextChanged(object sender, EventArgs e)
+        {
+            AtualizarPrecoVendas();
+        }
+
+        private void AtualizarPrecoVendas()
+        {
+            // 1. Se não tem nada escrito em preço de veículo ou em % de lucro = return; ---> Aguardando ele digitar todos
+            // 2. Converta todos os números para decimais.
+            // 3. Calculate o preço de venda.
+            // 4. Mostre ao usuário
+            // 5. Resposta visual ao usuário apenas para erros de: lucro menor que 1, digite apenas números.
+            if (tbPreco.Text == "" || tbPercentualLucro.Text == "") return;
+
+            decimal preco = SafeDecimalConvert(tbPreco.Text, "Por favor, digite apenas números válidos!");
+            decimal percentualLucro = SafeDecimalConvert(tbPercentualLucro.Text, "Por favor, digite apenas números válidos!");
+
+            if (percentualLucro < 1)
+            {
+                MessageBox.Show("Por favor, insira um lucro maior ou igual a 1%.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            decimal fatorLucro = 1 + (percentualLucro / 100); // Output: 1 + (50 / 100) -> 1 + 0,5 -> 1,5. Result: price + 1,5 -> final_price;
+            decimal precoVenda = preco * fatorLucro;
+            decimal lucroObtido = precoVenda - preco;
+
+            tbPrecoVenda.Text = Convert.ToString(precoVenda);
+        }
+
+        private decimal SafeDecimalConvert(string text, string errorMessage)
+        {
+            try
+            {
+                return Convert.ToDecimal(text);
+            } catch (FormatException)
+            {
+                MessageBox.Show(errorMessage, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+        }
+
+        private void tbTempoUso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Char 08: BACKSPACE
+            // Char 27: Escape
+            // Char 44: ,
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 27 && e.KeyChar != 01)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tbTempoUso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 44 && e.KeyChar != 27 && e.KeyChar != 01)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tbPercentualLucro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 27 && e.KeyChar != 01)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tbPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) && tbPlaca.Text.Length >= 1)
+            {
+                e.Handled = true;
+                MessageBox.Show("Digite apenas o último digito da placa.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tbKmsRodado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 27 && e.KeyChar != 01)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

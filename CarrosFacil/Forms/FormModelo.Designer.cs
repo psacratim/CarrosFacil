@@ -171,6 +171,7 @@ namespace CarrosFacil
             // 
             this.tbNome.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbNome.Location = new System.Drawing.Point(26, 228);
+            this.tbNome.MaxLength = 80;
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(352, 30);
             this.tbNome.TabIndex = 44;
@@ -189,6 +190,7 @@ namespace CarrosFacil
             // 
             this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
             this.tbObservacao.Location = new System.Drawing.Point(396, 228);
+            this.tbObservacao.MaxLength = 250;
             this.tbObservacao.Name = "tbObservacao";
             this.tbObservacao.Size = new System.Drawing.Size(329, 30);
             this.tbObservacao.TabIndex = 56;
