@@ -128,6 +128,18 @@ namespace CarrosFacil
             formVeiculo.Show();
         }
 
+        private void menuConsFuncionarios_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormConsultaFuncionario>().Count() > 0)
+            {
+                MessageBox.Show("A consulta de funcionarios já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormConsultaFuncionario form = new FormConsultaFuncionario();
+            form.Show();
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{
