@@ -7,7 +7,6 @@ namespace CarrosFacil
     class Veiculo
     {
         public int id { get; set; }
-        public int id_vendedor { get; set; }
         public int id_modelo { get; set; }
         public string categoria { get; set; }
         public string estado_do_veiculo { get; set; }
@@ -28,7 +27,6 @@ namespace CarrosFacil
         public Veiculo()
         {
             this.id = 0;
-            this.id_vendedor = 0;
             this.id_modelo = 0;
             this.categoria = null;
             this.estado_do_veiculo = null;
@@ -49,8 +47,7 @@ namespace CarrosFacil
         // METHODS
         public int Cadastrar()
         {
-            string query = string.Format("INSERT INTO veiculo VALUES (0, {0}, {1}, '{2}', '{3}', {4}, {5}, '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}', {13}, NOW(), 1);",
-                id_vendedor,
+            string query = string.Format("INSERT INTO veiculo VALUES (0, {1}, '{2}', '{3}', {4}, {5}, '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}', {13}, NOW(), 1);",
                 id_modelo,
                 categoria,
                 estado_do_veiculo,

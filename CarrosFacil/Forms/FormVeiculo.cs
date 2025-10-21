@@ -35,15 +35,15 @@ namespace CarrosFacil.Forms
             cbTipoCombustivel.Items.Add("Etanol");
             cbTipoCombustivel.Items.Add("Flex");
             cbTipoCombustivel.Items.Add("Diesel");
-            cbTipoCombustivel.Items.Add("Gás Natural Veicular (GNV)");
+            cbTipoCombustivel.Items.Add("GNV (Gás Natural Veicular)");
             cbTipoCombustivel.SelectedIndex = -1;
 
             // Tipo de câmbio
             cbTipoCambio.Items.Add("Manual");
             cbTipoCambio.Items.Add("Automático Tradicional");
-            cbTipoCambio.Items.Add("CVT (Transmissão Continuamente Variável)");
+            cbTipoCambio.Items.Add("CVT");
             cbTipoCambio.Items.Add("Automatizado (Monoembreagem)");
-            cbTipoCambio.Items.Add("Automático de Dupla Embreagem (DCT)");
+            cbTipoCambio.Items.Add("DCT (Automático de Dupla Embreagem)");
             cbTipoCambio.SelectedIndex = -1;
 
             // Cores do veículo
@@ -71,10 +71,7 @@ namespace CarrosFacil.Forms
             _ = Task.Run(() =>
             {
                 Modelo modelo = new Modelo();
-                Cliente cliente = new Cliente();
-
                 DataTable modelos = modelo.CarregarModelos();
-                DataTable clientes = cliente.CarregarClientes();
 
                 this.Invoke((Action)(() =>
                 {
@@ -82,11 +79,6 @@ namespace CarrosFacil.Forms
                     cbModelo.DisplayMember = "nome";
                     cbModelo.ValueMember = "id";
                     cbModelo.SelectedIndex = -1;
-
-                    cbVendedor.DataSource = clientes;
-                    cbVendedor.DisplayMember = "nome_completo";
-                    cbVendedor.ValueMember = "id";
-                    cbVendedor.SelectedIndex = -1;
                 }));
             });
 
@@ -153,13 +145,12 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, insira o preço do veículo e o percentual de lucro.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                tbPreco.BackColor = Color.Red;
-                tbPercentualLucro.BackColor = Color.Red;
+                tbCusto.BackColor = Color.Red;
+                tbLucro.BackColor = Color.Red;
                 return;
             }
 
             Veiculo veiculo = new Veiculo();
-            veiculo.id_vendedor = (int) cbVendedor.SelectedValue;
             veiculo.id_modelo = (int) cbModelo.SelectedValue;
             veiculo.categoria = cbCategoria.SelectedItem.ToString();
             veiculo.estado_do_veiculo = cbEstadoVeiculo.SelectedItem.ToString();
@@ -220,9 +211,8 @@ namespace CarrosFacil.Forms
             tbAno.BackColor = color;
             cbTipoCambio.BackColor = color;
             cbTipoCombustivel.BackColor = color;
-            tbPreco.BackColor = color;
-            tbPercentualLucro.BackColor = color;
-            cbVendedor.BackColor = color;
+            tbCusto.BackColor = color;
+            tbLucro.BackColor = color;
         }
 
         private void Limpar()
@@ -239,8 +229,8 @@ namespace CarrosFacil.Forms
             cbTipoCambio.SelectedIndex = -1;
             cbTipoCombustivel.SelectedIndex = -1;
             tbPrecoVenda.Clear();
-            tbPreco.Clear();
-            tbPercentualLucro.Clear();
+            tbCusto.Clear();
+            tbLucro.Clear();
         }
 
         private void tbDescricao_TextChanged(object sender, EventArgs e)
@@ -265,10 +255,10 @@ namespace CarrosFacil.Forms
             // 3. Calculate o preço de venda.
             // 4. Mostre ao usuário
             // 5. Resposta visual ao usuário apenas para erros de: lucro menor que 1, digite apenas números.
-            if (tbPreco.Text == "" || tbPercentualLucro.Text == "") return;
+            if (tbCusto.Text == "" || tbLucro.Text == "") return;
 
-            decimal preco = SafeDecimalConvert(tbPreco.Text, "Por favor, digite apenas números válidos!");
-            decimal percentualLucro = SafeDecimalConvert(tbPercentualLucro.Text, "Por favor, digite apenas números válidos!");
+            decimal preco = SafeDecimalConvert(tbCusto.Text, "Por favor, digite apenas números válidos!");
+            decimal percentualLucro = SafeDecimalConvert(tbLucro.Text, "Por favor, digite apenas números válidos!");
 
             if (percentualLucro < 1)
             {
@@ -346,6 +336,11 @@ namespace CarrosFacil.Forms
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

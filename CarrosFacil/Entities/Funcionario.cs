@@ -132,5 +132,132 @@ namespace CarrosFacil
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+
+        public DataTable ConsultarPorStatus(int status)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = " + status + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorNome(string nome, bool somentePrimeiroNome)
+        {
+            string searchName = (somentePrimeiroNome ? "" : "%") + nome + (somentePrimeiroNome ? "%" : "");
+
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.nome LIKE '" + searchName + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorCpf(string cpf)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.cpf = '" + cpf + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorEstadoCivil(string estadoCivil)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.estado_civil = '" + estadoCivil + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorDataAdmissao(DateTime inicio, DateTime fim)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.data_cadastro BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' AND '" + fim.ToString("yyyy-MM-dd") + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarSemFiltros()
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public bool ConsultaFuncionario(int id)
+        {
+            string query = "SELECT * FROM funcionario WHERE id=" + id;
+
+            Conexao conexao = new Conexao();
+            DataTable dt = conexao.RetornaDados(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                this.id = Convert.ToInt32(dt.Rows[0]["id"]);
+                id_cargo = Convert.ToInt32(dt.Rows[0]["id_cargo"]);
+                cpf = Convert.ToString(dt.Rows[0]["cpf"]);
+                rg = Convert.ToString(dt.Rows[0]["rg"]);
+                nome = Convert.ToString(dt.Rows[0]["nome"]);
+                nome_social = Convert.ToString(dt.Rows[0]["nome_social"]);
+                senha = Convert.ToString(dt.Rows[0]["senha"]);
+                salario = Convert.ToDouble(dt.Rows[0]["salario"]);
+                sexo = Convert.ToString(dt.Rows[0]["sexo"]);
+                usuario = Convert.ToString(dt.Rows[0]["usuario"]);
+                estado_civil = Convert.ToString(dt.Rows[0]["estado_civil"]);
+                data_nascimento = Convert.ToDateTime(dt.Rows[0]["data_nascimento"]);
+                tipo_acesso = Convert.ToInt32(dt.Rows[0]["tipo_acesso"]);
+                telefone_celular = Convert.ToString(dt.Rows[0]["telefone_celular"]);
+                telefone_recado = Convert.ToString(dt.Rows[0]["telefone_recado"]);
+                telefone_residencial = Convert.ToString(dt.Rows[0]["telefone_residencial"]);
+                endereco = Convert.ToString(dt.Rows[0]["endereco"]);
+                cep = Convert.ToString(dt.Rows[0]["cep"]);
+                numero = Convert.ToInt32(dt.Rows[0]["numero"]);
+                complemento = Convert.ToString(dt.Rows[0]["complemento"]);
+                bairro = Convert.ToString(dt.Rows[0]["bairro"]);
+                cidade = Convert.ToString(dt.Rows[0]["cidade"]);
+                estado = Convert.ToString(dt.Rows[0]["estado"]);
+                email = Convert.ToString(dt.Rows[0]["email"]);
+                foto = Convert.ToString(dt.Rows[0]["foto"]);
+                data_cadastro = Convert.ToDateTime(dt.Rows[0]["data_cadastro"]);
+                status = Convert.ToInt32(dt.Rows[0]["status"]);
+
+                return true;
+            }
+
+            return false;
+        }
+        public int AtualizarFuncionario()
+        {
+            string query = string.Format("UPDATE funcionario SET id_cargo = {0}, cpf = {1}, rg = {2}, nome = {3}, nome_social = {4}, senha = {5}, salario = {6}, sexo = {7}, usuario = {8}, estado_civil = {9}, data_nascimento = {10}, tipo_acesso = {11}, telefone_celular = {12}, telefone_recado = {13}, telefone_residencial = {14}, endereco = {15}, numero = {16}, complemento = {17}, bairro = {18}, cidade = {19}, estado = {20}, email = {21}, cep = {22}, foto = {23}, status = {24} WHERE id = {25};",
+                id_cargo,
+                cpf,
+                rg,
+                nome,
+                nome_social,
+                senha,
+                salario.ToString().Replace(",", "."),
+                sexo,
+                usuario,
+                estado_civil,
+                data_nascimento.ToString("yyyy-MM-dd"),
+                tipo_acesso,
+                telefone_celular,
+                telefone_recado,
+                telefone_residencial,
+                endereco,
+                numero,
+                complemento,
+                bairro,
+                cidade,
+                estado,
+                email,
+                cep,
+                foto,
+                status,
+                id
+            );
+
+            Conexao conexao = new Conexao();
+            return conexao.ExecutaQuery(query);
+        }
     }
 }

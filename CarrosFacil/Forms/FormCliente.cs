@@ -77,21 +77,6 @@ namespace CarrosFacil.Forms
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
             cbStatus.SelectedIndex = 1;
-
-            // CARGO - ALIMENTADA PELO DB
-            _ = Task.Run(() =>
-            {
-                Cliente cliente = new Cliente();
-                DataTable clientes = cliente.CarregarClientes();
-
-                this.Invoke((Action)(() =>
-                {
-                    cbCliente.DataSource = clientes;
-                    cbCliente.DisplayMember = "nome";
-                    cbCliente.ValueMember = "id";
-                    cbCliente.SelectedIndex = -1;
-                }));
-            });
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -231,6 +216,11 @@ namespace CarrosFacil.Forms
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
