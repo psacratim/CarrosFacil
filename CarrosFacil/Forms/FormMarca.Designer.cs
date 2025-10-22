@@ -36,14 +36,18 @@ namespace CarrosFacil
             this.tbObservacao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.cbMarca = new System.Windows.Forms.ComboBox();
+            this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDadosRegistro.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label26
@@ -51,7 +55,7 @@ namespace CarrosFacil
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(180, 67);
+            this.label26.Location = new System.Drawing.Point(120, 67);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 34;
@@ -61,10 +65,10 @@ namespace CarrosFacil
             // tbNome
             // 
             this.tbNome.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbNome.Location = new System.Drawing.Point(251, 159);
+            this.tbNome.Location = new System.Drawing.Point(7, 54);
             this.tbNome.MaxLength = 80;
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(483, 30);
+            this.tbNome.Size = new System.Drawing.Size(436, 30);
             this.tbNome.TabIndex = 0;
             this.tbNome.TextChanged += new System.EventHandler(this.tbNome_TextChanged);
             // 
@@ -72,7 +76,7 @@ namespace CarrosFacil
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label2.Location = new System.Drawing.Point(251, 130);
+            this.label2.Location = new System.Drawing.Point(7, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 23);
             this.label2.TabIndex = 2;
@@ -82,10 +86,10 @@ namespace CarrosFacil
             // tbObservacao
             // 
             this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
-            this.tbObservacao.Location = new System.Drawing.Point(251, 234);
+            this.tbObservacao.Location = new System.Drawing.Point(7, 123);
             this.tbObservacao.MaxLength = 250;
             this.tbObservacao.Name = "tbObservacao";
-            this.tbObservacao.Size = new System.Drawing.Size(483, 30);
+            this.tbObservacao.Size = new System.Drawing.Size(436, 30);
             this.tbObservacao.TabIndex = 3;
             this.tbObservacao.TextChanged += new System.EventHandler(this.tbNomeSocial_TextChanged);
             // 
@@ -93,7 +97,7 @@ namespace CarrosFacil
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label3.Location = new System.Drawing.Point(251, 205);
+            this.label3.Location = new System.Drawing.Point(7, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 23);
             this.label3.TabIndex = 4;
@@ -104,43 +108,21 @@ namespace CarrosFacil
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(265, 28);
+            this.label12.Location = new System.Drawing.Point(205, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(216, 37);
             this.label12.TabIndex = 35;
             this.label12.Text = "Cadastrar Marca";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label1.Location = new System.Drawing.Point(12, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 23);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "* Status:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label4.Location = new System.Drawing.Point(12, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 23);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "* Marca:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
             // cbStatus
             // 
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(12, 234);
+            this.cbStatus.Location = new System.Drawing.Point(7, 123);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(220, 30);
+            this.cbStatus.Size = new System.Drawing.Size(151, 30);
             this.cbStatus.TabIndex = 36;
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
@@ -149,7 +131,7 @@ namespace CarrosFacil
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(645, 289);
+            this.btnSair.Location = new System.Drawing.Point(550, 289);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -206,39 +188,90 @@ namespace CarrosFacil
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // cbMarca
+            // gbDadosRegistro
             // 
-            this.cbMarca.Enabled = false;
-            this.cbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
-            this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Location = new System.Drawing.Point(12, 159);
-            this.cbMarca.Name = "cbMarca";
-            this.cbMarca.Size = new System.Drawing.Size(220, 30);
-            this.cbMarca.TabIndex = 41;
-            this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
+            this.gbDadosRegistro.Controls.Add(this.label27);
+            this.gbDadosRegistro.Controls.Add(this.label28);
+            this.gbDadosRegistro.Controls.Add(this.tbCodigo);
+            this.gbDadosRegistro.Controls.Add(this.cbStatus);
+            this.gbDadosRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbDadosRegistro.Location = new System.Drawing.Point(12, 102);
+            this.gbDadosRegistro.Margin = new System.Windows.Forms.Padding(4);
+            this.gbDadosRegistro.Name = "gbDadosRegistro";
+            this.gbDadosRegistro.Padding = new System.Windows.Forms.Padding(4);
+            this.gbDadosRegistro.Size = new System.Drawing.Size(169, 165);
+            this.gbDadosRegistro.TabIndex = 114;
+            this.gbDadosRegistro.TabStop = false;
+            this.gbDadosRegistro.Text = "Registro";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label27.Location = new System.Drawing.Point(8, 99);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(63, 23);
+            this.label27.TabIndex = 39;
+            this.label27.Text = "Status:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label28.Location = new System.Drawing.Point(7, 30);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(121, 23);
+            this.label28.TabIndex = 37;
+            this.label28.Text = "Código Marca:";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbCodigo.Location = new System.Drawing.Point(7, 57);
+            this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCodigo.MaxLength = 20;
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(151, 27);
+            this.tbCodigo.TabIndex = 31;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tbNome);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbObservacao);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(189, 102);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(450, 165);
+            this.groupBox1.TabIndex = 115;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dados da marca";
             // 
             // FormMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 349);
-            this.Controls.Add(this.cbMarca);
+            this.ClientSize = new System.Drawing.Size(648, 349);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbDadosRegistro);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbObservacao);
-            this.Controls.Add(this.tbNome);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Name = "FormMarca";
             this.Text = "FormMarca";
             this.Load += new System.EventHandler(this.FormMarca_Load);
+            this.gbDadosRegistro.ResumeLayout(false);
+            this.gbDadosRegistro.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,13 +285,15 @@ namespace CarrosFacil
         private System.Windows.Forms.TextBox tbObservacao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.ComboBox cbMarca;
+        private System.Windows.Forms.GroupBox gbDadosRegistro;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox tbCodigo;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

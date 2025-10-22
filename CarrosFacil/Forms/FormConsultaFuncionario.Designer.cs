@@ -29,8 +29,8 @@ namespace CarrosFacil.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultaFuncionario));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTituloFuncionario = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,6 +49,8 @@ namespace CarrosFacil.Forms
             this.rbAtivo = new System.Windows.Forms.RadioButton();
             this.gbOpcao = new System.Windows.Forms.GroupBox();
             this.cbOpcoes = new System.Windows.Forms.ComboBox();
+            this.btSair = new System.Windows.Forms.Button();
+            this.btPesquisar = new System.Windows.Forms.Button();
             this.gbCPF = new System.Windows.Forms.GroupBox();
             this.mskCpf = new System.Windows.Forms.MaskedTextBox();
             this.gbNome = new System.Windows.Forms.GroupBox();
@@ -59,8 +61,6 @@ namespace CarrosFacil.Forms
             this.rbContem = new System.Windows.Forms.RadioButton();
             this.rbInicio = new System.Windows.Forms.RadioButton();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
-            this.btSair = new System.Windows.Forms.Button();
-            this.btPesquisar = new System.Windows.Forms.Button();
             this.pnTituloFuncionario.SuspendLayout();
             this.gbConsFuncionario.SuspendLayout();
             this.gbCidade.SuspendLayout();
@@ -270,6 +270,36 @@ namespace CarrosFacil.Forms
             this.cbOpcoes.Name = "cbOpcoes";
             this.cbOpcoes.Size = new System.Drawing.Size(234, 27);
             this.cbOpcoes.TabIndex = 8;
+            this.cbOpcoes.SelectedIndexChanged += new System.EventHandler(this.cbOpcoes_SelectedIndexChanged);
+            // 
+            // btSair
+            // 
+            this.btSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btSair.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSair.Image = ((System.Drawing.Image)(resources.GetObject("btSair.Image")));
+            this.btSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSair.Location = new System.Drawing.Point(209, 372);
+            this.btSair.Name = "btSair";
+            this.btSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btSair.Size = new System.Drawing.Size(133, 50);
+            this.btSair.TabIndex = 108;
+            this.btSair.Text = "Sair";
+            this.btSair.UseVisualStyleBackColor = true;
+            // 
+            // btPesquisar
+            // 
+            this.btPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btPesquisar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisar.Image")));
+            this.btPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPesquisar.Location = new System.Drawing.Point(58, 372);
+            this.btPesquisar.Name = "btPesquisar";
+            this.btPesquisar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btPesquisar.Size = new System.Drawing.Size(133, 50);
+            this.btPesquisar.TabIndex = 111;
+            this.btPesquisar.Text = "     Pesquisar";
+            this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
             // gbCPF
             // 
@@ -392,35 +422,7 @@ namespace CarrosFacil.Forms
             this.dgvFuncionario.Size = new System.Drawing.Size(641, 435);
             this.dgvFuncionario.TabIndex = 51;
             // 
-            // btSair
-            // 
-            this.btSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btSair.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSair.Image = ((System.Drawing.Image)(resources.GetObject("btSair.Image")));
-            this.btSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSair.Location = new System.Drawing.Point(209, 372);
-            this.btSair.Name = "btSair";
-            this.btSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btSair.Size = new System.Drawing.Size(133, 50);
-            this.btSair.TabIndex = 108;
-            this.btSair.Text = "Sair";
-            this.btSair.UseVisualStyleBackColor = true;
-            // 
-            // btPesquisar
-            // 
-            this.btPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btPesquisar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisar.Image")));
-            this.btPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btPesquisar.Location = new System.Drawing.Point(58, 372);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btPesquisar.Size = new System.Drawing.Size(133, 50);
-            this.btPesquisar.TabIndex = 111;
-            this.btPesquisar.Text = "     Pesquisar";
-            this.btPesquisar.UseVisualStyleBackColor = true;
-            // 
-            // formConsultaFuncionario
+            // FormConsultaFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -430,10 +432,10 @@ namespace CarrosFacil.Forms
             this.Controls.Add(this.dgvFuncionario);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "formConsultaFuncionario";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormConsultaFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-
+            this.Load += new System.EventHandler(this.FormConsultaFuncionario_Load);
             this.pnTituloFuncionario.ResumeLayout(false);
             this.pnTituloFuncionario.PerformLayout();
             this.gbConsFuncionario.ResumeLayout(false);

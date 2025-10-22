@@ -143,7 +143,7 @@ namespace CarrosFacil
 
         public DataTable ConsultarPorNome(string nome, bool somentePrimeiroNome)
         {
-            string searchName = (somentePrimeiroNome ? "" : "%") + nome + (somentePrimeiroNome ? "%" : "");
+            string searchName = (somentePrimeiroNome ? "" : "%") + nome + "%";
 
             string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.nome LIKE '" + searchName + "' ORDER BY funcionario.nome;";
 
@@ -258,6 +258,14 @@ namespace CarrosFacil
 
             Conexao conexao = new Conexao();
             return conexao.ExecutaQuery(query);
+        }
+
+        public DataTable CarregarCidades()
+        {
+            string query = "SELECT DISTINCT cidade FROM funcionario ORDER BY cidade;"; // DISTINCT = Evita repetições, tipo: Piracicaba, Piracicaba, Piracicaba, Sorocaba.
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
         }
     }
 }

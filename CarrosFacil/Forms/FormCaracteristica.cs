@@ -36,7 +36,7 @@ namespace CarrosFacil.Forms
                 try
                 {
                     pbIcon.Image = new Bitmap(imageSelectDialog.FileName);
-                    tbIconPath.Text = imageSelectDialog.FileName.Replace("\\", "//");
+                    lbIcone.Text = imageSelectDialog.FileName.Replace("\\", "//");
                 }
                 catch (Exception ex)
                 {
@@ -60,7 +60,7 @@ namespace CarrosFacil.Forms
             caracteristica.nome = tbNome.Text;
             caracteristica.descricao = tbDescricao.Text;
             caracteristica.status = cbStatus.SelectedIndex;
-            caracteristica.iconePath = tbIconPath.Text;
+            caracteristica.iconePath = lbIcone.Text;
 
             int resultado = caracteristica.Cadastrar();
             if (resultado == 0)
@@ -75,7 +75,7 @@ namespace CarrosFacil.Forms
 
         private bool ValidarCampos()
         {
-            if (tbNome.Text == "" || tbDescricao.Text == "" || tbIconPath.Text == "")
+            if (tbNome.Text == "" || tbDescricao.Text == "" || lbIcone.Text == "Nenhum ícone selecionado")
             {
                 return false;
             }
@@ -87,7 +87,7 @@ namespace CarrosFacil.Forms
         {
             tbNome.BackColor = color;
             tbDescricao.BackColor = color;
-            btnSelecionarImagem.BackColor = color;
+            gbIcone.BackColor = color;
         }
 
         private void Limpar()

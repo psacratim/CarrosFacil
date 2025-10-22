@@ -210,7 +210,7 @@ namespace CarrosFacil
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(604, 456);
+            this.ClientSize = new System.Drawing.Size(1143, 456);
             this.Controls.Add(this.cbCargo);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnDeletar);
