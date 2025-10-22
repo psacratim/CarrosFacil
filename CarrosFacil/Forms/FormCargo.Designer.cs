@@ -208,6 +208,7 @@ namespace CarrosFacil
             // 
             // tbCodigo
             // 
+            this.tbCodigo.Enabled = false;
             this.tbCodigo.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbCodigo.Location = new System.Drawing.Point(7, 57);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);

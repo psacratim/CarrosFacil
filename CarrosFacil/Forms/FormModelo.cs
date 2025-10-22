@@ -25,24 +25,24 @@ namespace CarrosFacil
             cbStatus.Items.Add("Ativado");
             cbStatus.SelectedIndex = 1;
 
-            // MARCAS - ALIMENTADA PELO DB
-            //_ = Task.Run(() =>
-            //{
-            //    Marca marca = new Marca();
-            //    DataTable marcas = marca.CarregarMarcas();
+            //MARCAS - ALIMENTADA PELO DB
+            _ = Task.Run(() =>
+            {
+                Marca marca = new Marca();
+                DataTable marcas = marca.CarregarMarcas();
 
-            //    try // TODO: Adicionar isso em todos os outros tasks.
-            //    {
-            //        this.Invoke((Action)(() =>
-            //        {
-            //            cbMarca.DataSource = marcas;
-            //            cbMarca.DisplayMember = "nome";
-            //            cbMarca.ValueMember = "id";
-            //            cbMarca.SelectedIndex = -1;
-            //        }));
-            //    }
-            //    catch (Exception) { }
-            //});
+                try // TODO: Adicionar isso em todos os outros tasks.
+                {
+                    this.Invoke((Action)(() =>
+                    {
+                        cbMarca.DataSource = marcas;
+                        cbMarca.DisplayMember = "nome";
+                        cbMarca.ValueMember = "id";
+                        cbMarca.SelectedIndex = -1;
+                    }));
+                }
+                catch (Exception) { }
+            });
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)

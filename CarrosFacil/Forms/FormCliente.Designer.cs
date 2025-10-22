@@ -681,6 +681,7 @@ namespace CarrosFacil.Forms
             // 
             // tbCodigoCliente
             // 
+            this.tbCodigoCliente.Enabled = false;
             this.tbCodigoCliente.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbCodigoCliente.Location = new System.Drawing.Point(8, 55);
             this.tbCodigoCliente.Margin = new System.Windows.Forms.Padding(4);

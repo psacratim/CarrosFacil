@@ -54,7 +54,6 @@ namespace CarrosFacil
             // 
             // cbMarca
             // 
-            this.cbMarca.Enabled = false;
             this.cbMarca.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(365, 57);
@@ -240,6 +239,7 @@ namespace CarrosFacil
             // 
             // tbCodigo
             // 
+            this.tbCodigo.Enabled = false;
             this.tbCodigo.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbCodigo.Location = new System.Drawing.Point(7, 57);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);

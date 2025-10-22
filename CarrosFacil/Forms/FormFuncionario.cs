@@ -276,5 +276,25 @@ namespace CarrosFacil
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void pbFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog imageSelectDialog = new OpenFileDialog();
+            imageSelectDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            imageSelectDialog.Title = "Selecionar ícone";
+
+            if (imageSelectDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pbFoto.Image = new Bitmap(imageSelectDialog.FileName);
+                    lbFoto.Text = imageSelectDialog.FileName.Replace("\\", "//");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao carregar imagem, tente novamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

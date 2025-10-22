@@ -349,7 +349,6 @@ namespace CarrosFacil.Forms
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(115, 27);
             this.cbColor.TabIndex = 93;
-            this.cbColor.Text = "Champagne";
             // 
             // label13
             // 
@@ -409,7 +408,6 @@ namespace CarrosFacil.Forms
             this.tbLucro.Name = "tbLucro";
             this.tbLucro.Size = new System.Drawing.Size(101, 27);
             this.tbLucro.TabIndex = 107;
-            this.tbLucro.Text = "33333";
             this.tbLucro.TextChanged += new System.EventHandler(this.tbPercentualLucro_TextChanged);
             this.tbLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPercentualLucro_KeyPress);
             // 
@@ -498,6 +496,7 @@ namespace CarrosFacil.Forms
             // 
             // tbCodigoVeiculo
             // 
+            this.tbCodigoVeiculo.Enabled = false;
             this.tbCodigoVeiculo.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbCodigoVeiculo.Location = new System.Drawing.Point(8, 57);
             this.tbCodigoVeiculo.Margin = new System.Windows.Forms.Padding(4);

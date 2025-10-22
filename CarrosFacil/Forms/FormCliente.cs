@@ -90,6 +90,15 @@ namespace CarrosFacil.Forms
                 return;
             }
 
+            if (dtpDataNascimento.Value.Year == DateTime.Now.Year)
+            {
+                MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Aviso - Data inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                DefinirCorCamposObrigatorios(Color.Red);
+                tbNome.Focus();
+                return;
+            }
+
             Cliente cliente = new Cliente();
             cliente.cpf = mtbCpf.Text;
             cliente.rg = mtbRg.MaskFull ? mtbRg.Text : "";
@@ -131,7 +140,6 @@ namespace CarrosFacil.Forms
         {
             if (!mtbCpf.MaskFull ||
             tbNome.Text == "" ||
-            dtpDataNascimento.Value.Year == DateTime.Now.Year ||
             tbUsuario.Text == "" ||
             tbSenha.Text == "" ||
             tbEndereco.Text == "" ||

@@ -27,22 +27,7 @@ namespace CarrosFacil.Forms
 
         private void btnSelecionarImagem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog imageSelectDialog = new OpenFileDialog();
-            imageSelectDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            imageSelectDialog.Title = "Selecionar ícone";
 
-            if (imageSelectDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    pbIcon.Image = new Bitmap(imageSelectDialog.FileName);
-                    lbIcone.Text = imageSelectDialog.FileName.Replace("\\", "//");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -107,6 +92,26 @@ namespace CarrosFacil.Forms
         private void label12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbIcon_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog imageSelectDialog = new OpenFileDialog();
+            imageSelectDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            imageSelectDialog.Title = "Selecionar ícone";
+
+            if (imageSelectDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pbIcon.Image = new Bitmap(imageSelectDialog.FileName);
+                    lbIcone.Text = imageSelectDialog.FileName.Replace("\\", "//");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao carregar imagem, tente novamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

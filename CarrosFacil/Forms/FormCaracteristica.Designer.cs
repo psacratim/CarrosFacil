@@ -188,6 +188,7 @@ namespace CarrosFacil.Forms
             this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbIcon.TabIndex = 76;
             this.pbIcon.TabStop = false;
+            this.pbIcon.Click += new System.EventHandler(this.pbIcon_Click);
             // 
             // label1
             // 
@@ -239,6 +240,7 @@ namespace CarrosFacil.Forms
             // 
             // tbCodigo
             // 
+            this.tbCodigo.Enabled = false;
             this.tbCodigo.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbCodigo.Location = new System.Drawing.Point(7, 57);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);
