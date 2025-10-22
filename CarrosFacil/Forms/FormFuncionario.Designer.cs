@@ -375,25 +375,25 @@ namespace CarrosFacil
             // mtbTelefoneResidencial
             // 
             this.mtbTelefoneResidencial.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtbTelefoneResidencial.Location = new System.Drawing.Point(257, 63);
+            this.mtbTelefoneResidencial.Location = new System.Drawing.Point(264, 57);
             this.mtbTelefoneResidencial.Mask = "(00) 00000-0000";
             this.mtbTelefoneResidencial.Name = "mtbTelefoneResidencial";
-            this.mtbTelefoneResidencial.Size = new System.Drawing.Size(115, 27);
+            this.mtbTelefoneResidencial.Size = new System.Drawing.Size(118, 27);
             this.mtbTelefoneResidencial.TabIndex = 58;
             // 
             // mtbTelefoneCelular
             // 
             this.mtbTelefoneCelular.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtbTelefoneCelular.Location = new System.Drawing.Point(134, 63);
+            this.mtbTelefoneCelular.Location = new System.Drawing.Point(135, 57);
             this.mtbTelefoneCelular.Mask = "(00) 00000-0000";
             this.mtbTelefoneCelular.Name = "mtbTelefoneCelular";
-            this.mtbTelefoneCelular.Size = new System.Drawing.Size(117, 27);
+            this.mtbTelefoneCelular.Size = new System.Drawing.Size(118, 27);
             this.mtbTelefoneCelular.TabIndex = 57;
             // 
             // mtbTelefoneRecado
             // 
             this.mtbTelefoneRecado.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtbTelefoneRecado.Location = new System.Drawing.Point(10, 63);
+            this.mtbTelefoneRecado.Location = new System.Drawing.Point(6, 57);
             this.mtbTelefoneRecado.Mask = "(00) 00000-0000";
             this.mtbTelefoneRecado.Name = "mtbTelefoneRecado";
             this.mtbTelefoneRecado.Size = new System.Drawing.Size(118, 27);
@@ -403,7 +403,7 @@ namespace CarrosFacil
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label18.Location = new System.Drawing.Point(257, 37);
+            this.label18.Location = new System.Drawing.Point(264, 31);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(111, 23);
             this.label18.TabIndex = 40;
@@ -413,7 +413,7 @@ namespace CarrosFacil
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label16.Location = new System.Drawing.Point(134, 37);
+            this.label16.Location = new System.Drawing.Point(135, 31);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(79, 23);
             this.label16.TabIndex = 38;
@@ -422,17 +422,17 @@ namespace CarrosFacil
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbEmail.Location = new System.Drawing.Point(10, 126);
+            this.tbEmail.Location = new System.Drawing.Point(6, 126);
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(362, 27);
+            this.tbEmail.Size = new System.Drawing.Size(372, 27);
             this.tbEmail.TabIndex = 35;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label15.Location = new System.Drawing.Point(10, 100);
+            this.label15.Location = new System.Drawing.Point(6, 100);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 23);
             this.label15.TabIndex = 36;
@@ -442,7 +442,7 @@ namespace CarrosFacil
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label17.Location = new System.Drawing.Point(10, 37);
+            this.label17.Location = new System.Drawing.Point(6, 31);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(95, 23);
             this.label17.TabIndex = 32;

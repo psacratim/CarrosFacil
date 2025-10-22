@@ -55,7 +55,7 @@ namespace CarrosFacil
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(120, 67);
+            this.label26.Location = new System.Drawing.Point(132, 61);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 34;
@@ -64,11 +64,11 @@ namespace CarrosFacil
             // 
             // tbNome
             // 
-            this.tbNome.Font = new System.Drawing.Font("Calibri", 14F);
+            this.tbNome.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbNome.Location = new System.Drawing.Point(7, 54);
             this.tbNome.MaxLength = 80;
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(436, 30);
+            this.tbNome.Size = new System.Drawing.Size(436, 27);
             this.tbNome.TabIndex = 0;
             this.tbNome.TextChanged += new System.EventHandler(this.tbNome_TextChanged);
             // 
@@ -85,11 +85,11 @@ namespace CarrosFacil
             // 
             // tbObservacao
             // 
-            this.tbObservacao.Font = new System.Drawing.Font("Calibri", 14F);
+            this.tbObservacao.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbObservacao.Location = new System.Drawing.Point(7, 123);
             this.tbObservacao.MaxLength = 250;
             this.tbObservacao.Name = "tbObservacao";
-            this.tbObservacao.Size = new System.Drawing.Size(436, 30);
+            this.tbObservacao.Size = new System.Drawing.Size(436, 27);
             this.tbObservacao.TabIndex = 3;
             this.tbObservacao.TextChanged += new System.EventHandler(this.tbNomeSocial_TextChanged);
             // 
@@ -108,7 +108,7 @@ namespace CarrosFacil
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(205, 28);
+            this.label12.Location = new System.Drawing.Point(217, 22);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(216, 37);
             this.label12.TabIndex = 35;
@@ -118,11 +118,11 @@ namespace CarrosFacil
             // cbStatus
             // 
             this.cbStatus.Enabled = false;
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
+            this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(7, 123);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(151, 30);
+            this.cbStatus.Size = new System.Drawing.Size(151, 27);
             this.cbStatus.TabIndex = 36;
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
@@ -131,7 +131,7 @@ namespace CarrosFacil
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(550, 289);
+            this.btnSair.Location = new System.Drawing.Point(550, 274);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -147,7 +147,7 @@ namespace CarrosFacil
             this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
             this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(316, 289);
+            this.btnDeletar.Location = new System.Drawing.Point(316, 274);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
             this.btnDeletar.Size = new System.Drawing.Size(111, 46);
@@ -163,7 +163,7 @@ namespace CarrosFacil
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(169, 289);
+            this.btnAtualizar.Location = new System.Drawing.Point(169, 274);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
             this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
@@ -178,7 +178,7 @@ namespace CarrosFacil
             this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(12, 289);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 274);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
             this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
@@ -256,7 +256,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 349);
+            this.ClientSize = new System.Drawing.Size(648, 330);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDadosRegistro);
             this.Controls.Add(this.btnSair);

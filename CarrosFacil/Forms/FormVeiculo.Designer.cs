@@ -73,9 +73,9 @@ namespace CarrosFacil.Forms
             this.gbEspecificacoes = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gbPrecoVenda.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
             this.gbEspecificacoes.SuspendLayout();
@@ -86,11 +86,11 @@ namespace CarrosFacil.Forms
             // 
             // cbModelo
             // 
-            this.cbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbModelo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbModelo.FormattingEnabled = true;
             this.cbModelo.Location = new System.Drawing.Point(7, 55);
             this.cbModelo.Name = "cbModelo";
-            this.cbModelo.Size = new System.Drawing.Size(321, 28);
+            this.cbModelo.Size = new System.Drawing.Size(321, 27);
             this.cbModelo.TabIndex = 71;
             // 
             // btnSair
@@ -154,11 +154,11 @@ namespace CarrosFacil.Forms
             // 
             // cbCategoria
             // 
-            this.cbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbCategoria.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(339, 55);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(321, 28);
+            this.cbCategoria.Size = new System.Drawing.Size(321, 27);
             this.cbCategoria.TabIndex = 66;
             // 
             // label12
@@ -204,11 +204,11 @@ namespace CarrosFacil.Forms
             // 
             // cbEstadoVeiculo
             // 
-            this.cbEstadoVeiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbEstadoVeiculo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstadoVeiculo.FormattingEnabled = true;
             this.cbEstadoVeiculo.Location = new System.Drawing.Point(7, 120);
             this.cbEstadoVeiculo.Name = "cbEstadoVeiculo";
-            this.cbEstadoVeiculo.Size = new System.Drawing.Size(321, 28);
+            this.cbEstadoVeiculo.Size = new System.Drawing.Size(321, 27);
             this.cbEstadoVeiculo.TabIndex = 81;
             // 
             // label2
@@ -223,20 +223,20 @@ namespace CarrosFacil.Forms
             // 
             // cbTipoCombustivel
             // 
-            this.cbTipoCombustivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbTipoCombustivel.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTipoCombustivel.FormattingEnabled = true;
             this.cbTipoCombustivel.Location = new System.Drawing.Point(8, 54);
             this.cbTipoCombustivel.Name = "cbTipoCombustivel";
-            this.cbTipoCombustivel.Size = new System.Drawing.Size(141, 28);
+            this.cbTipoCombustivel.Size = new System.Drawing.Size(141, 27);
             this.cbTipoCombustivel.TabIndex = 79;
             // 
             // cbTipoCambio
             // 
-            this.cbTipoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbTipoCambio.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTipoCambio.FormattingEnabled = true;
             this.cbTipoCambio.Location = new System.Drawing.Point(155, 54);
             this.cbTipoCambio.Name = "cbTipoCambio";
-            this.cbTipoCambio.Size = new System.Drawing.Size(247, 28);
+            this.cbTipoCambio.Size = new System.Drawing.Size(247, 27);
             this.cbTipoCambio.TabIndex = 78;
             // 
             // label3
@@ -261,11 +261,11 @@ namespace CarrosFacil.Forms
             // 
             // tbTempoUso
             // 
-            this.tbTempoUso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbTempoUso.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbTempoUso.Location = new System.Drawing.Point(339, 120);
             this.tbTempoUso.MaxLength = 5;
             this.tbTempoUso.Name = "tbTempoUso";
-            this.tbTempoUso.Size = new System.Drawing.Size(184, 26);
+            this.tbTempoUso.Size = new System.Drawing.Size(184, 27);
             this.tbTempoUso.TabIndex = 82;
             this.tbTempoUso.TextChanged += new System.EventHandler(this.tbTempoUso_TextChanged);
             this.tbTempoUso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTempoUso_KeyPress);
@@ -274,7 +274,7 @@ namespace CarrosFacil.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label7.Location = new System.Drawing.Point(339, 94);
+            this.label7.Location = new System.Drawing.Point(339, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(181, 23);
             this.label7.TabIndex = 83;
@@ -303,11 +303,11 @@ namespace CarrosFacil.Forms
             // 
             // tbKmsRodado
             // 
-            this.tbKmsRodado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbKmsRodado.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbKmsRodado.Location = new System.Drawing.Point(594, 54);
             this.tbKmsRodado.MaxLength = 7;
             this.tbKmsRodado.Name = "tbKmsRodado";
-            this.tbKmsRodado.Size = new System.Drawing.Size(73, 26);
+            this.tbKmsRodado.Size = new System.Drawing.Size(73, 27);
             this.tbKmsRodado.TabIndex = 86;
             this.tbKmsRodado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKmsRodado_KeyPress);
             // 
@@ -323,11 +323,11 @@ namespace CarrosFacil.Forms
             // 
             // tbPlaca
             // 
-            this.tbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tbPlaca.Location = new System.Drawing.Point(529, 122);
+            this.tbPlaca.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPlaca.Location = new System.Drawing.Point(529, 120);
             this.tbPlaca.MaxLength = 1;
             this.tbPlaca.Name = "tbPlaca";
-            this.tbPlaca.Size = new System.Drawing.Size(131, 26);
+            this.tbPlaca.Size = new System.Drawing.Size(131, 27);
             this.tbPlaca.TabIndex = 90;
             this.tbPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPlaca_KeyPress);
             // 
@@ -335,7 +335,7 @@ namespace CarrosFacil.Forms
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label11.Location = new System.Drawing.Point(529, 96);
+            this.label11.Location = new System.Drawing.Point(529, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(131, 23);
             this.label11.TabIndex = 91;
@@ -343,11 +343,11 @@ namespace CarrosFacil.Forms
             // 
             // cbColor
             // 
-            this.cbColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbColor.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbColor.FormattingEnabled = true;
             this.cbColor.Location = new System.Drawing.Point(408, 54);
             this.cbColor.Name = "cbColor";
-            this.cbColor.Size = new System.Drawing.Size(115, 28);
+            this.cbColor.Size = new System.Drawing.Size(115, 27);
             this.cbColor.TabIndex = 93;
             this.cbColor.Text = "Champagne";
             // 
@@ -373,7 +373,7 @@ namespace CarrosFacil.Forms
             // 
             // tbDescricao
             // 
-            this.tbDescricao.Font = new System.Drawing.Font("Calibri", 14F);
+            this.tbDescricao.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbDescricao.Location = new System.Drawing.Point(7, 190);
             this.tbDescricao.MaxLength = 250;
             this.tbDescricao.Multiline = true;
@@ -394,11 +394,11 @@ namespace CarrosFacil.Forms
             // 
             // tbAno
             // 
-            this.tbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbAno.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbAno.Location = new System.Drawing.Point(529, 54);
             this.tbAno.Mask = "0000";
             this.tbAno.Name = "tbAno";
-            this.tbAno.Size = new System.Drawing.Size(59, 26);
+            this.tbAno.Size = new System.Drawing.Size(59, 27);
             this.tbAno.TabIndex = 106;
             // 
             // tbLucro
@@ -579,13 +579,20 @@ namespace CarrosFacil.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Características:";
             // 
-            // dataGridView1
+            // button2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(583, 391);
-            this.dataGridView1.TabIndex = 115;
+            this.button2.Enabled = false;
+            this.button2.Font = new System.Drawing.Font("Calibri", 14F);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(396, 33);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(3);
+            this.button2.Size = new System.Drawing.Size(194, 38);
+            this.button2.TabIndex = 115;
+            this.button2.Text = "Deletar Selecionado";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -601,20 +608,13 @@ namespace CarrosFacil.Forms
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // dataGridView1
             // 
-            this.button2.Enabled = false;
-            this.button2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(396, 33);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(194, 38);
-            this.button2.TabIndex = 115;
-            this.button2.Text = "Deletar Selecionado";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 77);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(583, 391);
+            this.dataGridView1.TabIndex = 115;
             // 
             // FormVeiculo
             // 
