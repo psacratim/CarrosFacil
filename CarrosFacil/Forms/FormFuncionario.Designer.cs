@@ -85,6 +85,8 @@ namespace CarrosFacil
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
+            this.dtpDataCadastro = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
@@ -256,10 +258,10 @@ namespace CarrosFacil
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.IntegralHeight = false;
-            this.cbStatus.Location = new System.Drawing.Point(8, 126);
+            this.cbStatus.Location = new System.Drawing.Point(79, 57);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(0);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(151, 27);
+            this.cbStatus.Size = new System.Drawing.Size(86, 27);
             this.cbStatus.TabIndex = 31;
             // 
             // mtbRg
@@ -289,9 +291,9 @@ namespace CarrosFacil
             this.groupBox2.Controls.Add(this.tbUsuario);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.groupBox2.Location = new System.Drawing.Point(187, 99);
+            this.groupBox2.Location = new System.Drawing.Point(191, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 165);
+            this.groupBox2.Size = new System.Drawing.Size(380, 165);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados de Acesso";
@@ -303,7 +305,7 @@ namespace CarrosFacil
             this.cbTipoAcesso.FormattingEnabled = true;
             this.cbTipoAcesso.Location = new System.Drawing.Point(6, 126);
             this.cbTipoAcesso.Name = "cbTipoAcesso";
-            this.cbTipoAcesso.Size = new System.Drawing.Size(366, 27);
+            this.cbTipoAcesso.Size = new System.Drawing.Size(368, 27);
             this.cbTipoAcesso.TabIndex = 25;
             // 
             // label13
@@ -322,7 +324,7 @@ namespace CarrosFacil
             this.tbSenha.Location = new System.Drawing.Point(179, 57);
             this.tbSenha.MaxLength = 26;
             this.tbSenha.Name = "tbSenha";
-            this.tbSenha.Size = new System.Drawing.Size(193, 27);
+            this.tbSenha.Size = new System.Drawing.Size(195, 27);
             this.tbSenha.TabIndex = 27;
             // 
             // label14
@@ -662,6 +664,7 @@ namespace CarrosFacil
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnCadastrar
             // 
@@ -680,6 +683,8 @@ namespace CarrosFacil
             // 
             // gbDadosRegistro
             // 
+            this.gbDadosRegistro.Controls.Add(this.dtpDataCadastro);
+            this.gbDadosRegistro.Controls.Add(this.label11);
             this.gbDadosRegistro.Controls.Add(this.cbStatus);
             this.gbDadosRegistro.Controls.Add(this.label27);
             this.gbDadosRegistro.Controls.Add(this.label28);
@@ -689,16 +694,38 @@ namespace CarrosFacil
             this.gbDadosRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.gbDadosRegistro.Name = "gbDadosRegistro";
             this.gbDadosRegistro.Padding = new System.Windows.Forms.Padding(4);
-            this.gbDadosRegistro.Size = new System.Drawing.Size(169, 165);
+            this.gbDadosRegistro.Size = new System.Drawing.Size(173, 165);
             this.gbDadosRegistro.TabIndex = 113;
             this.gbDadosRegistro.TabStop = false;
             this.gbDadosRegistro.Text = "Registro";
+            // 
+            // dtpDataCadastro
+            // 
+            this.dtpDataCadastro.CustomFormat = "";
+            this.dtpDataCadastro.Enabled = false;
+            this.dtpDataCadastro.Font = new System.Drawing.Font("Calibri", 12F);
+            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCadastro.Location = new System.Drawing.Point(7, 126);
+            this.dtpDataCadastro.Name = "dtpDataCadastro";
+            this.dtpDataCadastro.Size = new System.Drawing.Size(158, 27);
+            this.dtpDataCadastro.TabIndex = 27;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label11.Location = new System.Drawing.Point(7, 99);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(124, 23);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Data Cadastro:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label27.Location = new System.Drawing.Point(8, 99);
+            this.label27.Location = new System.Drawing.Point(79, 30);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(63, 23);
@@ -724,7 +751,7 @@ namespace CarrosFacil
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodigo.MaxLength = 20;
             this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(151, 27);
+            this.tbCodigo.Size = new System.Drawing.Size(68, 27);
             this.tbCodigo.TabIndex = 31;
             // 
             // groupBox5
@@ -820,7 +847,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 750);
+            this.ClientSize = new System.Drawing.Size(973, 750);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gbDadosRegistro);
@@ -857,70 +884,71 @@ namespace CarrosFacil
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbNomeSocial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbSexo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtpDataNascimento;
-        private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbSalario;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox tbComplemento;
-        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox tbCidade;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox tbBairro;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox tbNumero;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox tbEndereco;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.MaskedTextBox mtbRg;
-        private System.Windows.Forms.MaskedTextBox mtbCpf;
-        private System.Windows.Forms.MaskedTextBox mtbTelefoneResidencial;
-        private System.Windows.Forms.MaskedTextBox mtbTelefoneCelular;
-        private System.Windows.Forms.MaskedTextBox mtbTelefoneRecado;
-        private System.Windows.Forms.MaskedTextBox mtbCep;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox cbTipoAcesso;
-        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.GroupBox gbDadosRegistro;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox cbEstadoCivil;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbFoto;
-        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox tbNome;
+        public System.Windows.Forms.TextBox tbNomeSocial;
+        public System.Windows.Forms.ComboBox cbSexo;
+        public System.Windows.Forms.DateTimePicker dtpDataNascimento;
+        public System.Windows.Forms.ComboBox cbCargo;
+        public System.Windows.Forms.TextBox tbSalario;
+        public System.Windows.Forms.TextBox tbSenha;
+        public System.Windows.Forms.TextBox tbUsuario;
+        public System.Windows.Forms.TextBox tbEmail;
+        public System.Windows.Forms.TextBox tbComplemento;
+        public System.Windows.Forms.ComboBox cbEstado;
+        public System.Windows.Forms.TextBox tbCidade;
+        public System.Windows.Forms.TextBox tbBairro;
+        public System.Windows.Forms.TextBox tbNumero;
+        public System.Windows.Forms.TextBox tbEndereco;
+        public System.Windows.Forms.MaskedTextBox mtbRg;
+        public System.Windows.Forms.MaskedTextBox mtbCpf;
+        public System.Windows.Forms.MaskedTextBox mtbTelefoneResidencial;
+        public System.Windows.Forms.MaskedTextBox mtbTelefoneCelular;
+        public System.Windows.Forms.MaskedTextBox mtbTelefoneRecado;
+        public System.Windows.Forms.MaskedTextBox mtbCep;
+        public System.Windows.Forms.ComboBox cbTipoAcesso;
+        public System.Windows.Forms.ComboBox cbStatus;
+        public System.Windows.Forms.TextBox tbCodigo;
+        public System.Windows.Forms.ComboBox cbEstadoCivil;
+        public System.Windows.Forms.PictureBox pbFoto;
+        public System.Windows.Forms.DateTimePicker dtpDataCadastro;
     }
 }

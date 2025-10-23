@@ -21,6 +21,10 @@ namespace CarrosFacil
             InitializeComponent();
         }
 
+        public string tipo, estado, estado_civil, sexo;
+        public int cargo, tipo_acesso;
+        public DateTime data_cadastro;
+
         private void label26_Click(object sender, EventArgs e)
         {
 
@@ -95,6 +99,7 @@ namespace CarrosFacil
             // CARGO - ALIMENTADA PELO DB
             _ = Task.Run(() =>
             {
+                // Obtem os cargos.
                 Cargo cargo = new Cargo();
                 DataTable cargos = cargo.CarregarCargo();
 
@@ -104,6 +109,41 @@ namespace CarrosFacil
                     cbCargo.DisplayMember = "nome";
                     cbCargo.ValueMember = "id";
                     cbCargo.SelectedIndex = -1;
+
+                    // VERIFICAR O MODO DE ABERTURA
+                    if (tipo == "Atualização")
+                    {
+                        cbStatus.Enabled = true;
+                        btnCadastrar.Enabled = false;
+                        btnAtualizar.Enabled = true;
+                        btnDeletar.Enabled = true;
+
+                        cbEstado.SelectedItem = estado;
+                        cbEstadoCivil.SelectedItem = estado_civil;
+                        cbCargo.SelectedValue = this.cargo;
+                        cbTipoAcesso.SelectedIndex = tipo_acesso;
+                        dtpDataCadastro.Value = data_cadastro;
+
+                        switch (sexo)
+                        {
+                            case "M":
+                                cbSexo.SelectedIndex = 0;
+                                break;
+                            case "F":
+                                cbSexo.SelectedIndex = 1;
+                                break;
+                            default:
+                                cbSexo.SelectedItem = 2;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        cbStatus.Enabled = false;
+                        btnCadastrar.Enabled = true;
+                        btnAtualizar.Enabled = false;
+                        btnDeletar.Enabled = false;
+                    }
                 }));
             });
         }
@@ -152,7 +192,16 @@ namespace CarrosFacil
             funcionario.telefone_celular = mtbTelefoneCelular.MaskFull ? mtbTelefoneCelular.Text : "";
             funcionario.telefone_residencial =  mtbTelefoneResidencial.MaskFull ? mtbTelefoneResidencial.Text : "";
             funcionario.email = tbEmail.Text;
-            funcionario.foto = "";
+
+            // SALVANDO A FOTO NO BANCO DE DADOS!
+            string fotoPerfil = Uploader.EnviarImagem(lbFoto.Text).Result;
+            if (fotoPerfil.Contains("error"))
+            {
+                MessageBox.Show("Erro ao salvar a foto, funcionário será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else
+            {
+                funcionario.foto = fotoPerfil;
+            }
 
             int response = funcionario.Cadastrar();
             if (response == 0)
@@ -165,6 +214,74 @@ namespace CarrosFacil
 
                 Limpar();
             }
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos() || tbCodigo.Text == "")
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                DefinirCorCamposObrigatorios(Color.Red);
+                tbNome.Focus();
+                return;
+            }
+
+            Funcionario funcionario = new Funcionario();
+            funcionario.id = Convert.ToInt32(tbCodigo.Text);
+            funcionario.id_cargo = Convert.ToInt32(cbCargo.SelectedValue.ToString());
+            funcionario.cpf = mtbCpf.Text;
+            funcionario.rg = mtbRg.MaskFull ? mtbRg.Text : "";
+            funcionario.nome = tbNome.Text;
+            funcionario.nome_social = tbNomeSocial.Text;
+            funcionario.senha = tbSenha.Text;
+
+            funcionario.salario = tbSalario.Text != "" ? Convert.ToDouble(tbSalario.Text) : 0;
+
+            funcionario.cep = mtbCep.MaskFull ? mtbCep.Text : "";
+            funcionario.endereco = tbEndereco.Text;
+            funcionario.numero = Convert.ToInt32(tbNumero.Text);
+            funcionario.complemento = tbComplemento.Text;
+            funcionario.bairro = tbBairro.Text;
+            funcionario.cidade = tbCidade.Text;
+            funcionario.estado = cbEstado.SelectedItem.ToString();
+
+            funcionario.sexo = cbSexo.SelectedItem.ToString().First().ToString();
+            funcionario.usuario = tbUsuario.Text;
+            funcionario.estado_civil = cbEstadoCivil.SelectedItem.ToString();
+            funcionario.data_nascimento = dtpDataNascimento.Value;
+            funcionario.tipo_acesso = cbTipoAcesso.SelectedIndex;
+            funcionario.telefone_recado = mtbTelefoneRecado.Text;
+            funcionario.telefone_celular = mtbTelefoneCelular.MaskFull ? mtbTelefoneCelular.Text : "";
+            funcionario.telefone_residencial = mtbTelefoneResidencial.MaskFull ? mtbTelefoneResidencial.Text : "";
+            funcionario.email = tbEmail.Text;
+            funcionario.status = cbStatus.SelectedIndex;
+
+            // SALVANDO A FOTO NO BANCO DE DADOS!
+            string fotoPerfil = Uploader.EnviarImagem(lbFoto.Text).Result;
+            if (fotoPerfil.Contains("error"))
+            {
+                MessageBox.Show("Erro ao salvar a foto, funcionário será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                funcionario.foto = fotoPerfil;
+            }
+
+            int response = funcionario.AtualizarFuncionario();
+            if (response == 0)
+            {
+                MessageBox.Show("Não foi possível atualizar o funcionário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string nome = funcionario.nome_social == "" ? funcionario.nome : funcionario.nome_social;
+                MessageBox.Show("Funcionário: " + nome + " atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Limpar();
+            }
+
+            this.Close();
         }
 
         private bool ValidarCampos()
@@ -237,29 +354,34 @@ namespace CarrosFacil
             cbStatus.SelectedIndex = 1;
         }
 
+
         private async void mtbCep_TextChanged(object sender, EventArgs e)
         {
             if (mtbCep.MaskFull)
             {
                 string cep = mtbCep.Text.Replace("-", "");
-                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri("https://viacep.com.br/ws/" + cep + "/json/"));
-                webRequest.Method = "GET";
-                webRequest.ContentType = "application/json";
-
-                string jsonString;
-                WebResponse response = await webRequest.GetResponseAsync();
-                using (Stream stream = response.GetResponseStream())
+                try
                 {
-                    StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8);
-                    jsonString = reader.ReadToEnd();
+                    HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri("https://viacep.com.br/ws/" + cep + "/json/"));
+                    webRequest.Method = "GET";
+                    webRequest.ContentType = "application/json";
+
+                    string jsonString;
+                    WebResponse response = await webRequest.GetResponseAsync();
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8);
+                        jsonString = reader.ReadToEnd();
+                    }
+
+                    Cep data = JsonConvert.DeserializeObject<Cep>(jsonString);
+
+                    tbEndereco.Text = data.logradouro;
+                    tbBairro.Text = data.bairro;
+                    tbCidade.Text = data.localidade;
+                    cbEstado.SelectedItem = data.uf;
                 }
-
-                Cep data = JsonConvert.DeserializeObject<Cep>(jsonString);
-
-                tbEndereco.Text = data.logradouro;
-                tbBairro.Text = data.bairro;
-                tbCidade.Text = data.localidade;
-                cbEstado.SelectedItem = data.uf;
+                catch (Exception) { }
             }
         }
 
@@ -290,7 +412,7 @@ namespace CarrosFacil
                     pbFoto.Image = new Bitmap(imageSelectDialog.FileName);
                     lbFoto.Text = imageSelectDialog.FileName.Replace("\\", "//");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Ocorreu um erro ao carregar imagem, tente novamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

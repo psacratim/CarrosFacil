@@ -227,7 +227,7 @@ namespace CarrosFacil
         }
         public int AtualizarFuncionario()
         {
-            string query = string.Format("UPDATE funcionario SET id_cargo = {0}, cpf = {1}, rg = {2}, nome = {3}, nome_social = {4}, senha = {5}, salario = {6}, sexo = {7}, usuario = {8}, estado_civil = {9}, data_nascimento = {10}, tipo_acesso = {11}, telefone_celular = {12}, telefone_recado = {13}, telefone_residencial = {14}, endereco = {15}, numero = {16}, complemento = {17}, bairro = {18}, cidade = {19}, estado = {20}, email = {21}, cep = {22}, foto = {23}, status = {24} WHERE id = {25};",
+            string query = string.Format("UPDATE funcionario SET id_cargo = {0}, cpf = '{1}', rg = '{2}', nome = '{3}', nome_social = '{4}', senha = '{5}', salario = {6}, sexo = '{7}', usuario = '{8}', estado_civil = '{9}', data_nascimento = '{10}', tipo_acesso = '{11}', telefone_celular = '{12}', telefone_recado = '{13}', telefone_residencial = '{14}', endereco = '{15}', numero = {16}, complemento = '{17}', bairro = '{18}', cidade = '{19}', estado = '{20}', email = '{21}', cep = '{22}', foto = '{23}', status = {24} WHERE id = {25};",
                 id_cargo,
                 cpf,
                 rg,

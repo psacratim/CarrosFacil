@@ -421,6 +421,8 @@ namespace CarrosFacil.Forms
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(641, 435);
             this.dgvFuncionario.TabIndex = 51;
+            this.dgvFuncionario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellContentClick);
+            this.dgvFuncionario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFuncionario_CellMouseClick);
             // 
             // FormConsultaFuncionario
             // 

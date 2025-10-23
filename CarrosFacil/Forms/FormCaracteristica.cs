@@ -107,7 +107,7 @@ namespace CarrosFacil.Forms
                     pbIcon.Image = new Bitmap(imageSelectDialog.FileName);
                     lbIcone.Text = imageSelectDialog.FileName.Replace("\\", "//");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Ocorreu um erro ao carregar imagem, tente novamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

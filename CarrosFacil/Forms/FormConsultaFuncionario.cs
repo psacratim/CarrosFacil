@@ -25,7 +25,7 @@ namespace CarrosFacil.Forms
             cbOpcoes.Items.Add("Cidade");
             cbOpcoes.Items.Add("Data de Admissão");
             cbOpcoes.Items.Add("Status");
-            cbOpcoes.SelectedIndex = 1;
+            cbOpcoes.SelectedIndex = 0;
 
             // CARREGANDO SEXOS
             cbSexo.Items.Add("Masculino");
@@ -152,6 +152,62 @@ namespace CarrosFacil.Forms
                 default:
                     PesquisarPorNome();
                     break;
+            }
+        }
+
+        private void dgvFuncionario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvFuncionario_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir o funcionário selecionado?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.Yes)
+            {
+                // Cria o funcionario e obtém os dados.
+                Funcionario funcionario = new Funcionario();
+                funcionario.ConsultaFuncionario(Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value));
+
+                // Define os campos do funcionário
+                FormFuncionario formFuncionario = new FormFuncionario();
+                formFuncionario.tbCodigo.Text = funcionario.id.ToString();
+                formFuncionario.tbUsuario.Text = funcionario.usuario;
+                formFuncionario.tbSenha.Text = funcionario.senha;
+                formFuncionario.tipo_acesso = funcionario.tipo_acesso;
+                formFuncionario.mtbTelefoneRecado.Text = funcionario.telefone_recado;
+                formFuncionario.mtbTelefoneCelular.Text = funcionario.telefone_celular;
+                formFuncionario.mtbTelefoneResidencial.Text = funcionario.telefone_residencial;
+                formFuncionario.tbEmail.Text = funcionario.email;
+                formFuncionario.tbNome.Text = funcionario.nome;
+                formFuncionario.dtpDataNascimento.Value = funcionario.data_nascimento;
+                formFuncionario.tbNomeSocial.Text = funcionario.nome_social;
+                formFuncionario.sexo = funcionario.sexo;
+
+                formFuncionario.cbSexo.Text = funcionario.sexo;
+                formFuncionario.mtbCpf.Text = funcionario.cpf;
+                formFuncionario.mtbRg.Text = funcionario.rg;
+                formFuncionario.cargo = funcionario.id_cargo;
+                formFuncionario.estado_civil = funcionario.estado_civil;
+                formFuncionario.tbSalario.Text = funcionario.salario.ToString().Replace(".", ",");
+                formFuncionario.mtbCep.Text = funcionario.cep;
+                formFuncionario.tbEndereco.Text = funcionario.endereco;
+                formFuncionario.tbNumero.Text = funcionario.numero.ToString();
+                formFuncionario.tbBairro.Text = funcionario.bairro;
+                formFuncionario.tbCidade.Text = funcionario.cidade;
+                formFuncionario.estado = funcionario.estado;
+                formFuncionario.tbComplemento.Text = funcionario.complemento;
+                formFuncionario.data_cadastro = funcionario.data_cadastro;
+
+                // Altera o tipo do funcionario.
+                formFuncionario.tipo = "Atualização";
+
+                // Modo exclusivo (ShowDialog)
+                formFuncionario.ShowDialog();
+
+                // Atualiza a grid de consulta.
+                btPesquisar_Click(this, new EventArgs());
             }
         }
     }
