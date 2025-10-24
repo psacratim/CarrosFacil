@@ -267,5 +267,13 @@ namespace CarrosFacil
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+
+        public int Excluir()
+        {
+            string query = "DELETE FROM funcionario WHERE id=" + id + ";";
+
+            Conexao conexao = new Conexao();
+            return conexao.ExecutaQuery(query);
+        }
     }
 }

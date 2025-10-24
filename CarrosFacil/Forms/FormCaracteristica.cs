@@ -30,7 +30,7 @@ namespace CarrosFacil.Forms
 
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private async void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
             {
@@ -45,7 +45,7 @@ namespace CarrosFacil.Forms
             caracteristica.nome = tbNome.Text;
             caracteristica.descricao = tbDescricao.Text;
             caracteristica.status = cbStatus.SelectedIndex;
-            caracteristica.iconePath = lbIcone.Text;
+            caracteristica.iconePath = await Uploader.EnviarImagem(lbIcone.Text);
 
             int resultado = caracteristica.Cadastrar();
             if (resultado == 0)

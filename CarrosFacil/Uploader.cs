@@ -5,30 +5,30 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CarrosFacil
 {
     class Uploader
     {
-        private static readonly HttpClient client = new HttpClient();
         private static readonly string urlServidor = "http://localhost/INFO_50/carrosfacil/";
-        private static readonly string urlFotoFuncionario = urlServidor + "admin/upload_employee_photo.php";
-        private static readonly string urlIconeCaracteristica = urlServidor + "admin/upload_car_feature_icon.php";
+        private static readonly string urlUploadImage = urlServidor + "admin/upload_image.php";
 
         public static async Task<string> EnviarImagem(string caminhoImagem)
         {
             try
             {
+                HttpClient client = new HttpClient();
                 using (var form = new MultipartFormDataContent())
                 {
                     var stream = new FileStream(caminhoImagem, FileMode.Open, FileAccess.Read);
                     var content = new StreamContent(stream);
                     form.Add(content, "imagem", Path.GetFileName(caminhoImagem));
 
-                    var response = await client.PostAsync(urlFotoFuncionario, form);
+                    var response = await client.PostAsync(urlUploadImage, form);
                     string resposta = await response.Content.ReadAsStringAsync();
 
-                    return resposta;
+                    return resposta.Replace("\"", "");
                 }
             }
             catch (Exception)
@@ -40,7 +40,12 @@ namespace CarrosFacil
         public static string CarregarImagemDoServidor(string imagem)
         {
             string caminho = imagem.Replace("../", "");
-            return urlServidor+caminho;
+            if (caminho != "")
+            {
+                return urlServidor + caminho;
+            }
+
+            return "";
         }
     }
 }

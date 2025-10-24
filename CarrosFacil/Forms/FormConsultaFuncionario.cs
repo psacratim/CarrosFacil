@@ -200,6 +200,13 @@ namespace CarrosFacil.Forms
                 formFuncionario.tbComplemento.Text = funcionario.complemento;
                 formFuncionario.data_cadastro = funcionario.data_cadastro;
 
+                // Carregando foto
+                string fotoUrl = Uploader.CarregarImagemDoServidor(funcionario.foto);
+                if (fotoUrl != "")
+                {
+                    formFuncionario.pbFoto.Load(fotoUrl);
+                }
+
                 // Altera o tipo do funcionario.
                 formFuncionario.tipo = "Atualização";
 

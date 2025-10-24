@@ -154,8 +154,9 @@ namespace CarrosFacil
 
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private async void btnCadastrar_Click(object sender, EventArgs e)
         {
+
             if (!ValidarCampos())
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -194,7 +195,7 @@ namespace CarrosFacil
             funcionario.email = tbEmail.Text;
 
             // SALVANDO A FOTO NO BANCO DE DADOS!
-            string fotoPerfil = Uploader.EnviarImagem(lbFoto.Text).Result;
+            string fotoPerfil = await Uploader.EnviarImagem(lbFoto.Text);
             if (fotoPerfil.Contains("error"))
             {
                 MessageBox.Show("Erro ao salvar a foto, funcionário será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -216,7 +217,7 @@ namespace CarrosFacil
             }
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private async void btnAtualizar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos() || tbCodigo.Text == "")
             {
@@ -258,7 +259,7 @@ namespace CarrosFacil
             funcionario.status = cbStatus.SelectedIndex;
 
             // SALVANDO A FOTO NO BANCO DE DADOS!
-            string fotoPerfil = Uploader.EnviarImagem(lbFoto.Text).Result;
+            string fotoPerfil = await Uploader.EnviarImagem(lbFoto.Text);
             if (fotoPerfil.Contains("error"))
             {
                 MessageBox.Show("Erro ao salvar a foto, funcionário será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -354,6 +355,31 @@ namespace CarrosFacil
             cbStatus.SelectedIndex = 1;
         }
 
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (tbCodigo.Text == "")
+            {
+                MessageBox.Show("O excluir só é possível na consulta de funcionarios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("Deseja excluir o funcionário?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Funcionario funcionario = new Funcionario();
+                funcionario.id = Convert.ToInt32(tbCodigo.Text);
+
+                int resposta = funcionario.Excluir();
+                if (resposta == 1)
+                {
+                    MessageBox.Show("Funcionario excluido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("Erro ao excluir o funcionário.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
 
         private async void mtbCep_TextChanged(object sender, EventArgs e)
         {
