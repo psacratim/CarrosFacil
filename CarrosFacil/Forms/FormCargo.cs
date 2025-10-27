@@ -48,6 +48,7 @@ namespace CarrosFacil
             else
             {
                 MessageBox.Show("Cargo: " + cargo.nome + " cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpar();
             }
         }
 

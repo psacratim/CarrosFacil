@@ -55,6 +55,8 @@ namespace CarrosFacil.Forms
             else
             {
                 MessageBox.Show("Caracteristica: " + caracteristica.nome + " cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Limpar();
             }
         }
 
@@ -79,6 +81,7 @@ namespace CarrosFacil.Forms
         {
             tbNome.Clear();
             tbDescricao.Clear();
+            lbIcone.Text = "";
         }
 
         private void FormMarca_Load(object sender, EventArgs e)

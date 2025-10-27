@@ -95,7 +95,7 @@ namespace CarrosFacil.Forms
                 MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Aviso - Data inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 DefinirCorCamposObrigatorios(Color.Red);
-                tbNome.Focus();
+                dtpDataNascimento.Focus();
                 return;
             }
 
@@ -188,7 +188,12 @@ namespace CarrosFacil.Forms
             cbEstado.SelectedValue = "SP";
             mtbTelefone1.Clear();
             cbEstadoCivil.SelectedIndex = 0;
-            cbEstadoCivil.SelectedIndex = 0;
+            cbSexo.SelectedIndex = 0;
+            mtbRg.Text = "";
+            mtbCep.Text = "";
+            tbEmail.Text = "";
+
+            DefinirCorCamposObrigatorios(SystemColors.Window);
         }
 
         private async void mtbCep_TextChanged(object sender, EventArgs e)

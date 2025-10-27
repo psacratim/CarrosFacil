@@ -49,6 +49,7 @@ namespace CarrosFacil
             } else
             {
                 MessageBox.Show("Marca: "+marca.nome+" cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpar();
             }
         }
 

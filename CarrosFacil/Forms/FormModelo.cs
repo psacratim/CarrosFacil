@@ -91,7 +91,8 @@ namespace CarrosFacil
         private void Limpar()
         {
             tbNome.Clear();
-            tbNome.Clear();
+            tbObservacao.Clear();
+            cbMarca.SelectedIndex = -1;
         }
     }
 }
