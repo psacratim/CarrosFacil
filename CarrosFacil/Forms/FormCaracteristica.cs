@@ -82,6 +82,7 @@ namespace CarrosFacil.Forms
             tbNome.Clear();
             tbDescricao.Clear();
             lbIcone.Text = "";
+            pbIcon.Image = pbIcon.InitialImage;
         }
 
         private void FormMarca_Load(object sender, EventArgs e)

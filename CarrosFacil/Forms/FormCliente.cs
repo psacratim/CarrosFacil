@@ -187,11 +187,13 @@ namespace CarrosFacil.Forms
             tbCidade.Clear();
             cbEstado.SelectedValue = "SP";
             mtbTelefone1.Clear();
+            mtbTelefone2.Clear();
             cbEstadoCivil.SelectedIndex = 0;
             cbSexo.SelectedIndex = 0;
             mtbRg.Text = "";
             mtbCep.Text = "";
             tbEmail.Text = "";
+            cbTipoAcesso.SelectedIndex = 0;
 
             DefinirCorCamposObrigatorios(SystemColors.Window);
         }

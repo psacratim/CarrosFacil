@@ -98,7 +98,7 @@ namespace CarrosFacil.Forms
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(1221, 586);
+            this.btnSair.Location = new System.Drawing.Point(603, 586);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -165,7 +165,7 @@ namespace CarrosFacil.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(554, 15);
+            this.label12.Location = new System.Drawing.Point(248, 15);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(229, 37);
             this.label12.TabIndex = 65;
@@ -176,7 +176,7 @@ namespace CarrosFacil.Forms
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(475, 54);
+            this.label26.Location = new System.Drawing.Point(169, 54);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 64;
@@ -619,7 +619,7 @@ namespace CarrosFacil.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 644);
+            this.ClientSize = new System.Drawing.Size(711, 644);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbEspecificacoes);

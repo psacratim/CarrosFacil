@@ -353,6 +353,7 @@ namespace CarrosFacil
             mtbCep.Clear();
             cbTipoAcesso.SelectedIndex = 0;
             cbStatus.SelectedIndex = 1;
+            pbFoto.Image = pbFoto.InitialImage;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

@@ -12,6 +12,8 @@ namespace CarrosFacil
         public string estado_do_veiculo { get; set; }
         public int tempo_de_uso { get; set; }
         public decimal preco { get; set; }
+        public int lucro { get; set; }
+        public int desconto { get; set; }
         public int kms_rodado { get; set; }
         public string final_placa { get; set; }
         public string cor { get; set; }
@@ -19,6 +21,7 @@ namespace CarrosFacil
         public int ano { get; set; }
         public string tipo_cambio { get; set; }
         public string tipo_combustivel { get; set; }
+        public string foto { get; set; }
         public int estoque { get; set; }
         public DateTime data_cadastro { get; set; }
         public int status { get; set; }
@@ -46,12 +49,14 @@ namespace CarrosFacil
 
         public int Cadastrar()
         {
-            string query = string.Format("INSERT INTO veiculo VALUES (0, {0}, '{1}', '{2}', {3}, {4}, '{5}', '{6}', '{7}', '{8}', {9}, '{10}', '{11}', {12}, {13}, NOW(), 1);",
+            string query = string.Format("INSERT INTO veiculo VALUES (0, {0}, '{1}', '{2}', {3}, {4}, {5}, {6}, '{7}', '{8}', '{9}', '{10}', {11}, '{12}', '{13}', '{14}', '{15}', {16}, {17});",
                 id_modelo,
                 categoria,
                 estado_do_veiculo,
                 tempo_de_uso,
                 preco.ToString().Replace(",", "."),
+                desconto,
+                lucro,
                 kms_rodado,
                 final_placa,
                 cor,
@@ -59,8 +64,10 @@ namespace CarrosFacil
                 ano,
                 tipo_cambio,
                 tipo_combustivel,
+                foto,
                 estoque,
-                "''"
+                "NOW()",
+                1
             );
 
             Conexao conexao = new Conexao();

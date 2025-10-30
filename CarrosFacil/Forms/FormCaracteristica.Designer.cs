@@ -182,6 +182,7 @@ namespace CarrosFacil.Forms
             // pbIcon
             // 
             this.pbIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbIcon.Image")));
+            this.pbIcon.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbIcon.InitialImage")));
             this.pbIcon.Location = new System.Drawing.Point(22, 57);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(222, 148);
