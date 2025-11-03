@@ -78,6 +78,7 @@ namespace CarrosFacil
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnAtualizar
             // 

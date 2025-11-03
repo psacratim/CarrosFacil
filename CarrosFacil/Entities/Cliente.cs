@@ -17,7 +17,6 @@ namespace CarrosFacil
         public string usuario { get; set; }
         public string senha { get; set; }
         public string cep { get; set; }
-        public string foto { get; set; }
         public string endereco { get; set; }
         public int numero { get; set; }
         public string complemento { get; set; }
@@ -53,7 +52,6 @@ namespace CarrosFacil
             estado = null;
             email = null;
             cep = null;
-            foto = null;
             data_cadastro = DateTime.Now;
             status = 0;
         }
@@ -99,6 +97,51 @@ namespace CarrosFacil
 
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
+        }
+
+        public DataTable CarregarCidades()
+        {
+            string query = "SELECT DISTINCT cidade FROM cliente ORDER BY cidade;"; // DISTINCT = Evita repetições, tipo: Piracicaba, Piracicaba, Piracicaba, Sorocaba.
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public bool ConsultaFuncionario(int id)
+        {
+            string query = "SELECT * FROM cliente WHERE id=" + id;
+
+            Conexao conexao = new Conexao();
+            DataTable dt = conexao.RetornaDados(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                this.id = Convert.ToInt32(dt.Rows[0]["id"]);
+                cpf = Convert.ToString(dt.Rows[0]["cpf"]);
+                rg = Convert.ToString(dt.Rows[0]["rg"]);
+                nome_completo = Convert.ToString(dt.Rows[0]["nome_completo"]);
+                senha = Convert.ToString(dt.Rows[0]["senha"]);
+                sexo = Convert.ToString(dt.Rows[0]["sexo"]);
+                usuario = Convert.ToString(dt.Rows[0]["usuario"]);
+                estado_civil = Convert.ToString(dt.Rows[0]["estado_civil"]);
+                data_nascimento = Convert.ToDateTime(dt.Rows[0]["data_nascimento"]);
+                telefone1 = Convert.ToString(dt.Rows[0]["telefone1"]);
+                telefone2 = Convert.ToString(dt.Rows[0]["telefone2"]);
+                endereco = Convert.ToString(dt.Rows[0]["endereco"]);
+                cep = Convert.ToString(dt.Rows[0]["cep"]);
+                numero = Convert.ToInt32(dt.Rows[0]["numero"]);
+                complemento = Convert.ToString(dt.Rows[0]["complemento"]);
+                bairro = Convert.ToString(dt.Rows[0]["bairro"]);
+                cidade = Convert.ToString(dt.Rows[0]["cidade"]);
+                estado = Convert.ToString(dt.Rows[0]["estado"]);
+                email = Convert.ToString(dt.Rows[0]["email"]);
+                data_cadastro = Convert.ToDateTime(dt.Rows[0]["data_cadastro"]);
+                status = Convert.ToInt32(dt.Rows[0]["status"]);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

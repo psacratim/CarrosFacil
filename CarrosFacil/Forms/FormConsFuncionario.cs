@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
-using System.Drawing;
 
 namespace CarrosFacil.Forms
 {
-    public partial class FormConsultaFuncionario : Form
+    public partial class FormConsFuncionario : Form
     {
-        public FormConsultaFuncionario()
+        public FormConsFuncionario()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
 
-        private void FormConsultaFuncionario_Load(object sender, System.EventArgs e)
+        private void FormConsultaFuncionarioV2_Load(object sender, EventArgs e)
         {
             // CARREGANDO OPÇÕES DE CONSULTA
             cbOpcoes.Items.Add("Nome");
@@ -25,6 +27,7 @@ namespace CarrosFacil.Forms
             cbOpcoes.Items.Add("Cidade");
             cbOpcoes.Items.Add("Data de Admissão");
             cbOpcoes.Items.Add("Status");
+            cbOpcoes.Items.Add("Sexo e Cidade");
             cbOpcoes.SelectedIndex = 0;
 
             // CARREGANDO SEXOS
@@ -32,6 +35,11 @@ namespace CarrosFacil.Forms
             cbSexo.Items.Add("Feminino");
             cbSexo.Items.Add("Não Informado");
             cbSexo.SelectedIndex = 0;
+
+            // Status
+            cbStatus.Items.Add("Desativado");
+            cbStatus.Items.Add("Ativado");
+            cbStatus.SelectedIndex = 1;
 
             // CARGO - ALIMENTADA PELO DB
             _ = Task.Run(() =>
@@ -49,7 +57,7 @@ namespace CarrosFacil.Forms
                     cbCargo.DataSource = cargos;
                     cbCargo.DisplayMember = "nome";
                     cbCargo.ValueMember = "id";
-                    cbCargo.SelectedIndex = 0;
+                    if (cbCidade.Items.Count > 0) cbCargo.SelectedIndex = 0;
 
                     cbCidade.DataSource = cidades;
                     cbCidade.DisplayMember = "cidade";
@@ -59,69 +67,85 @@ namespace CarrosFacil.Forms
             });
         }
 
-        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Versão curta, mas vários IFs. (Isso não importa muito, mas a manutenção pode ser melhorada)
-            gbTipoPesquisa.Enabled = cbOpcoes.SelectedIndex == 0;
-            gbNome.Enabled = cbOpcoes.SelectedIndex == 0;
-            gbCPF.Enabled = cbOpcoes.SelectedIndex == 1;
-            gbCargo.Enabled = cbOpcoes.SelectedIndex == 2;
-            gbSexo.Enabled = cbOpcoes.SelectedIndex == 3;
-            gbCidade.Enabled = cbOpcoes.SelectedIndex == 4;
-            gbDataAdmissao.Enabled = cbOpcoes.SelectedIndex == 5;
-            gbStatus.Enabled = cbOpcoes.SelectedIndex == 6;
-        }
-
         private void PesquisarPorNome()
         {
-            if (txtNome.Text == "") {
+            if (tbNome.Text == "")
+            {
                 MessageBox.Show("Por favor, digite um nome válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNome.BackColor = Color.Red;
-                txtNome.Focus();
+                tbNome.BackColor = Color.Red;
+                tbNome.Focus();
                 return;
             }
 
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorNome(txtNome.Text, rbInicio.Checked);
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorNome(tbNome.Text, rbInicio.Checked);
         }
 
         private void PesquisarPorCPF()
         {
-            if (mskCpf.MaskFull)
-            {
-                dgvFuncionario.DataSource = new Funcionario().ConsultarPorCpf(mskCpf.Text);
-            } else
+            if (!mskCpf.MaskFull)
             {
                 MessageBox.Show("Por favor, insira um cpf completo e válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                gbCPF.BackColor = Color.Red;
-                gbCPF.Focus();
+                mskCpf.BackColor = Color.Red;
+                mskCpf.Focus();
+                return;
             }
+
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorCpf(mskCpf.Text);
         }
 
         private void PesquisarPorCargo()
         {
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorCargo((int) cbCargo.SelectedValue);
+            if (cbCargo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, selecione um cargo válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbCargo.BackColor = Color.Red;
+                cbCargo.Focus();
+                return;
+            }
+
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorCargo((int)cbCargo.SelectedValue);
         }
 
         private void PesquisarPorSexo()
         {
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorSexo(cbSexo.SelectedItem.ToString().Substring(0, 1));
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorSexo(cbSexo.SelectedItem.ToString().Substring(0, 1));
         }
 
         private void PesquisarPorCidade()
         {
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorCidade(cbCidade.SelectedValue.ToString());
+            if (cbCidade.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, selecione uma cidade válida.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbCidade.BackColor = Color.Red;
+                cbCidade.Focus();
+                return;
+            }
+
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorCidade(cbCidade.SelectedValue.ToString());
         }
 
         private void PesquisarPorDataAdmissao()
         {
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorDataAdmissao(dtpDataInicial.Value, dtpDataFinal.Value);
-        }
-        private void PesquisarPorStatus()
-        {
-            dgvFuncionario.DataSource = new Funcionario().ConsultarPorStatus(rbAtivo.Checked ? 1 : 0);
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorDataAdmissao(dtpDataInicial.Value, dtpDataFinal.Value);
         }
 
-        private void btPesquisar_Click(object sender, EventArgs e)
+        private void PesquisarPorStatus()
+        {
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorStatus(cbStatus.SelectedIndex);
+        }
+
+        private void PesquisarPorSexoCidade()
+        {
+            if (cbCidade.SelectedIndex == -1 || cbSexo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, selecione uma cidade e sexo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dgvFuncionarios.DataSource = new Funcionario().ConsultarPorSexoCidade(cbCidade.SelectedValue.ToString(), cbSexo.SelectedItem.ToString().Substring(0, 1));
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
             switch (cbOpcoes.SelectedIndex)
             {
@@ -148,6 +172,9 @@ namespace CarrosFacil.Forms
                 case 6:
                     PesquisarPorStatus();
                     break;
+                case 7:
+                    PesquisarPorSexoCidade();
+                    break;
 
                 default:
                     PesquisarPorNome();
@@ -155,12 +182,24 @@ namespace CarrosFacil.Forms
             }
         }
 
-        private void dgvFuncionario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void dgvFuncionario_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gbTipoBusca.Enabled = cbOpcoes.SelectedIndex == 0;
+            tbNome.Enabled = cbOpcoes.SelectedIndex == 0;
+            mskCpf.Enabled = cbOpcoes.SelectedIndex == 1;
+            cbCargo.Enabled = cbOpcoes.SelectedIndex == 2;
+            cbSexo.Enabled = cbOpcoes.SelectedIndex == 3 || cbOpcoes.SelectedIndex == 7;
+            cbCidade.Enabled = cbOpcoes.SelectedIndex == 4 || cbOpcoes.SelectedIndex == 7;
+            gbDataAdmissao.Enabled = cbOpcoes.SelectedIndex == 5;
+            cbStatus.Enabled = cbOpcoes.SelectedIndex == 6;
+        }
+
+        private void dgvFuncionarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir o funcionário selecionado?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -168,7 +207,7 @@ namespace CarrosFacil.Forms
             {
                 // Cria o funcionario e obtém os dados.
                 Funcionario funcionario = new Funcionario();
-                funcionario.ConsultaFuncionario(Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value));
+                funcionario.ConsultaFuncionario(Convert.ToInt32(dgvFuncionarios.SelectedRows[0].Cells[0].Value));
 
                 // Define os campos do funcionário
                 FormFuncionario formFuncionario = new FormFuncionario();
@@ -204,7 +243,11 @@ namespace CarrosFacil.Forms
                 string fotoUrl = Uploader.CarregarImagemDoServidor(funcionario.foto);
                 if (fotoUrl != "")
                 {
-                    formFuncionario.pbFoto.Load(fotoUrl);
+                    try
+                    {
+                        formFuncionario.pbFoto.Load(fotoUrl);
+                    }
+                    catch (Exception) { }
                 }
 
                 // Altera o tipo do funcionario.
@@ -214,7 +257,7 @@ namespace CarrosFacil.Forms
                 formFuncionario.ShowDialog();
 
                 // Atualiza a grid de consulta.
-                btPesquisar_Click(this, new EventArgs());
+                btnPesquisar_Click(this, new EventArgs());
             }
         }
     }

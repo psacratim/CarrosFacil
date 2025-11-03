@@ -130,13 +130,25 @@ namespace CarrosFacil
 
         private void menuConsFuncionarios_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FormConsultaFuncionario>().Count() > 0)
+            if (Application.OpenForms.OfType<FormConsFuncionario>().Count() > 0)
             {
                 MessageBox.Show("A consulta de funcionarios já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            FormConsultaFuncionario form = new FormConsultaFuncionario();
+            FormConsFuncionario form = new FormConsFuncionario();
+            form.Show();
+        }
+
+        private void menuConsClientes_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormConsCliente>().Count() > 0)
+            {
+                MessageBox.Show("A consulta de clientes já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormConsCliente form = new FormConsCliente();
             form.Show();
         }
 

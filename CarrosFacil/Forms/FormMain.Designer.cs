@@ -41,6 +41,8 @@ namespace CarrosFacil
             this.menuCadCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadVeiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuConsClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +51,6 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
-            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,11 +145,26 @@ namespace CarrosFacil
             // menuConsFuncionarios
             // 
             this.menuConsFuncionarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funcionariosToolStripMenuItem});
+            this.funcionariosToolStripMenuItem,
+            this.menuConsClientes});
             this.menuConsFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("menuConsFuncionarios.Image")));
             this.menuConsFuncionarios.Name = "menuConsFuncionarios";
             this.menuConsFuncionarios.Size = new System.Drawing.Size(142, 36);
             this.menuConsFuncionarios.Text = "Consultas";
+            // 
+            // funcionariosToolStripMenuItem
+            // 
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.menuConsFuncionarios_Click);
+            // 
+            // menuConsClientes
+            // 
+            this.menuConsClientes.Name = "menuConsClientes";
+            this.menuConsClientes.Size = new System.Drawing.Size(199, 30);
+            this.menuConsClientes.Text = "Clientes";
+            this.menuConsClientes.Click += new System.EventHandler(this.menuConsClientes_Click);
             // 
             // menuRelatorios
             // 
@@ -211,13 +227,6 @@ namespace CarrosFacil
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
             // 
-            // funcionariosToolStripMenuItem
-            // 
-            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
-            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
-            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.menuConsFuncionarios_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -262,6 +271,7 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripMenuItem menuCadCliente;
         private System.Windows.Forms.ToolStripMenuItem menuCadVeiculo;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuConsClientes;
     }
 }
 

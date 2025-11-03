@@ -21,6 +21,9 @@ namespace CarrosFacil.Forms
             InitializeComponent();
         }
 
+        public string tipo, estado, estado_civil, sexo;
+        public int cargo, tipo_acesso;
+        public DateTime data_cadastro;
 
         private void FormCliente_Load(object sender, EventArgs e)
         {
@@ -77,6 +80,40 @@ namespace CarrosFacil.Forms
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
             cbStatus.SelectedIndex = 1;
+
+            // VERIFICAR O MODO DE ABERTURA
+            if (tipo == "Atualização")
+            {
+                cbStatus.Enabled = true;
+                btnCadastrar.Enabled = false;
+                btnAtualizar.Enabled = true;
+                btnDeletar.Enabled = true;
+
+                cbEstado.SelectedItem = estado;
+                cbEstadoCivil.SelectedItem = estado_civil;
+                cbTipoAcesso.SelectedIndex = tipo_acesso;
+                dtpDataCadastro.Value = data_cadastro;
+
+                switch (sexo)
+                {
+                    case "M":
+                        cbSexo.SelectedIndex = 0;
+                        break;
+                    case "F":
+                        cbSexo.SelectedIndex = 1;
+                        break;
+                    default:
+                        cbSexo.SelectedItem = 2;
+                        break;
+                }
+            }
+            else
+            {
+                cbStatus.Enabled = false;
+                btnCadastrar.Enabled = true;
+                btnAtualizar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)

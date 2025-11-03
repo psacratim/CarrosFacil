@@ -77,5 +77,10 @@ namespace CarrosFacil
         {
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

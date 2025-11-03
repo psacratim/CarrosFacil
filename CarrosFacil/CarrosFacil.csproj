@@ -97,6 +97,9 @@
     <Compile Include="Entities\Cep.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Modelo.cs" />
+    <Compile Include="FormElements\C_GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\FormCaracteristica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +118,17 @@
     <Compile Include="Forms\FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormConsultaFuncionario.cs">
+    <Compile Include="Forms\FormConsCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormConsultaFuncionario.Designer.cs">
-      <DependentUpon>FormConsultaFuncionario.cs</DependentUpon>
+    <Compile Include="Forms\FormConsCliente.Designer.cs">
+      <DependentUpon>FormConsCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConsFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConsFuncionario.Designer.cs">
+      <DependentUpon>FormConsFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormFuncionario.cs">
       <SubType>Form</SubType>
@@ -165,8 +174,11 @@
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormConsultaFuncionario.resx">
-      <DependentUpon>FormConsultaFuncionario.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormConsCliente.resx">
+      <DependentUpon>FormConsCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConsFuncionario.resx">
+      <DependentUpon>FormConsFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFuncionario.resx">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
