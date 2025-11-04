@@ -48,7 +48,7 @@ namespace CarrosFacil.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.tbTempoUso = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbCusto = new System.Windows.Forms.TextBox();
+            this.tbPrecoCusto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbKmsRodado = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,8 +62,6 @@ namespace CarrosFacil.Forms
             this.tbAno = new System.Windows.Forms.MaskedTextBox();
             this.tbLucro = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbPrecoVenda = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.gbPrecoVenda = new System.Windows.Forms.GroupBox();
             this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -76,12 +74,29 @@ namespace CarrosFacil.Forms
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbDesconto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbPrecoVenda = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbPrecoDesconto = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.rbDescontoSim = new System.Windows.Forms.RadioButton();
+            this.rbDescontoNao = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbEstoque = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.lbFoto = new System.Windows.Forms.Label();
             this.gbPrecoVenda.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
             this.gbEspecificacoes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // cbModelo
@@ -90,7 +105,7 @@ namespace CarrosFacil.Forms
             this.cbModelo.FormattingEnabled = true;
             this.cbModelo.Location = new System.Drawing.Point(7, 55);
             this.cbModelo.Name = "cbModelo";
-            this.cbModelo.Size = new System.Drawing.Size(321, 27);
+            this.cbModelo.Size = new System.Drawing.Size(326, 27);
             this.cbModelo.TabIndex = 71;
             // 
             // btnSair
@@ -98,7 +113,7 @@ namespace CarrosFacil.Forms
             this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(603, 586);
+            this.btnSair.Location = new System.Drawing.Point(603, 649);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
@@ -113,7 +128,7 @@ namespace CarrosFacil.Forms
             this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
             this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(163, 586);
+            this.btnDeletar.Location = new System.Drawing.Point(163, 649);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
             this.btnDeletar.Size = new System.Drawing.Size(111, 46);
@@ -128,7 +143,7 @@ namespace CarrosFacil.Forms
             this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(280, 586);
+            this.btnAtualizar.Location = new System.Drawing.Point(280, 649);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
             this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
@@ -143,7 +158,7 @@ namespace CarrosFacil.Forms
             this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(25, 586);
+            this.btnCadastrar.Location = new System.Drawing.Point(25, 649);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
             this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
@@ -166,7 +181,7 @@ namespace CarrosFacil.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(248, 15);
+            this.label12.Location = new System.Drawing.Point(507, 12);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(229, 37);
             this.label12.TabIndex = 65;
@@ -177,7 +192,7 @@ namespace CarrosFacil.Forms
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 16F);
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(169, 54);
+            this.label26.Location = new System.Drawing.Point(428, 51);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(387, 27);
             this.label26.TabIndex = 64;
@@ -209,7 +224,7 @@ namespace CarrosFacil.Forms
             this.cbEstadoVeiculo.FormattingEnabled = true;
             this.cbEstadoVeiculo.Location = new System.Drawing.Point(7, 120);
             this.cbEstadoVeiculo.Name = "cbEstadoVeiculo";
-            this.cbEstadoVeiculo.Size = new System.Drawing.Size(321, 27);
+            this.cbEstadoVeiculo.Size = new System.Drawing.Size(184, 27);
             this.cbEstadoVeiculo.TabIndex = 81;
             // 
             // label2
@@ -281,16 +296,16 @@ namespace CarrosFacil.Forms
             this.label7.TabIndex = 83;
             this.label7.Text = "* Tempo de uso: (dias)";
             // 
-            // tbCusto
+            // tbPrecoCusto
             // 
-            this.tbCusto.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbCusto.Location = new System.Drawing.Point(8, 57);
-            this.tbCusto.MaxLength = 11;
-            this.tbCusto.Name = "tbCusto";
-            this.tbCusto.Size = new System.Drawing.Size(108, 27);
-            this.tbCusto.TabIndex = 84;
-            this.tbCusto.TextChanged += new System.EventHandler(this.tbPreco_TextChanged);
-            this.tbCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPreco_KeyPress);
+            this.tbPrecoCusto.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPrecoCusto.Location = new System.Drawing.Point(8, 57);
+            this.tbPrecoCusto.MaxLength = 11;
+            this.tbPrecoCusto.Name = "tbPrecoCusto";
+            this.tbPrecoCusto.Size = new System.Drawing.Size(156, 27);
+            this.tbPrecoCusto.TabIndex = 84;
+            this.tbPrecoCusto.TextChanged += new System.EventHandler(this.tbPreco_TextChanged);
+            this.tbPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPreco_KeyPress);
             // 
             // label8
             // 
@@ -298,9 +313,9 @@ namespace CarrosFacil.Forms
             this.label8.Font = new System.Drawing.Font("Calibri", 14F);
             this.label8.Location = new System.Drawing.Point(8, 31);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 23);
+            this.label8.Size = new System.Drawing.Size(120, 23);
             this.label8.TabIndex = 85;
-            this.label8.Text = "* Custo:";
+            this.label8.Text = "* Preço Custo:";
             // 
             // tbKmsRodado
             // 
@@ -404,10 +419,10 @@ namespace CarrosFacil.Forms
             // tbLucro
             // 
             this.tbLucro.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbLucro.Location = new System.Drawing.Point(122, 57);
+            this.tbLucro.Location = new System.Drawing.Point(8, 122);
             this.tbLucro.MaxLength = 5;
             this.tbLucro.Name = "tbLucro";
-            this.tbLucro.Size = new System.Drawing.Size(101, 27);
+            this.tbLucro.Size = new System.Drawing.Size(156, 27);
             this.tbLucro.TabIndex = 107;
             this.tbLucro.TextChanged += new System.EventHandler(this.tbPercentualLucro_TextChanged);
             this.tbLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPercentualLucro_KeyPress);
@@ -416,59 +431,43 @@ namespace CarrosFacil.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label10.Location = new System.Drawing.Point(122, 31);
+            this.label10.Location = new System.Drawing.Point(8, 96);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 23);
             this.label10.TabIndex = 108;
             this.label10.Text = "* Lucro: (%)";
             // 
-            // tbPrecoVenda
-            // 
-            this.tbPrecoVenda.Enabled = false;
-            this.tbPrecoVenda.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbPrecoVenda.Location = new System.Drawing.Point(229, 57);
-            this.tbPrecoVenda.Name = "tbPrecoVenda";
-            this.tbPrecoVenda.Size = new System.Drawing.Size(133, 27);
-            this.tbPrecoVenda.TabIndex = 109;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label15.Location = new System.Drawing.Point(229, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 23);
-            this.label15.TabIndex = 110;
-            this.label15.Text = "Preço de venda:";
-            // 
             // gbPrecoVenda
             // 
-            this.gbPrecoVenda.Controls.Add(this.tbCusto);
+            this.gbPrecoVenda.Controls.Add(this.groupBox3);
+            this.gbPrecoVenda.Controls.Add(this.tbPrecoDesconto);
+            this.gbPrecoVenda.Controls.Add(this.label20);
             this.gbPrecoVenda.Controls.Add(this.tbPrecoVenda);
-            this.gbPrecoVenda.Controls.Add(this.label15);
+            this.gbPrecoVenda.Controls.Add(this.label17);
+            this.gbPrecoVenda.Controls.Add(this.tbDesconto);
+            this.gbPrecoVenda.Controls.Add(this.label5);
+            this.gbPrecoVenda.Controls.Add(this.tbPrecoCusto);
             this.gbPrecoVenda.Controls.Add(this.label8);
             this.gbPrecoVenda.Controls.Add(this.tbLucro);
             this.gbPrecoVenda.Controls.Add(this.label10);
             this.gbPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPrecoVenda.Location = new System.Drawing.Point(330, 92);
+            this.gbPrecoVenda.Location = new System.Drawing.Point(201, 92);
             this.gbPrecoVenda.Name = "gbPrecoVenda";
-            this.gbPrecoVenda.Size = new System.Drawing.Size(368, 93);
+            this.gbPrecoVenda.Size = new System.Drawing.Size(497, 156);
             this.gbPrecoVenda.TabIndex = 111;
             this.gbPrecoVenda.TabStop = false;
             this.gbPrecoVenda.Text = "Calcular preço de venda";
             // 
             // gbDadosRegistro
             // 
-            this.gbDadosRegistro.Controls.Add(this.label16);
             this.gbDadosRegistro.Controls.Add(this.label19);
             this.gbDadosRegistro.Controls.Add(this.tbCodigoVeiculo);
-            this.gbDadosRegistro.Controls.Add(this.cbStatus);
             this.gbDadosRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gbDadosRegistro.Location = new System.Drawing.Point(25, 92);
             this.gbDadosRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.gbDadosRegistro.Name = "gbDadosRegistro";
             this.gbDadosRegistro.Padding = new System.Windows.Forms.Padding(4);
-            this.gbDadosRegistro.Size = new System.Drawing.Size(298, 93);
+            this.gbDadosRegistro.Size = new System.Drawing.Size(169, 156);
             this.gbDadosRegistro.TabIndex = 112;
             this.gbDadosRegistro.TabStop = false;
             this.gbDadosRegistro.Text = "Registro";
@@ -477,7 +476,7 @@ namespace CarrosFacil.Forms
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label16.Location = new System.Drawing.Point(143, 30);
+            this.label16.Location = new System.Drawing.Point(33, 187);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(63, 23);
@@ -503,7 +502,7 @@ namespace CarrosFacil.Forms
             this.tbCodigoVeiculo.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodigoVeiculo.MaxLength = 20;
             this.tbCodigoVeiculo.Name = "tbCodigoVeiculo";
-            this.tbCodigoVeiculo.Size = new System.Drawing.Size(127, 27);
+            this.tbCodigoVeiculo.Size = new System.Drawing.Size(147, 27);
             this.tbCodigoVeiculo.TabIndex = 31;
             // 
             // cbStatus
@@ -511,7 +510,7 @@ namespace CarrosFacil.Forms
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(143, 57);
+            this.cbStatus.Location = new System.Drawing.Point(33, 214);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(147, 27);
@@ -530,7 +529,7 @@ namespace CarrosFacil.Forms
             this.gbEspecificacoes.Controls.Add(this.label14);
             this.gbEspecificacoes.Controls.Add(this.tbKmsRodado);
             this.gbEspecificacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gbEspecificacoes.Location = new System.Drawing.Point(25, 193);
+            this.gbEspecificacoes.Location = new System.Drawing.Point(25, 256);
             this.gbEspecificacoes.Margin = new System.Windows.Forms.Padding(4);
             this.gbEspecificacoes.Name = "gbEspecificacoes";
             this.gbEspecificacoes.Padding = new System.Windows.Forms.Padding(4);
@@ -541,6 +540,8 @@ namespace CarrosFacil.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbEstoque);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.cbModelo);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbCategoria);
@@ -554,7 +555,7 @@ namespace CarrosFacil.Forms
             this.groupBox1.Controls.Add(this.tbTempoUso);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(25, 294);
+            this.groupBox1.Location = new System.Drawing.Point(25, 357);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -574,7 +575,7 @@ namespace CarrosFacil.Forms
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(597, 479);
+            this.groupBox2.Size = new System.Drawing.Size(597, 287);
             this.groupBox2.TabIndex = 114;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Características:";
@@ -613,15 +614,164 @@ namespace CarrosFacil.Forms
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 77);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(583, 391);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 203);
             this.dataGridView1.TabIndex = 115;
+            // 
+            // tbDesconto
+            // 
+            this.tbDesconto.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbDesconto.Location = new System.Drawing.Point(334, 122);
+            this.tbDesconto.MaxLength = 5;
+            this.tbDesconto.Name = "tbDesconto";
+            this.tbDesconto.Size = new System.Drawing.Size(156, 27);
+            this.tbDesconto.TabIndex = 109;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label5.Location = new System.Drawing.Point(334, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 23);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Desconto: (%)";
+            // 
+            // tbPrecoVenda
+            // 
+            this.tbPrecoVenda.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPrecoVenda.Location = new System.Drawing.Point(171, 57);
+            this.tbPrecoVenda.MaxLength = 11;
+            this.tbPrecoVenda.Name = "tbPrecoVenda";
+            this.tbPrecoVenda.Size = new System.Drawing.Size(156, 27);
+            this.tbPrecoVenda.TabIndex = 111;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label17.Location = new System.Drawing.Point(171, 31);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(124, 23);
+            this.label17.TabIndex = 112;
+            this.label17.Text = "* Preço Venda:";
+            // 
+            // tbPrecoDesconto
+            // 
+            this.tbPrecoDesconto.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPrecoDesconto.Location = new System.Drawing.Point(334, 57);
+            this.tbPrecoDesconto.MaxLength = 11;
+            this.tbPrecoDesconto.Name = "tbPrecoDesconto";
+            this.tbPrecoDesconto.Size = new System.Drawing.Size(156, 27);
+            this.tbPrecoDesconto.TabIndex = 113;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label20.Location = new System.Drawing.Point(334, 31);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(149, 23);
+            this.label20.TabIndex = 114;
+            this.label20.Text = "* Preço Desconto:";
+            // 
+            // rbDescontoSim
+            // 
+            this.rbDescontoSim.AutoSize = true;
+            this.rbDescontoSim.Location = new System.Drawing.Point(7, 26);
+            this.rbDescontoSim.Name = "rbDescontoSim";
+            this.rbDescontoSim.Size = new System.Drawing.Size(50, 23);
+            this.rbDescontoSim.TabIndex = 116;
+            this.rbDescontoSim.Text = "Sim";
+            this.rbDescontoSim.UseVisualStyleBackColor = true;
+            // 
+            // rbDescontoNao
+            // 
+            this.rbDescontoNao.AutoSize = true;
+            this.rbDescontoNao.Checked = true;
+            this.rbDescontoNao.Location = new System.Drawing.Point(92, 26);
+            this.rbDescontoNao.Name = "rbDescontoNao";
+            this.rbDescontoNao.Size = new System.Drawing.Size(53, 23);
+            this.rbDescontoNao.TabIndex = 117;
+            this.rbDescontoNao.TabStop = true;
+            this.rbDescontoNao.Text = "Não";
+            this.rbDescontoNao.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbDescontoNao);
+            this.groupBox3.Controls.Add(this.rbDescontoSim);
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F);
+            this.groupBox3.Location = new System.Drawing.Point(176, 96);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(146, 53);
+            this.groupBox3.TabIndex = 118;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ativar desconto?";
+            // 
+            // tbEstoque
+            // 
+            this.tbEstoque.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbEstoque.Location = new System.Drawing.Point(197, 120);
+            this.tbEstoque.MaxLength = 1;
+            this.tbEstoque.Name = "tbEstoque";
+            this.tbEstoque.Size = new System.Drawing.Size(136, 27);
+            this.tbEstoque.TabIndex = 104;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label15.Location = new System.Drawing.Point(197, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 23);
+            this.label15.TabIndex = 105;
+            this.label15.Text = "* Estoque:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lbFoto);
+            this.groupBox4.Controls.Add(this.pbFoto);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox4.Location = new System.Drawing.Point(713, 387);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(597, 247);
+            this.groupBox4.TabIndex = 116;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Foto do veículo (Clique na foto para mudar)";
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Location = new System.Drawing.Point(211, 25);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(190, 190);
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
+            // 
+            // lbFoto
+            // 
+            this.lbFoto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFoto.AutoSize = true;
+            this.lbFoto.Font = new System.Drawing.Font("Calibri", 10F);
+            this.lbFoto.Location = new System.Drawing.Point(277, 222);
+            this.lbFoto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbFoto.Name = "lbFoto";
+            this.lbFoto.Size = new System.Drawing.Size(58, 17);
+            this.lbFoto.TabIndex = 40;
+            this.lbFoto.Text = "Sem foto";
             // 
             // FormVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 644);
+            this.ClientSize = new System.Drawing.Size(1327, 706);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbEspecificacoes);
             this.Controls.Add(this.gbDadosRegistro);
@@ -645,57 +795,75 @@ namespace CarrosFacil.Forms
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbModelo;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Button btnAtualizar;
-        private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.ComboBox cbCategoria;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbEstadoVeiculo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbTipoCombustivel;
-        private System.Windows.Forms.ComboBox cbTipoCambio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbTempoUso;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbCusto;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbKmsRodado;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbPlaca;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbColor;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbDescricao;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox tbAno;
-        private System.Windows.Forms.TextBox tbLucro;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbPrecoVenda;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox gbPrecoVenda;
-        private System.Windows.Forms.GroupBox gbDadosRegistro;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox tbCodigoVeiculo;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.GroupBox gbEspecificacoes;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+
+        public System.Windows.Forms.ComboBox cbModelo;
+        public System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Button btnDeletar;
+        public System.Windows.Forms.Button btnAtualizar;
+        public System.Windows.Forms.Button btnCadastrar;
+        public System.Windows.Forms.ComboBox cbCategoria;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label26;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox cbEstadoVeiculo;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox cbTipoCombustivel;
+        public System.Windows.Forms.ComboBox cbTipoCambio;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox tbTempoUso;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox tbPrecoCusto;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.TextBox tbKmsRodado;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox tbPlaca;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.ComboBox cbColor;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox tbDescricao;
+        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.MaskedTextBox tbAno;
+        public System.Windows.Forms.TextBox tbLucro;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.GroupBox gbPrecoVenda;
+        public System.Windows.Forms.GroupBox gbDadosRegistro;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox tbCodigoVeiculo;
+        public System.Windows.Forms.ComboBox cbStatus;
+        public System.Windows.Forms.GroupBox gbEspecificacoes;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rbDescontoNao;
+        private System.Windows.Forms.RadioButton rbDescontoSim;
+        public System.Windows.Forms.TextBox tbPrecoDesconto;
+        public System.Windows.Forms.Label label20;
+        public System.Windows.Forms.TextBox tbPrecoVenda;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TextBox tbDesconto;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox tbEstoque;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.GroupBox groupBox4;
+        public System.Windows.Forms.PictureBox pbFoto;
+        public System.Windows.Forms.Label lbFoto;
     }
 }

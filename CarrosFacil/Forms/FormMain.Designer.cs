@@ -51,6 +51,7 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.menuConsVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -146,7 +147,8 @@ namespace CarrosFacil
             // 
             this.menuConsFuncionarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.funcionariosToolStripMenuItem,
-            this.menuConsClientes});
+            this.menuConsClientes,
+            this.menuConsVeiculos});
             this.menuConsFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("menuConsFuncionarios.Image")));
             this.menuConsFuncionarios.Name = "menuConsFuncionarios";
             this.menuConsFuncionarios.Size = new System.Drawing.Size(142, 36);
@@ -227,6 +229,13 @@ namespace CarrosFacil
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
             // 
+            // menuConsVeiculos
+            // 
+            this.menuConsVeiculos.Name = "menuConsVeiculos";
+            this.menuConsVeiculos.Size = new System.Drawing.Size(199, 30);
+            this.menuConsVeiculos.Text = "Veiculos";
+            this.menuConsVeiculos.Click += new System.EventHandler(this.menuConsVeiculos_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -272,6 +281,7 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripMenuItem menuCadVeiculo;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuConsClientes;
+        private System.Windows.Forms.ToolStripMenuItem menuConsVeiculos;
     }
 }
 

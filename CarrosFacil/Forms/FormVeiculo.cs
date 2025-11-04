@@ -18,6 +18,10 @@ namespace CarrosFacil.Forms
             InitializeComponent();
         }
 
+        public string tipo, estado, estado_civil, sexo;
+        public int cargo, tipo_acesso;
+        public DateTime data_cadastro;
+
         private void FormVeiculo_Load(object sender, EventArgs e)
         {
             // Status
@@ -128,6 +132,22 @@ namespace CarrosFacil.Forms
 
             // Configuração final
             cbCategoria.SelectedIndex = -1;
+            
+            //
+            if (tipo == "Atualização")
+            {
+                cbStatus.Enabled = true;
+                btnCadastrar.Enabled = false;
+                btnAtualizar.Enabled = true;
+                btnDeletar.Enabled = true;
+            }
+            else
+            {
+                cbStatus.Enabled = false;
+                btnCadastrar.Enabled = true;
+                btnAtualizar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -145,7 +165,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, insira o preço do veículo e o percentual de lucro.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                tbCusto.BackColor = Color.Red;
+                tbPrecoCusto.BackColor = Color.Red;
                 tbLucro.BackColor = Color.Red;
                 return;
             }
@@ -155,7 +175,7 @@ namespace CarrosFacil.Forms
             veiculo.categoria = cbCategoria.SelectedItem.ToString();
             veiculo.estado_do_veiculo = cbEstadoVeiculo.SelectedItem.ToString();
             veiculo.tempo_de_uso = Convert.ToInt32(tbTempoUso.Text);
-            veiculo.preco = Convert.ToDecimal(tbPrecoVenda.Text);
+            veiculo.preco_custo = Convert.ToDecimal(tbPrecoVenda.Text);
             veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
             veiculo.final_placa = tbPlaca.Text;
             veiculo.cor = cbColor.SelectedItem.ToString();
@@ -211,7 +231,7 @@ namespace CarrosFacil.Forms
             tbAno.BackColor = color;
             cbTipoCambio.BackColor = color;
             cbTipoCombustivel.BackColor = color;
-            tbCusto.BackColor = color;
+            tbPrecoCusto.BackColor = color;
             tbLucro.BackColor = color;
         }
 
@@ -229,7 +249,7 @@ namespace CarrosFacil.Forms
             cbTipoCambio.SelectedIndex = -1;
             cbTipoCombustivel.SelectedIndex = -1;
             tbPrecoVenda.Clear();
-            tbCusto.Clear();
+            tbPrecoCusto.Clear();
             tbLucro.Clear();
         }
 
@@ -255,9 +275,9 @@ namespace CarrosFacil.Forms
             // 3. Calculate o preço de venda.
             // 4. Mostre ao usuário
             // 5. Resposta visual ao usuário apenas para erros de: lucro menor que 1, digite apenas números.
-            if (tbCusto.Text == "" || tbLucro.Text == "") return;
+            if (tbPrecoCusto.Text == "" || tbLucro.Text == "") return;
 
-            decimal preco = SafeDecimalConvert(tbCusto.Text, "Por favor, digite apenas números válidos!");
+            decimal preco = SafeDecimalConvert(tbPrecoCusto.Text, "Por favor, digite apenas números válidos!");
             decimal percentualLucro = SafeDecimalConvert(tbLucro.Text, "Por favor, digite apenas números válidos!");
 
             if (percentualLucro < 1)

@@ -31,8 +31,6 @@ namespace CarrosFacil.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.mtbTelefone2 = new System.Windows.Forms.MaskedTextBox();
-            this.cbTipoAcesso = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
@@ -78,13 +76,13 @@ namespace CarrosFacil.Forms
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
+            this.dtpDataCadastro = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCodigoCliente = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpDataCadastro = new System.Windows.Forms.DateTimePicker();
             this.groupBox4.SuspendLayout();
             this.gbDadosAcesso.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -102,42 +100,21 @@ namespace CarrosFacil.Forms
             this.mtbTelefone2.Size = new System.Drawing.Size(248, 27);
             this.mtbTelefone2.TabIndex = 57;
             // 
-            // cbTipoAcesso
-            // 
-            this.cbTipoAcesso.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cbTipoAcesso.FormattingEnabled = true;
-            this.cbTipoAcesso.Location = new System.Drawing.Point(8, 125);
-            this.cbTipoAcesso.Margin = new System.Windows.Forms.Padding(4);
-            this.cbTipoAcesso.Name = "cbTipoAcesso";
-            this.cbTipoAcesso.Size = new System.Drawing.Size(173, 27);
-            this.cbTipoAcesso.TabIndex = 25;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label13.Location = new System.Drawing.Point(8, 98);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(142, 23);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "* Tipo de Acesso:";
-            // 
             // tbSenha
             // 
             this.tbSenha.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbSenha.Location = new System.Drawing.Point(189, 125);
+            this.tbSenha.Location = new System.Drawing.Point(8, 125);
             this.tbSenha.Margin = new System.Windows.Forms.Padding(4);
             this.tbSenha.MaxLength = 26;
             this.tbSenha.Name = "tbSenha";
-            this.tbSenha.Size = new System.Drawing.Size(219, 27);
+            this.tbSenha.Size = new System.Drawing.Size(400, 27);
             this.tbSenha.TabIndex = 27;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label14.Location = new System.Drawing.Point(189, 98);
+            this.label14.Location = new System.Drawing.Point(8, 98);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 23);
@@ -478,11 +455,10 @@ namespace CarrosFacil.Forms
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // gbDadosAcesso
             // 
-            this.gbDadosAcesso.Controls.Add(this.cbTipoAcesso);
-            this.gbDadosAcesso.Controls.Add(this.label13);
             this.gbDadosAcesso.Controls.Add(this.tbSenha);
             this.gbDadosAcesso.Controls.Add(this.label14);
             this.gbDadosAcesso.Controls.Add(this.tbUsuario);
@@ -661,6 +637,29 @@ namespace CarrosFacil.Forms
             this.gbDadosRegistro.TabStop = false;
             this.gbDadosRegistro.Text = "Registro";
             // 
+            // dtpDataCadastro
+            // 
+            this.dtpDataCadastro.CustomFormat = "";
+            this.dtpDataCadastro.Enabled = false;
+            this.dtpDataCadastro.Font = new System.Drawing.Font("Calibri", 12F);
+            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCadastro.Location = new System.Drawing.Point(8, 121);
+            this.dtpDataCadastro.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDataCadastro.Name = "dtpDataCadastro";
+            this.dtpDataCadastro.Size = new System.Drawing.Size(233, 27);
+            this.dtpDataCadastro.TabIndex = 38;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label2.Location = new System.Drawing.Point(8, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 23);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Data de cadastro:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -729,29 +728,6 @@ namespace CarrosFacil.Forms
             this.label27.TabIndex = 37;
             this.label27.Text = "* Nome Completo:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label2.Location = new System.Drawing.Point(8, 94);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 23);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Data de cadastro:";
-            // 
-            // dtpDataCadastro
-            // 
-            this.dtpDataCadastro.CustomFormat = "";
-            this.dtpDataCadastro.Enabled = false;
-            this.dtpDataCadastro.Font = new System.Drawing.Font("Calibri", 12F);
-            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCadastro.Location = new System.Drawing.Point(8, 121);
-            this.dtpDataCadastro.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpDataCadastro.Name = "dtpDataCadastro";
-            this.dtpDataCadastro.Size = new System.Drawing.Size(233, 27);
-            this.dtpDataCadastro.TabIndex = 38;
-            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -791,8 +767,6 @@ namespace CarrosFacil.Forms
         #endregion
 
         public System.Windows.Forms.MaskedTextBox mtbTelefone2;
-        public System.Windows.Forms.ComboBox cbTipoAcesso;
-        public System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox tbSenha;
         public System.Windows.Forms.Label label14;
         public System.Windows.Forms.TextBox tbUsuario;

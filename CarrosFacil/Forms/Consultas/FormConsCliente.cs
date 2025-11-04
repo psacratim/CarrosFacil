@@ -76,7 +76,7 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            dgvClientes.DataSource = new Funcionario().ConsultarPorNome(tbNome.Text, rbInicio.Checked);
+            dgvClientes.DataSource = new Cliente().ConsultarPorNome(tbNome.Text, rbInicio.Checked);
         }
 
         private void PesquisarPorCPF()
@@ -89,7 +89,7 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            dgvClientes.DataSource = new Funcionario().ConsultarPorCpf(mskCpf.Text);
+            dgvClientes.DataSource = new Cliente().ConsultarPorCpf(mskCpf.Text);
         }
 
         private void PesquisarPorEstadoCivil()
@@ -102,12 +102,12 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            dgvClientes.DataSource = new Funcionario().ConsultarPorEstadoCivil(cbEstadoCivil.SelectedValue.ToString());
+            dgvClientes.DataSource = new Cliente().ConsultarPorEstadoCivil(cbEstadoCivil.SelectedItem.ToString());
         }
 
         private void PesquisarPorSexo()
         {
-            dgvClientes.DataSource = new Funcionario().ConsultarPorSexo(cbSexo.SelectedItem.ToString().Substring(0, 1));
+            dgvClientes.DataSource = new Cliente().ConsultarPorSexo(cbSexo.SelectedItem.ToString().Substring(0, 1));
         }
 
         private void PesquisarPorCidade()
@@ -120,17 +120,17 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            dgvClientes.DataSource = new Funcionario().ConsultarPorCidade(cbCidade.SelectedValue.ToString());
+            dgvClientes.DataSource = new Cliente().ConsultarPorCidade(cbCidade.SelectedValue.ToString());
         }
 
         private void PesquisarPorUsuario()
         {
-            dgvClientes.DataSource = new Funcionario().ConsultarPorUsuario(tbUsuario.Text);
+            dgvClientes.DataSource = new Cliente().ConsultarPorUsuario(tbUsuario.Text);
         }
 
         private void PesquisarPorStatus()
         {
-            dgvClientes.DataSource = new Funcionario().ConsultarPorStatus(cbStatus.SelectedIndex);
+            dgvClientes.DataSource = new Cliente().ConsultarPorStatus(cbStatus.SelectedIndex);
         }
 
         private void PesquisarPorSexoCidade()
@@ -141,7 +141,7 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            dgvClientes.DataSource = new Funcionario().ConsultarPorSexoCidade(cbCidade.SelectedValue.ToString(), cbSexo.SelectedItem.ToString().Substring(0, 1));
+            dgvClientes.DataSource = new Cliente().ConsultarPorSexoCidade(cbCidade.SelectedValue.ToString(), cbSexo.SelectedItem.ToString().Substring(0, 1));
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -206,10 +206,19 @@ namespace CarrosFacil.Forms
             {
                 // Cria o funcionario e obtém os dados.
                 Cliente cliente = new Cliente();
-                cliente.ConsultaFuncionario(Convert.ToInt32(dgvClientes.SelectedRows[0].Cells[0].Value));
+                cliente.ConsultaCliente(Convert.ToInt32(dgvClientes.SelectedRows[0].Cells[0].Value));
+
+                // Cria o formulário
+                FormCliente formCliente = new FormCliente();
+
+                // Tem cep? Então o sistema não deve pegar o endereço do cep e sim o do banco.
+                formCliente.tipo = "Atualização";
+                if (cliente.cep != "")
+                {
+                    formCliente.IGNORE_FIRST_CEP_REQUEST = true;
+                }
 
                 // Define os campos do funcionário
-                FormCliente formCliente = new FormCliente();
                 formCliente.tbCodigoCliente.Text = cliente.id.ToString();
                 formCliente.tbUsuario.Text = cliente.usuario;
                 formCliente.tbSenha.Text = cliente.senha;
@@ -232,9 +241,6 @@ namespace CarrosFacil.Forms
                 formCliente.estado = cliente.estado;
                 formCliente.tbComplemento.Text = cliente.complemento;
                 formCliente.data_cadastro = cliente.data_cadastro;
-
-                // Altera o tipo do form cliente.
-                formCliente.tipo = "Atualização";
 
                 // Modo exclusivo (ShowDialog)
                 formCliente.ShowDialog();

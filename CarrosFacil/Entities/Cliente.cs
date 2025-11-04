@@ -91,6 +91,106 @@ namespace CarrosFacil
             return conexao.ExecutaQuery(query);
         }
 
+        public DataTable ConsultarPorCidade(string cidade)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND cidade = '" + cidade + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorEstado(string estado)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND estado = '" + estado + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorSexo(string sexo)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND sexo = '" + sexo + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorStatus(int status)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = " + status + " ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorSexoCidade(string cidade, string sexo)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND sexo = '" + sexo + "' AND cidade = '" + cidade + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorNome(string nome, bool somentePrimeiroNome)
+        {
+            string searchName = (somentePrimeiroNome ? "" : "%") + nome + "%";
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND nome_completo LIKE '" + searchName + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorCpf(string cpf)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND cpf = '" + cpf + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorEstadoCivil(string estadoCivil)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND estado_civil = '" + estadoCivil + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorDataCadastro(DateTime inicio, DateTime fim)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND data_cadastro BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' AND '" + fim.ToString("yyyy-MM-dd") + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarSemFiltros()
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorUsuario(string usuario)
+        {
+            string query = "SELECT id '#', nome_completo 'Nome', cpf 'CPF', telefone1 'Telefone 1', telefone2 'Telefone 2', data_nascimento 'Data Nascimento', status 'Status' " +
+                            "FROM cliente WHERE status = 1 AND usuario = '" + usuario + "' ORDER BY nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
         public DataTable CarregarClientes()
         {
             string query = "SELECT id, nome_completo FROM cliente WHERE status = 1;";
@@ -107,7 +207,7 @@ namespace CarrosFacil
             return conexao.RetornaDados(query);
         }
 
-        public bool ConsultaFuncionario(int id)
+        public bool ConsultaCliente(int id)
         {
             string query = "SELECT * FROM cliente WHERE id=" + id;
 
@@ -143,5 +243,35 @@ namespace CarrosFacil
 
             return false;
         }
+        public int AtualizarCliente()
+        {
+            string query = string.Format(
+                "UPDATE cliente SET cpf = '{0}', rg = '{1}', nome_completo = '{2}', data_nascimento = '{3}', usuario = '{4}', senha = '{5}', endereco = '{6}', cep = '{7}', numero = {8}, complemento = '{9}', bairro = '{10}', cidade = '{11}', estado = '{12}', telefone1 = '{13}', telefone2 = '{14}', email = '{15}', estado_civil = '{16}', sexo = '{17}', status = {18} WHERE id = {19};",
+                cpf,
+                rg,
+                nome_completo,
+                data_nascimento.ToString("yyyy-MM-dd"),
+                usuario,
+                senha,
+                endereco,
+                cep,
+                numero,
+                complemento,
+                bairro,
+                cidade,
+                estado,
+                telefone1,
+                telefone2,
+                email,
+                estado_civil,
+                sexo,
+                status,
+                id
+            );
+
+            Conexao conexao = new Conexao();
+            return conexao.ExecutaQuery(query);
+        }
+
     }
 }

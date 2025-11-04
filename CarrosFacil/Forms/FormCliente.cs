@@ -24,6 +24,7 @@ namespace CarrosFacil.Forms
         public string tipo, estado, estado_civil, sexo;
         public int cargo, tipo_acesso;
         public DateTime data_cadastro;
+        public bool IGNORE_FIRST_CEP_REQUEST;
 
         private void FormCliente_Load(object sender, EventArgs e)
         {
@@ -71,11 +72,6 @@ namespace CarrosFacil.Forms
             cbEstadoCivil.Items.Add("Viúvo(a)");
             cbEstadoCivil.SelectedIndex = 0;
 
-            //Tipo de acesso
-            cbTipoAcesso.Items.Add("Comum");
-            cbTipoAcesso.Items.Add("Administrador");
-            cbTipoAcesso.SelectedIndex = 0;
-
             // Status
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
@@ -91,7 +87,6 @@ namespace CarrosFacil.Forms
 
                 cbEstado.SelectedItem = estado;
                 cbEstadoCivil.SelectedItem = estado_civil;
-                cbTipoAcesso.SelectedIndex = tipo_acesso;
                 dtpDataCadastro.Value = data_cadastro;
 
                 switch (sexo)
@@ -120,7 +115,7 @@ namespace CarrosFacil.Forms
         {
             if (!ValidarCampos())
             {
-                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 DefinirCorCamposObrigatorios(Color.Red);
                 tbNome.Focus();
@@ -129,7 +124,7 @@ namespace CarrosFacil.Forms
 
             if (dtpDataNascimento.Value.Year == DateTime.Now.Year)
             {
-                MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Aviso - Data inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 DefinirCorCamposObrigatorios(Color.Red);
                 dtpDataNascimento.Focus();
@@ -168,6 +163,65 @@ namespace CarrosFacil.Forms
             else
             {
                 MessageBox.Show("Cliente: " + cliente.nome_completo + " cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Limpar();
+            }
+        }
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                DefinirCorCamposObrigatorios(Color.Red);
+                tbNome.Focus();
+                return;
+            }
+
+            if (dtpDataNascimento.Value.Year == DateTime.Now.Year)
+            {
+                MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                DefinirCorCamposObrigatorios(Color.Red);
+                dtpDataNascimento.Focus();
+                return;
+            }
+
+            Cliente cliente = new Cliente();
+            cliente.id = Convert.ToInt32(tbCodigoCliente.Text);
+            cliente.cpf = mtbCpf.Text;
+            cliente.rg = mtbRg.MaskFull ? mtbRg.Text : "";
+            cliente.nome_completo = tbNome.Text;
+            cliente.data_nascimento = dtpDataNascimento.Value;
+
+            cliente.usuario = tbUsuario.Text;
+            cliente.senha = tbSenha.Text;
+
+            cliente.endereco = tbEndereco.Text;
+            cliente.cep = mtbCep.MaskFull ? mtbCep.Text : "";
+            cliente.numero = Convert.ToInt32(tbNumero.Text);
+            cliente.complemento = tbComplemento.Text;
+            cliente.bairro = tbBairro.Text;
+            cliente.cidade = tbCidade.Text;
+            cliente.estado = cbEstado.SelectedItem.ToString();
+
+            cliente.telefone1 = mtbTelefone1.Text;
+            cliente.telefone2 = mtbTelefone2.MaskFull ? mtbTelefone2.Text : "";
+            cliente.email = tbEmail.Text;
+            cliente.estado_civil = cbEstadoCivil.SelectedItem.ToString();
+
+            cliente.sexo = cbSexo.SelectedItem.ToString().First().ToString();
+            cliente.status = cbStatus.SelectedIndex;
+
+            int response = cliente.AtualizarCliente();
+            if (response == 0)
+            {
+                MessageBox.Show("Não foi possível atualizar o cliente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Cliente: " + cliente.nome_completo + " atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
 
                 Limpar();
             }
@@ -230,13 +284,18 @@ namespace CarrosFacil.Forms
             mtbRg.Text = "";
             mtbCep.Text = "";
             tbEmail.Text = "";
-            cbTipoAcesso.SelectedIndex = 0;
 
             DefinirCorCamposObrigatorios(SystemColors.Window);
         }
 
         private async void mtbCep_TextChanged(object sender, EventArgs e)
         {
+            if (tipo == "Atualização" && IGNORE_FIRST_CEP_REQUEST)
+            {
+                IGNORE_FIRST_CEP_REQUEST = false;
+                return;
+            }
+
             if (mtbCep.MaskFull)
             {
                 string cep = mtbCep.Text.Replace("-", "");

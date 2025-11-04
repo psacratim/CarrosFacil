@@ -1,4 +1,5 @@
 ﻿using CarrosFacil.Forms;
+using CarrosFacil.Forms.Consultas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,6 +150,18 @@ namespace CarrosFacil
             }
 
             FormConsCliente form = new FormConsCliente();
+            form.Show();
+        }
+
+        private void menuConsVeiculos_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormConsVeiculo>().Count() > 0)
+            {
+                MessageBox.Show("A consulta de veiculos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormConsVeiculo form = new FormConsVeiculo();
             form.Show();
         }
 
