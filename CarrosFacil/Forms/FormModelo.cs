@@ -68,6 +68,7 @@ namespace CarrosFacil
             else
             {
                 MessageBox.Show("Modelo: " + modelo.nome + " cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DefinirCorCamposObrigatorios(SystemColors.Window);
                 Limpar();
             }
         }

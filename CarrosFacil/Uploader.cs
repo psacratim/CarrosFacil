@@ -39,7 +39,7 @@ namespace CarrosFacil
 
         public static string CarregarImagemDoServidor(string imagem)
         {
-            string caminho = imagem.Replace("../", "");
+            string caminho = "images/" + imagem;
             if (caminho != "")
             {
                 return urlServidor + caminho;

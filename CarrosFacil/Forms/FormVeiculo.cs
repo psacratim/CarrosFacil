@@ -18,9 +18,8 @@ namespace CarrosFacil.Forms
             InitializeComponent();
         }
 
-        public string tipo, estado, estado_civil, sexo;
-        public int cargo, tipo_acesso;
-        public DateTime data_cadastro;
+        public int status, id_modelo;
+        public string tipo, tipo_combustivel, tipo_cambio, cor, categoria, estado_do_veiculo;
 
         private void FormVeiculo_Load(object sender, EventArgs e)
         {
@@ -71,21 +70,6 @@ namespace CarrosFacil.Forms
             cbColor.Items.Add("Vinho");
             cbColor.SelectedIndex = -1;
 
-            // Modeos - ALIMENTADO PELO DB
-            _ = Task.Run(() =>
-            {
-                Modelo modelo = new Modelo();
-                DataTable modelos = modelo.CarregarModelos();
-
-                this.Invoke((Action)(() =>
-                {
-                    cbModelo.DataSource = modelos;
-                    cbModelo.DisplayMember = "nome";
-                    cbModelo.ValueMember = "id";
-                    cbModelo.SelectedIndex = -1;
-                }));
-            });
-
             // Carros de passeio
             cbCategoria.Items.Add("Hatchback");
             cbCategoria.Items.Add("Sedan");
@@ -132,25 +116,49 @@ namespace CarrosFacil.Forms
 
             // Configuração final
             cbCategoria.SelectedIndex = -1;
-            
-            //
-            if (tipo == "Atualização")
+
+            // Modelos - ALIMENTADO PELO DB
+            _ = Task.Run(() =>
             {
-                cbStatus.Enabled = true;
-                btnCadastrar.Enabled = false;
-                btnAtualizar.Enabled = true;
-                btnDeletar.Enabled = true;
-            }
-            else
-            {
-                cbStatus.Enabled = false;
-                btnCadastrar.Enabled = true;
-                btnAtualizar.Enabled = false;
-                btnDeletar.Enabled = false;
-            }
+                Modelo modelo = new Modelo();
+                DataTable modelos = modelo.CarregarModelos();
+
+                this.Invoke((Action)(() =>
+                {
+                    cbModelo.DataSource = modelos;
+                    cbModelo.DisplayMember = "nome";
+                    cbModelo.ValueMember = "id";
+
+                    // Atualiza os dados após carregar tudo
+                    if (tipo == "Atualização")
+                    {
+                        cbModelo.SelectedValue = id_modelo;
+                        cbEstadoVeiculo.SelectedItem = estado_do_veiculo;
+                        cbColor.SelectedItem = cor;
+                        cbTipoCambio.SelectedItem = tipo_cambio;
+                        cbTipoCombustivel.SelectedItem = tipo_combustivel;
+                        cbStatus.SelectedIndex = status;
+                        cbCategoria.SelectedItem = categoria;
+
+                        cbStatus.Enabled = true;
+                        btnCadastrar.Enabled = false;
+                        btnAtualizar.Enabled = true;
+                        btnDeletar.Enabled = true;
+                    }
+                    else
+                    {
+                        cbModelo.SelectedIndex = -1;
+
+                        cbStatus.Enabled = false;
+                        btnCadastrar.Enabled = true;
+                        btnAtualizar.Enabled = false;
+                        btnDeletar.Enabled = false;
+                    }
+                }));
+            });
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private async void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
             {
@@ -175,7 +183,12 @@ namespace CarrosFacil.Forms
             veiculo.categoria = cbCategoria.SelectedItem.ToString();
             veiculo.estado_do_veiculo = cbEstadoVeiculo.SelectedItem.ToString();
             veiculo.tempo_de_uso = Convert.ToInt32(tbTempoUso.Text);
-            veiculo.preco_custo = Convert.ToDecimal(tbPrecoVenda.Text);
+            veiculo.preco_custo = Convert.ToDecimal(tbPrecoCusto.Text.Replace(".", "").Replace(",", "."));
+            veiculo.preco_venda = Convert.ToDecimal(tbPrecoVenda.Text.Replace(".", "").Replace(",", "."));
+            veiculo.preco_desconto = Convert.ToDecimal(tbPrecoDesconto.Text.Replace(".", "").Replace(",", "."));
+            veiculo.desconto = Convert.ToInt32(tbDesconto.Text);
+            veiculo.tem_desconto = veiculo.desconto > 0;
+            veiculo.lucro = Convert.ToInt32(tbLucro.Text);
             veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
             veiculo.final_placa = tbPlaca.Text;
             veiculo.cor = cbColor.SelectedItem.ToString();
@@ -183,14 +196,26 @@ namespace CarrosFacil.Forms
             veiculo.ano = Convert.ToInt32(tbAno.Text);
             veiculo.tipo_cambio = cbTipoCambio.SelectedItem.ToString();
             veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
-            veiculo.estoque = 0;
+            veiculo.estoque = Convert.ToInt32(tbEstoque.Text);
             veiculo.status = 1;
+
+            // SALVANDO A FOTO NO BANCO DE DADOS!
+            string fotoVeiculo = await Uploader.EnviarImagem(lbFoto.Text);
+            if (fotoVeiculo.Contains("error"))
+            {
+                MessageBox.Show("Erro ao salvar a foto, veículo será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                veiculo.foto = fotoVeiculo;
+            }
 
             int response = veiculo.Cadastrar();
             if (response == 0)
             {
                 MessageBox.Show("Não foi possível cadastrar o veículo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 MessageBox.Show("Veiculo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -270,14 +295,9 @@ namespace CarrosFacil.Forms
 
         private void AtualizarPrecoVendas()
         {
-            // 1. Se não tem nada escrito em preço de veículo ou em % de lucro = return; ---> Aguardando ele digitar todos
-            // 2. Converta todos os números para decimais.
-            // 3. Calculate o preço de venda.
-            // 4. Mostre ao usuário
-            // 5. Resposta visual ao usuário apenas para erros de: lucro menor que 1, digite apenas números.
             if (tbPrecoCusto.Text == "" || tbLucro.Text == "") return;
 
-            decimal preco = SafeDecimalConvert(tbPrecoCusto.Text, "Por favor, digite apenas números válidos!");
+            decimal precoCusto = SafeDecimalConvert(tbPrecoCusto.Text, "Por favor, digite apenas números válidos!");
             decimal percentualLucro = SafeDecimalConvert(tbLucro.Text, "Por favor, digite apenas números válidos!");
 
             if (percentualLucro < 1)
@@ -286,11 +306,18 @@ namespace CarrosFacil.Forms
                 return;
             }
 
-            decimal fatorLucro = 1 + (percentualLucro / 100); // Output: 1 + (50 / 100) -> 1 + 0,5 -> 1,5. Result: price + 1,5 -> final_price;
-            decimal precoVenda = preco * fatorLucro;
-            decimal lucroObtido = precoVenda - preco;
+            decimal fatorLucro = 1 + (percentualLucro / 100); // Output (Example): 1.5 (+50%)
+            decimal precoVenda = precoCusto * fatorLucro;
+            decimal precoDesconto = 0;
 
-            tbPrecoVenda.Text = Convert.ToString(precoVenda);
+            if (rbDescontoSim.Checked)
+            {
+                decimal desconto = 1 - SafeDecimalConvert(tbDesconto.Text, "Por favor, digite um desconto entre 1% e 100%!") / 100;
+                precoDesconto = precoVenda * desconto;
+            }
+
+            tbPrecoVenda.Text = precoVenda.ToString("N2");
+            tbPrecoDesconto.Text = precoDesconto.ToString("N2");
         }
 
         private decimal SafeDecimalConvert(string text, string errorMessage)
@@ -322,9 +349,50 @@ namespace CarrosFacil.Forms
 
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void rbDescontoSim_CheckedChanged(object sender, EventArgs e)
+        {
+            tbDesconto.Enabled = true;
+        }
+
+        private void rbDescontoNao_CheckedChanged(object sender, EventArgs e)
+        {
+            tbPrecoDesconto.Text = "0";
+            tbDesconto.Enabled = false;
+        }
+
+        private void tbDesconto_TextChanged(object sender, EventArgs e)
+        {
+            AtualizarPrecoVendas();
+        }
+
+        private void pbFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog imageSelectDialog = new OpenFileDialog();
+            imageSelectDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            imageSelectDialog.Title = "Selecionar foto";
+
+            if (imageSelectDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pbFoto.Image = new Bitmap(imageSelectDialog.FileName);
+                    lbFoto.Text = imageSelectDialog.FileName.Replace("\\", "//");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ocorreu um erro ao carregar imagem, tente novamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void tbPreco_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 44 && e.KeyChar != 27 && e.KeyChar != 01)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 44 && e.KeyChar != 27 && e.KeyChar != 01 && e.KeyChar != 46)
             {
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -363,9 +431,81 @@ namespace CarrosFacil.Forms
 
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private async void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                DefinirCorCamposObrigatorios(Color.Red);
+                tbTempoUso.Focus();
+                return;
+            }
+
+            if (tbPrecoVenda.Text == "")
+            {
+                MessageBox.Show("Por favor, insira o preço do veículo e o percentual de lucro.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                tbPrecoCusto.BackColor = Color.Red;
+                tbLucro.BackColor = Color.Red;
+                return;
+            }
+
+            decimal preco_custo = Convert.ToDecimal(tbPrecoCusto.Text.Replace(".", ""));
+            decimal preco_venda = Convert.ToDecimal(tbPrecoVenda.Text.Replace(".", ""));
+            decimal preco_desconto = Convert.ToDecimal(tbPrecoDesconto.Text.Replace(".", "")); ;
+            if (rbDescontoSim.Checked && preco_desconto < preco_custo)
+            {
+                MessageBox.Show("O preço com desconto não pode ser menor que o de custo, ajuste o desconto ou desative.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                tbDesconto.BackColor = Color.Red;
+                tbDesconto.Focus();
+                return;
+            }
+
+            Veiculo veiculo = new Veiculo();
+            veiculo.id = Convert.ToInt32(tbCodigoVeiculo.Text);
+            veiculo.id_modelo = (int)cbModelo.SelectedValue;
+            veiculo.categoria = cbCategoria.SelectedItem.ToString();
+            veiculo.estado_do_veiculo = cbEstadoVeiculo.SelectedItem.ToString();
+            veiculo.tempo_de_uso = Convert.ToInt32(tbTempoUso.Text);
+            veiculo.preco_custo = preco_custo;
+            veiculo.preco_venda = preco_venda;
+            veiculo.preco_desconto = preco_desconto;
+            veiculo.desconto = Convert.ToInt32(tbDesconto.Text);
+            veiculo.tem_desconto = veiculo.desconto > 0;
+            veiculo.lucro = Convert.ToInt32(tbLucro.Text);
+            veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
+            veiculo.final_placa = tbPlaca.Text;
+            veiculo.cor = cbColor.SelectedItem.ToString();
+            veiculo.descricao = tbDescricao.Text;
+            veiculo.ano = Convert.ToInt32(tbAno.Text);
+            veiculo.tipo_cambio = cbTipoCambio.SelectedItem.ToString();
+            veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
+            veiculo.estoque = Convert.ToInt32(tbEstoque.Text);
+            veiculo.status = cbStatus.SelectedIndex;
+
+            // SALVANDO A FOTO NO BANCO DE DADOS!
+            string fotoVeiculo = await Uploader.EnviarImagem(lbFoto.Text);
+            if (fotoVeiculo.Contains("error"))
+            {
+                MessageBox.Show("Erro ao salvar a foto, veículo será salvo sem foto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                veiculo.foto = fotoVeiculo;
+            }
+
+            int response = veiculo.AtualizarVeiculo();
+            if (response == 0)
+            {
+                MessageBox.Show("Não foi possível atualizar o veículo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Veiculo atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CarrosFacil
 {
@@ -16,6 +18,7 @@ namespace CarrosFacil
         public decimal preco_desconto { get; set; }
         public int desconto { get; set; }
         public bool tem_desconto { get; set; }
+        public int lucro { get; set; }
         public int kms_rodado { get; set; }
         public string final_placa { get; set; }
         public string cor { get; set; }
@@ -56,16 +59,17 @@ namespace CarrosFacil
         public int Cadastrar()
         {
             string query = string.Format(
-                "INSERT INTO veiculo VALUES (0, {0}, '{1}', '{2}', {3}, {4}, {5}, {6}, {7}, {8}, {9}, '{10}', '{11}', '{12}', {13}, '{14}', '{15}', '{16}', {17}, NOW(), {18});",
+                "INSERT INTO veiculo VALUES (0, {0}, '{1}', '{2}', {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, '{11}', '{12}', '{13}', {14}, '{15}', '{16}', '{17}', {18}, NOW(), {19});",
                 id_modelo,
                 categoria,
                 estado_do_veiculo,
                 tempo_de_uso,
-                preco_custo, // novo campo do banco
+                preco_custo.ToString().Replace(",", "."), // novo campo do banco
                 preco_venda.ToString().Replace(",", "."),
                 preco_desconto.ToString().Replace(",", "."),
                 desconto,
                 tem_desconto ? 1 : 0,
+                lucro,
                 kms_rodado,
                 final_placa,
                 cor,
@@ -84,7 +88,7 @@ namespace CarrosFacil
         public int AtualizarVeiculo()
         {
             string query = string.Format(
-                "UPDATE veiculo SET id_modelo = {0}, categoria = '{1}', estado_do_veiculo = '{2}', tempo_de_uso = {3}, preco_custo = {4}, preco_venda = {5}, preco_desconto = {6}, desconto = {7}, tem_desconto = {8}, kms_rodado = {9}, final_placa = '{10}', cor = '{11}', descricao = '{12}', ano = {13}, tipo_cambio = '{14}', tipo_combustivel = '{15}', foto = '{16}', estoque = {17}, status = {18} WHERE id = {19};",
+                "UPDATE veiculo SET id_modelo = {0}, categoria = '{1}', estado_do_veiculo = '{2}', tempo_de_uso = {3}, preco_custo = {4}, preco_venda = {5}, preco_desconto = {6}, desconto = {7}, tem_desconto = {8}, lucro = {9}, kms_rodado = {10}, final_placa = '{11}', cor = '{12}', descricao = '{13}', ano = {14}, tipo_cambio = '{15}', tipo_combustivel = '{16}', foto = '{17}', estoque = {18}, status = {19} WHERE id = {20};",
                 id_modelo,
                 categoria,
                 estado_do_veiculo,
@@ -94,6 +98,7 @@ namespace CarrosFacil
                 preco_desconto.ToString().Replace(",", "."),
                 desconto,
                 tem_desconto ? 1 : 0,
+                lucro,
                 kms_rodado,
                 final_placa,
                 cor,
@@ -130,6 +135,7 @@ namespace CarrosFacil
                 preco_desconto = Convert.ToDecimal(dt.Rows[0]["preco_desconto"]);
                 desconto = Convert.ToInt32(dt.Rows[0]["desconto"]);
                 tem_desconto = Convert.ToBoolean(dt.Rows[0]["tem_desconto"]);
+                lucro = Convert.ToInt32(dt.Rows[0]["lucro"]);
                 kms_rodado = Convert.ToInt32(dt.Rows[0]["kms_rodado"]);
                 final_placa = Convert.ToString(dt.Rows[0]["final_placa"]);
                 cor = Convert.ToString(dt.Rows[0]["cor"]);

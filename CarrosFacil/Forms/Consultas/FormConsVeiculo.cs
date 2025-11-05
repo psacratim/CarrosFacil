@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -187,39 +188,52 @@ namespace CarrosFacil.Forms.Consultas
 
                 // Define o tipo de operação
                 formVeiculo.tipo = "Atualização";
-
                 formVeiculo.tbCodigoVeiculo.Text = veiculo.id.ToString();
-                formVeiculo.cbModelo.SelectedValue = veiculo.id_modelo;
-                formVeiculo.cbCategoria.SelectedItem = veiculo.categoria;
-                formVeiculo.cbEstadoVeiculo.SelectedItem = veiculo.estado_do_veiculo;
+                formVeiculo.id_modelo = veiculo.id_modelo;
+                formVeiculo.categoria = veiculo.categoria;
+                formVeiculo.estado_do_veiculo= veiculo.estado_do_veiculo;
                 formVeiculo.tbTempoUso.Text = veiculo.tempo_de_uso.ToString();
-                formVeiculo.tbPrecoCusto.Text = veiculo.preco_custo.ToString("F2");
-                formVeiculo.tbPrecoVenda.Text = veiculo.preco_venda.ToString("F2");
+                formVeiculo.tbPrecoCusto.Text = veiculo.preco_custo.ToString("N2");
+                formVeiculo.tbPrecoVenda.Text = veiculo.preco_venda.ToString("N2");
+                formVeiculo.tbPrecoDesconto.Text = veiculo.preco_desconto.ToString("N2");
                 formVeiculo.tbDesconto.Text = veiculo.desconto.ToString();
-                if (veiculo.tem_desconto)
-                {
-                    formVeiculo.tbLucro.Text = Convert.ToString(veiculo.preco_desconto - veiculo.preco_custo);
-                } else formVeiculo.tbLucro.Text = Convert.ToString(veiculo.preco_venda - veiculo.preco_custo);
+                formVeiculo.rbDescontoNao.Checked = !veiculo.tem_desconto;
+                formVeiculo.rbDescontoSim.Checked = veiculo.tem_desconto;
+                formVeiculo.tbLucro.Text = veiculo.lucro.ToString();
                 formVeiculo.tbKmsRodado.Text = veiculo.kms_rodado.ToString();
                 formVeiculo.tbPlaca.Text = veiculo.final_placa;
-                formVeiculo.cbColor.SelectedItem = veiculo.cor;
+                formVeiculo.cor = veiculo.cor;
                 formVeiculo.tbDescricao.Text = veiculo.descricao;
                 formVeiculo.tbAno.Text = veiculo.ano.ToString();
-                formVeiculo.cbTipoCambio.SelectedItem = veiculo.tipo_cambio;
-                formVeiculo.cbTipoCombustivel.SelectedItem = veiculo.tipo_combustivel;
+                formVeiculo.tipo_cambio = veiculo.tipo_cambio;
+                formVeiculo.tipo_combustivel = veiculo.tipo_combustivel;
                 formVeiculo.tbEstoque.Text = veiculo.estoque.ToString();
-                formVeiculo.cbStatus.SelectedIndex = veiculo.status == 1 ? 1 : 0;
+                formVeiculo.status = veiculo.status == 1 ? 1 : 0;
 
                 // Foto do veículo
                 if (!string.IsNullOrWhiteSpace(veiculo.foto))
                 {
                     try
                     {
-                        formVeiculo.pbFoto.Load(veiculo.foto);
+                        formVeiculo.pbFoto.Load(Uploader.CarregarImagemDoServidor(veiculo.foto));
                         formVeiculo.lbFoto.Text = veiculo.foto;
                     }
-                    catch
+                    catch (WebException ex)
                     {
+                        bool isNotFound = false;
+                        if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
+                        {
+                            var resp = (HttpWebResponse)ex.Response;
+                            if (resp.StatusCode == HttpStatusCode.NotFound)
+                            {
+                                MessageBox.Show("O veículo não tem nenhuma foto, adicione se necessário.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                isNotFound = true;
+                            }
+                        }
+
+                        if (!isNotFound) {
+                            MessageBox.Show("Não foi possível carregar a foto do veículo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
 

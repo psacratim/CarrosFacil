@@ -56,6 +56,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Caracteristica: " + caracteristica.nome + " cadastrada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                DefinirCorCamposObrigatorios(SystemColors.Window);
                 Limpar();
             }
         }

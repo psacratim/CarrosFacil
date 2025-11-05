@@ -63,38 +63,38 @@ namespace CarrosFacil.Forms
             this.tbLucro = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.gbPrecoVenda = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbDescontoNao = new System.Windows.Forms.RadioButton();
+            this.rbDescontoSim = new System.Windows.Forms.RadioButton();
+            this.tbPrecoDesconto = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbPrecoVenda = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbDesconto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tbCodigoVeiculo = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.gbEspecificacoes = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbEstoque = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tbDesconto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbPrecoVenda = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tbPrecoDesconto = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.rbDescontoSim = new System.Windows.Forms.RadioButton();
-            this.rbDescontoNao = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbEstoque = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lbFoto = new System.Windows.Forms.Label();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.gbPrecoVenda.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
             this.gbEspecificacoes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +121,7 @@ namespace CarrosFacil.Forms
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -458,6 +459,103 @@ namespace CarrosFacil.Forms
             this.gbPrecoVenda.TabStop = false;
             this.gbPrecoVenda.Text = "Calcular preço de venda";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbDescontoNao);
+            this.groupBox3.Controls.Add(this.rbDescontoSim);
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F);
+            this.groupBox3.Location = new System.Drawing.Point(176, 96);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(146, 53);
+            this.groupBox3.TabIndex = 118;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ativar desconto?";
+            // 
+            // rbDescontoNao
+            // 
+            this.rbDescontoNao.AutoSize = true;
+            this.rbDescontoNao.Checked = true;
+            this.rbDescontoNao.Location = new System.Drawing.Point(92, 26);
+            this.rbDescontoNao.Name = "rbDescontoNao";
+            this.rbDescontoNao.Size = new System.Drawing.Size(53, 23);
+            this.rbDescontoNao.TabIndex = 117;
+            this.rbDescontoNao.TabStop = true;
+            this.rbDescontoNao.Text = "Não";
+            this.rbDescontoNao.UseVisualStyleBackColor = true;
+            this.rbDescontoNao.CheckedChanged += new System.EventHandler(this.rbDescontoNao_CheckedChanged);
+            // 
+            // rbDescontoSim
+            // 
+            this.rbDescontoSim.AutoSize = true;
+            this.rbDescontoSim.Location = new System.Drawing.Point(7, 26);
+            this.rbDescontoSim.Name = "rbDescontoSim";
+            this.rbDescontoSim.Size = new System.Drawing.Size(50, 23);
+            this.rbDescontoSim.TabIndex = 116;
+            this.rbDescontoSim.Text = "Sim";
+            this.rbDescontoSim.UseVisualStyleBackColor = true;
+            this.rbDescontoSim.CheckedChanged += new System.EventHandler(this.rbDescontoSim_CheckedChanged);
+            // 
+            // tbPrecoDesconto
+            // 
+            this.tbPrecoDesconto.Enabled = false;
+            this.tbPrecoDesconto.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPrecoDesconto.Location = new System.Drawing.Point(334, 57);
+            this.tbPrecoDesconto.MaxLength = 11;
+            this.tbPrecoDesconto.Name = "tbPrecoDesconto";
+            this.tbPrecoDesconto.Size = new System.Drawing.Size(156, 27);
+            this.tbPrecoDesconto.TabIndex = 113;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label20.Location = new System.Drawing.Point(334, 31);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(149, 23);
+            this.label20.TabIndex = 114;
+            this.label20.Text = "* Preço Desconto:";
+            // 
+            // tbPrecoVenda
+            // 
+            this.tbPrecoVenda.Enabled = false;
+            this.tbPrecoVenda.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbPrecoVenda.Location = new System.Drawing.Point(171, 57);
+            this.tbPrecoVenda.MaxLength = 11;
+            this.tbPrecoVenda.Name = "tbPrecoVenda";
+            this.tbPrecoVenda.Size = new System.Drawing.Size(156, 27);
+            this.tbPrecoVenda.TabIndex = 111;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label17.Location = new System.Drawing.Point(171, 31);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(124, 23);
+            this.label17.TabIndex = 112;
+            this.label17.Text = "* Preço Venda:";
+            // 
+            // tbDesconto
+            // 
+            this.tbDesconto.Enabled = false;
+            this.tbDesconto.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbDesconto.Location = new System.Drawing.Point(334, 122);
+            this.tbDesconto.MaxLength = 5;
+            this.tbDesconto.Name = "tbDesconto";
+            this.tbDesconto.Size = new System.Drawing.Size(156, 27);
+            this.tbDesconto.TabIndex = 109;
+            this.tbDesconto.TextChanged += new System.EventHandler(this.tbDesconto_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label5.Location = new System.Drawing.Point(334, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 23);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Desconto: (%)";
+            // 
             // gbDadosRegistro
             // 
             this.gbDadosRegistro.Controls.Add(this.label19);
@@ -471,17 +569,6 @@ namespace CarrosFacil.Forms
             this.gbDadosRegistro.TabIndex = 112;
             this.gbDadosRegistro.TabStop = false;
             this.gbDadosRegistro.Text = "Registro";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label16.Location = new System.Drawing.Point(33, 187);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 23);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "Status:";
             // 
             // label19
             // 
@@ -504,6 +591,17 @@ namespace CarrosFacil.Forms
             this.tbCodigoVeiculo.Name = "tbCodigoVeiculo";
             this.tbCodigoVeiculo.Size = new System.Drawing.Size(147, 27);
             this.tbCodigoVeiculo.TabIndex = 31;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label16.Location = new System.Drawing.Point(33, 187);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 23);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "Status:";
             // 
             // cbStatus
             // 
@@ -565,6 +663,25 @@ namespace CarrosFacil.Forms
             this.groupBox1.Text = "Dados do veículo";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // tbEstoque
+            // 
+            this.tbEstoque.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbEstoque.Location = new System.Drawing.Point(197, 120);
+            this.tbEstoque.MaxLength = 1;
+            this.tbEstoque.Name = "tbEstoque";
+            this.tbEstoque.Size = new System.Drawing.Size(136, 27);
+            this.tbEstoque.TabIndex = 104;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label15.Location = new System.Drawing.Point(197, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 23);
+            this.label15.TabIndex = 105;
+            this.label15.Text = "* Estoque:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button2);
@@ -617,116 +734,6 @@ namespace CarrosFacil.Forms
             this.dataGridView1.Size = new System.Drawing.Size(583, 203);
             this.dataGridView1.TabIndex = 115;
             // 
-            // tbDesconto
-            // 
-            this.tbDesconto.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbDesconto.Location = new System.Drawing.Point(334, 122);
-            this.tbDesconto.MaxLength = 5;
-            this.tbDesconto.Name = "tbDesconto";
-            this.tbDesconto.Size = new System.Drawing.Size(156, 27);
-            this.tbDesconto.TabIndex = 109;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label5.Location = new System.Drawing.Point(334, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 23);
-            this.label5.TabIndex = 110;
-            this.label5.Text = "Desconto: (%)";
-            // 
-            // tbPrecoVenda
-            // 
-            this.tbPrecoVenda.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbPrecoVenda.Location = new System.Drawing.Point(171, 57);
-            this.tbPrecoVenda.MaxLength = 11;
-            this.tbPrecoVenda.Name = "tbPrecoVenda";
-            this.tbPrecoVenda.Size = new System.Drawing.Size(156, 27);
-            this.tbPrecoVenda.TabIndex = 111;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label17.Location = new System.Drawing.Point(171, 31);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(124, 23);
-            this.label17.TabIndex = 112;
-            this.label17.Text = "* Preço Venda:";
-            // 
-            // tbPrecoDesconto
-            // 
-            this.tbPrecoDesconto.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbPrecoDesconto.Location = new System.Drawing.Point(334, 57);
-            this.tbPrecoDesconto.MaxLength = 11;
-            this.tbPrecoDesconto.Name = "tbPrecoDesconto";
-            this.tbPrecoDesconto.Size = new System.Drawing.Size(156, 27);
-            this.tbPrecoDesconto.TabIndex = 113;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label20.Location = new System.Drawing.Point(334, 31);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(149, 23);
-            this.label20.TabIndex = 114;
-            this.label20.Text = "* Preço Desconto:";
-            // 
-            // rbDescontoSim
-            // 
-            this.rbDescontoSim.AutoSize = true;
-            this.rbDescontoSim.Location = new System.Drawing.Point(7, 26);
-            this.rbDescontoSim.Name = "rbDescontoSim";
-            this.rbDescontoSim.Size = new System.Drawing.Size(50, 23);
-            this.rbDescontoSim.TabIndex = 116;
-            this.rbDescontoSim.Text = "Sim";
-            this.rbDescontoSim.UseVisualStyleBackColor = true;
-            // 
-            // rbDescontoNao
-            // 
-            this.rbDescontoNao.AutoSize = true;
-            this.rbDescontoNao.Checked = true;
-            this.rbDescontoNao.Location = new System.Drawing.Point(92, 26);
-            this.rbDescontoNao.Name = "rbDescontoNao";
-            this.rbDescontoNao.Size = new System.Drawing.Size(53, 23);
-            this.rbDescontoNao.TabIndex = 117;
-            this.rbDescontoNao.TabStop = true;
-            this.rbDescontoNao.Text = "Não";
-            this.rbDescontoNao.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbDescontoNao);
-            this.groupBox3.Controls.Add(this.rbDescontoSim);
-            this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F);
-            this.groupBox3.Location = new System.Drawing.Point(176, 96);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(146, 53);
-            this.groupBox3.TabIndex = 118;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ativar desconto?";
-            // 
-            // tbEstoque
-            // 
-            this.tbEstoque.Font = new System.Drawing.Font("Calibri", 12F);
-            this.tbEstoque.Location = new System.Drawing.Point(197, 120);
-            this.tbEstoque.MaxLength = 1;
-            this.tbEstoque.Name = "tbEstoque";
-            this.tbEstoque.Size = new System.Drawing.Size(136, 27);
-            this.tbEstoque.TabIndex = 104;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label15.Location = new System.Drawing.Point(197, 93);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(90, 23);
-            this.label15.TabIndex = 105;
-            this.label15.Text = "* Estoque:";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lbFoto);
@@ -741,14 +748,6 @@ namespace CarrosFacil.Forms
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Foto do veículo (Clique na foto para mudar)";
             // 
-            // pbFoto
-            // 
-            this.pbFoto.Location = new System.Drawing.Point(211, 25);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(190, 190);
-            this.pbFoto.TabIndex = 0;
-            this.pbFoto.TabStop = false;
-            // 
             // lbFoto
             // 
             this.lbFoto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -762,6 +761,19 @@ namespace CarrosFacil.Forms
             this.lbFoto.Size = new System.Drawing.Size(58, 17);
             this.lbFoto.TabIndex = 40;
             this.lbFoto.Text = "Sem foto";
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Image = ((System.Drawing.Image)(resources.GetObject("pbFoto.Image")));
+            this.pbFoto.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbFoto.InitialImage")));
+            this.pbFoto.Location = new System.Drawing.Point(211, 25);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Padding = new System.Windows.Forms.Padding(10);
+            this.pbFoto.Size = new System.Drawing.Size(190, 190);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
+            this.pbFoto.Click += new System.EventHandler(this.pbFoto_Click);
             // 
             // FormVeiculo
             // 
@@ -787,6 +799,8 @@ namespace CarrosFacil.Forms
             this.Load += new System.EventHandler(this.FormVeiculo_Load);
             this.gbPrecoVenda.ResumeLayout(false);
             this.gbPrecoVenda.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.gbDadosRegistro.ResumeLayout(false);
             this.gbDadosRegistro.PerformLayout();
             this.gbEspecificacoes.ResumeLayout(false);
@@ -795,8 +809,6 @@ namespace CarrosFacil.Forms
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
@@ -852,8 +864,6 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton rbDescontoNao;
-        private System.Windows.Forms.RadioButton rbDescontoSim;
         public System.Windows.Forms.TextBox tbPrecoDesconto;
         public System.Windows.Forms.Label label20;
         public System.Windows.Forms.TextBox tbPrecoVenda;
@@ -865,5 +875,7 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.PictureBox pbFoto;
         public System.Windows.Forms.Label lbFoto;
+        public System.Windows.Forms.RadioButton rbDescontoNao;
+        public System.Windows.Forms.RadioButton rbDescontoSim;
     }
 }

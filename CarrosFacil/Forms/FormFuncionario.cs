@@ -213,6 +213,8 @@ namespace CarrosFacil
                 string nome = funcionario.nome_social == "" ? funcionario.nome : funcionario.nome_social;
                 MessageBox.Show("Funcionário: "+ nome +" cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                DefinirCorCamposObrigatorios(SystemColors.Window);
+
                 Limpar();
             }
         }
@@ -430,7 +432,7 @@ namespace CarrosFacil
         {
             OpenFileDialog imageSelectDialog = new OpenFileDialog();
             imageSelectDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            imageSelectDialog.Title = "Selecionar ícone";
+            imageSelectDialog.Title = "Selecionar foto";
 
             if (imageSelectDialog.ShowDialog() == DialogResult.OK)
             {

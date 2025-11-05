@@ -164,6 +164,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Cliente: " + cliente.nome_completo + " cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                DefinirCorCamposObrigatorios(SystemColors.Window);
                 Limpar();
             }
         }
