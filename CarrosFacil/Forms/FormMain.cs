@@ -177,6 +177,19 @@ namespace CarrosFacil
             form.Show();
         }
 
+        private void menuConsCargos_Click(object sender, EventArgs e)
+        {
+
+            if (Application.OpenForms.OfType<FormConsCargo>().Count() > 0)
+            {
+                MessageBox.Show("A consulta de cargos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormConsCargo form = new FormConsCargo();
+            form.Show();
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{

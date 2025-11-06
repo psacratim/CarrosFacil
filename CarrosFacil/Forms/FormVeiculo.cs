@@ -276,6 +276,12 @@ namespace CarrosFacil.Forms
             tbPrecoVenda.Clear();
             tbPrecoCusto.Clear();
             tbLucro.Clear();
+            tbDesconto.Clear();
+            tbPrecoDesconto.Clear();
+            rbDescontoSim.Checked = false;
+            rbDescontoNao.Checked = true;
+            lbFoto.Text = "Nenhuma foto selecionada";
+            pbFoto.Image = pbFoto.InitialImage;
         }
 
         private void tbDescricao_TextChanged(object sender, EventArgs e)

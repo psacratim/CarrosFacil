@@ -667,7 +667,7 @@ namespace CarrosFacil.Forms
             // 
             this.tbEstoque.Font = new System.Drawing.Font("Calibri", 12F);
             this.tbEstoque.Location = new System.Drawing.Point(197, 120);
-            this.tbEstoque.MaxLength = 1;
+            this.tbEstoque.MaxLength = 5;
             this.tbEstoque.Name = "tbEstoque";
             this.tbEstoque.Size = new System.Drawing.Size(136, 27);
             this.tbEstoque.TabIndex = 104;
