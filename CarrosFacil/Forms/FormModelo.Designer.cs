@@ -104,6 +104,7 @@ namespace CarrosFacil
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnCadastrar
             // 
@@ -292,24 +293,23 @@ namespace CarrosFacil
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Button btnAtualizar;
-        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbObservacao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.GroupBox gbDadosRegistro;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox tbCodigo;
-        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Button btnDeletar;
+        public System.Windows.Forms.Button btnAtualizar;
+        public System.Windows.Forms.Button btnCadastrar;
+        public System.Windows.Forms.GroupBox gbDadosRegistro;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.ComboBox cbMarca;
+        public System.Windows.Forms.TextBox tbNome;
+        public System.Windows.Forms.TextBox tbObservacao;
+        public System.Windows.Forms.ComboBox cbStatus;
+        public System.Windows.Forms.TextBox tbCodigo;
     }
 }

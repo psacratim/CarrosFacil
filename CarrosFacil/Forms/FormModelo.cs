@@ -17,6 +17,8 @@ namespace CarrosFacil
         {
             InitializeComponent();
         }
+        public string tipo;
+        public int status, id_marca;
 
         private void FormModelo_Load(object sender, EventArgs e)
         {
@@ -39,6 +41,25 @@ namespace CarrosFacil
                         cbMarca.DisplayMember = "nome";
                         cbMarca.ValueMember = "id";
                         cbMarca.SelectedIndex = -1;
+
+                        if (tipo == "Atualização")
+                        {
+                            cbMarca.SelectedValue = id_marca;
+                            cbStatus.SelectedItem = status;
+
+                            cbStatus.Enabled = true;
+
+                            btnCadastrar.Enabled = false;
+                            btnAtualizar.Enabled = true;
+                            btnDeletar.Enabled = true;
+                        } else
+                        {
+                            cbStatus.Enabled = false;
+
+                            btnCadastrar.Enabled = true;
+                            btnAtualizar.Enabled = false;
+                            btnDeletar.Enabled = false;
+                        }
                     }));
                 }
                 catch (Exception) { }
@@ -87,6 +108,37 @@ namespace CarrosFacil
         {
             tbNome.BackColor = color;
             cbMarca.BackColor = color;
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+            {
+                DefinirCorCamposObrigatorios(Color.Red);
+
+                MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Modelo modelo = new Modelo();
+            modelo.id = Convert.ToInt32(tbCodigo.Text);
+            modelo.id_marca = (int)cbMarca.SelectedValue;
+            modelo.nome = tbNome.Text;
+            modelo.observacao = tbObservacao.Text;
+            modelo.status = cbStatus.SelectedIndex;
+
+            int resultado = modelo.Atualizar();
+            if (resultado == 0)
+            { // ERRO
+                MessageBox.Show("Erro ao atualizar modelo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Modelo: " + modelo.nome + " atualizar com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DefinirCorCamposObrigatorios(SystemColors.Window);
+                Limpar();
+                Close();
+            }
         }
 
         private void Limpar()

@@ -165,6 +165,18 @@ namespace CarrosFacil
             form.Show();
         }
 
+        private void menuConsModelos_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormConsModelo>().Count() > 0)
+            {
+                MessageBox.Show("A consulta de modelos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FormConsModelo form = new FormConsModelo();
+            form.Show();
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{

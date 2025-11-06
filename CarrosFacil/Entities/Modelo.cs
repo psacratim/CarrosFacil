@@ -42,5 +42,67 @@ namespace CarrosFacil.Entities
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+
+        public DataTable ConsultarSemFiltro()
+        {
+            string query = "SELECT modelo.id '#', marca.nome 'Marca', modelo.nome 'Nome', modelo.status 'Status' FROM modelo INNER JOIN marca ON modelo.id_marca = marca.id WHERE modelo.status = 1";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorNome(string nome)
+        {
+            string query = string.Format("SELECT modelo.id '#', marca.nome 'Marca', modelo.nome 'Nome', modelo.status 'Status' FROM modelo INNER JOIN marca ON modelo.id_marca = marca.id WHERE modelo.nome = {0} AND modelo.status = 1 ", nome);
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorStatus(int status)
+        {
+            string query = string.Format("SELECT modelo.id '#', marca.nome 'Marca', modelo.nome 'Nome', modelo.status 'Status' FROM modelo INNER JOIN marca ON modelo.id_marca = marca.id WHERE modelo.status = {0}", status);
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorCodigo(int codigo)
+        {
+            string query = string.Format("SELECT modelo.id '#', marca.nome 'Marca', modelo.nome 'Nome', modelo.status 'Status' FROM modelo INNER JOIN marca ON modelo.id_marca = marca.id WHERE modelo.id = {0} AND modelo.status = 1 ", codigo);
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public bool ConsultaModelo(int id)
+        {
+            string query = "SELECT * FROM modelo WHERE id=" + id;
+
+            Conexao conexao = new Conexao();
+            DataTable dt = conexao.RetornaDados(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                this.id = Convert.ToInt32(dt.Rows[0]["id"]);
+                id_marca = Convert.ToInt32(dt.Rows[0]["id_marca"]);
+                nome = Convert.ToString(dt.Rows[0]["nome"]);
+                observacao = Convert.ToString(dt.Rows[0]["observacao"]);
+                data_cadastro = Convert.ToDateTime(dt.Rows[0]["data_cadastro"]);
+                status = Convert.ToInt32(dt.Rows[0]["status"]);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public int Atualizar()
+        {
+            string query = string.Format("UPDATE modelo SET id_marca = '{0}', nome = '{1}', observacao = '{2}', status = {3} WHERE id = {4};", id_marca, nome, observacao, status, id);
+            Conexao conexao = new Conexao();
+
+            return conexao.ExecutaQuery(query);
+        }
     }
 }
