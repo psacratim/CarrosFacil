@@ -263,6 +263,12 @@ namespace CarrosFacil.Forms
             mtbTelefone1.BackColor = color;
             cbEstadoCivil.BackColor = color;
             cbSexo.BackColor = color;
+            gbDataNascimento.BackColor = color;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void Limpar()

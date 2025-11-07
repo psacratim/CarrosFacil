@@ -545,6 +545,7 @@ namespace CarrosFacil.Forms
             this.tbDesconto.Size = new System.Drawing.Size(156, 27);
             this.tbDesconto.TabIndex = 109;
             this.tbDesconto.TextChanged += new System.EventHandler(this.tbDesconto_TextChanged);
+            this.tbDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDesconto_KeyPress);
             // 
             // label5
             // 
@@ -795,7 +796,7 @@ namespace CarrosFacil.Forms
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
             this.Name = "FormVeiculo";
-            this.Text = "FormVeiculo";
+            this.Text = "Gerenciando - Veiculo";
             this.Load += new System.EventHandler(this.FormVeiculo_Load);
             this.gbPrecoVenda.ResumeLayout(false);
             this.gbPrecoVenda.PerformLayout();

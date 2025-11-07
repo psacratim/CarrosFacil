@@ -267,7 +267,7 @@ namespace CarrosFacil
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
             this.Name = "FormMarca";
-            this.Text = "FormMarca";
+            this.Text = "Gerenciando - Marca";
             this.Load += new System.EventHandler(this.FormMarca_Load);
             this.gbDadosRegistro.ResumeLayout(false);
             this.gbDadosRegistro.PerformLayout();

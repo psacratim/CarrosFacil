@@ -92,6 +92,7 @@ namespace CarrosFacil.Forms
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -107,6 +108,7 @@ namespace CarrosFacil.Forms
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnAtualizar
             // 
@@ -348,7 +350,7 @@ namespace CarrosFacil.Forms
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
             this.Name = "FormCaracteristica";
-            this.Text = "FormCaracteristica";
+            this.Text = "Gerenciando - Caracteristica";
             this.Load += new System.EventHandler(this.FormCaracteristica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.gbDadosRegistro.ResumeLayout(false);

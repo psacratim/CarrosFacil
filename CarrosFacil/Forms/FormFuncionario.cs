@@ -315,7 +315,7 @@ namespace CarrosFacil
             tbNome.BackColor = color;
             cbSexo.BackColor = color;
             cbEstadoCivil.BackColor = color;
-            dtpDataNascimento.BackColor = color;
+            gbDataNascimento.BackColor = color;
             tbSenha.BackColor = color;
             tbUsuario.BackColor = color;
             cbEstado.BackColor = color;
@@ -382,6 +382,16 @@ namespace CarrosFacil
                     MessageBox.Show("Erro ao excluir o funcionário.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private async void mtbCep_TextChanged(object sender, EventArgs e)

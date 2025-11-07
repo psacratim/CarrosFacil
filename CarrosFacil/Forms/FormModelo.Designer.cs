@@ -74,6 +74,7 @@ namespace CarrosFacil
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -281,7 +282,7 @@ namespace CarrosFacil
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
             this.Name = "FormModelo";
-            this.Text = "FormModelo";
+            this.Text = "Gerenciando - Modelo";
             this.Load += new System.EventHandler(this.FormModelo_Load);
             this.gbDadosRegistro.ResumeLayout(false);
             this.gbDadosRegistro.PerformLayout();

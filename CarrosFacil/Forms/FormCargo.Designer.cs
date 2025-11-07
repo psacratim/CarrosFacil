@@ -63,6 +63,7 @@ namespace CarrosFacil
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -262,7 +263,7 @@ namespace CarrosFacil
             this.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "FormCargo";
-            this.Text = "FormCargo";
+            this.Text = "Gerenciando - Cargo";
             this.Load += new System.EventHandler(this.FormCargo_Load);
             this.gbDadosRegistro.ResumeLayout(false);
             this.gbDadosRegistro.PerformLayout();

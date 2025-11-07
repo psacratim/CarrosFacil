@@ -64,7 +64,6 @@ namespace CarrosFacil.Forms
             this.gbDadosAcesso = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.dtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,11 +82,13 @@ namespace CarrosFacil.Forms
             this.tbCodigoCliente = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.gbDataNascimento = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             this.gbDadosAcesso.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.gbDataNascimento.SuspendLayout();
             this.SuspendLayout();
             // 
             // mtbTelefone2
@@ -385,6 +386,7 @@ namespace CarrosFacil.Forms
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
@@ -502,26 +504,15 @@ namespace CarrosFacil.Forms
             this.label5.TabIndex = 8;
             this.label5.Text = "RG:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label8.Location = new System.Drawing.Point(497, 28);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(177, 23);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "* Data de Nascimento";
-            // 
             // dtpDataNascimento
             // 
             this.dtpDataNascimento.CustomFormat = "";
             this.dtpDataNascimento.Font = new System.Drawing.Font("Calibri", 12F);
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(497, 55);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(7, 26);
             this.dtpDataNascimento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
-            this.dtpDataNascimento.Size = new System.Drawing.Size(190, 27);
+            this.dtpDataNascimento.Size = new System.Drawing.Size(177, 27);
             this.dtpDataNascimento.TabIndex = 16;
             // 
             // label4
@@ -695,6 +686,7 @@ namespace CarrosFacil.Forms
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.gbDataNascimento);
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Controls.Add(this.tbNome);
             this.groupBox5.Controls.Add(this.label4);
@@ -702,10 +694,8 @@ namespace CarrosFacil.Forms
             this.groupBox5.Controls.Add(this.cbEstadoCivil);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.mtbCpf);
-            this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.cbSexo);
             this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.dtpDataNascimento);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox5.Location = new System.Drawing.Point(279, 82);
@@ -728,6 +718,16 @@ namespace CarrosFacil.Forms
             this.label27.TabIndex = 37;
             this.label27.Text = "* Nome Completo:";
             // 
+            // gbDataNascimento
+            // 
+            this.gbDataNascimento.Controls.Add(this.dtpDataNascimento);
+            this.gbDataNascimento.Location = new System.Drawing.Point(496, 28);
+            this.gbDataNascimento.Name = "gbDataNascimento";
+            this.gbDataNascimento.Size = new System.Drawing.Size(191, 54);
+            this.gbDataNascimento.TabIndex = 38;
+            this.gbDataNascimento.TabStop = false;
+            this.gbDataNascimento.Text = "Data de Nascimento";
+            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -747,7 +747,7 @@ namespace CarrosFacil.Forms
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCliente";
-            this.Text = "FormCliente";
+            this.Text = "Gerenciando - Cliente";
             this.Load += new System.EventHandler(this.FormCliente_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -759,6 +759,7 @@ namespace CarrosFacil.Forms
             this.gbDadosRegistro.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.gbDataNascimento.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,7 +801,6 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.GroupBox gbDadosAcesso;
         public System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label8;
         public System.Windows.Forms.DateTimePicker dtpDataNascimento;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label6;
@@ -819,5 +819,6 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.Label label27;
         public System.Windows.Forms.DateTimePicker dtpDataCadastro;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbDataNascimento;
     }
 }

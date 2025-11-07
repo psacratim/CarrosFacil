@@ -188,6 +188,12 @@ namespace CarrosFacil.Forms
             veiculo.preco_desconto = Convert.ToDecimal(tbPrecoDesconto.Text.Replace(".", "").Replace(",", "."));
             veiculo.desconto = Convert.ToInt32(tbDesconto.Text);
             veiculo.tem_desconto = veiculo.desconto > 0;
+            if (veiculo.tem_desconto && veiculo.preco_desconto < veiculo.preco_custo)
+            {
+                MessageBox.Show("O preço com desconto é menor que o de custo, diminua o desconto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             veiculo.lucro = Convert.ToInt32(tbLucro.Text);
             veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
             veiculo.final_placa = tbPlaca.Text;
@@ -396,6 +402,15 @@ namespace CarrosFacil.Forms
             }
         }
 
+        private void tbDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                        if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 44 && e.KeyChar != 27 && e.KeyChar != 01 && e.KeyChar != 46)
+            {
+                e.Handled = true;
+                MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void tbPreco_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 44 && e.KeyChar != 27 && e.KeyChar != 01 && e.KeyChar != 46)
@@ -480,6 +495,12 @@ namespace CarrosFacil.Forms
             veiculo.preco_desconto = preco_desconto;
             veiculo.desconto = Convert.ToInt32(tbDesconto.Text);
             veiculo.tem_desconto = veiculo.desconto > 0;
+            if (veiculo.tem_desconto && veiculo.preco_desconto < veiculo.preco_custo)
+            {
+                MessageBox.Show("O preço com desconto é menor que o de custo, diminua o desconto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             veiculo.lucro = Convert.ToInt32(tbLucro.Text);
             veiculo.kms_rodado = Convert.ToInt32(tbKmsRodado.Text);
             veiculo.final_placa = tbPlaca.Text;

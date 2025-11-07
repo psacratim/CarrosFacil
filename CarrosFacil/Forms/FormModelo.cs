@@ -141,6 +141,11 @@ namespace CarrosFacil
             }
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void Limpar()
         {
             tbNome.Clear();
