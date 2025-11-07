@@ -90,20 +90,20 @@ namespace CarrosFacil
             this.label28 = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gbDataNascimento = new System.Windows.Forms.GroupBox();
             this.cbEstadoCivil = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lbFoto = new System.Windows.Forms.Label();
-            this.gbDataNascimento = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.gbDataNascimento.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            this.gbDataNascimento.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbNome
@@ -187,6 +187,7 @@ namespace CarrosFacil
             // 
             // cbSexo
             // 
+            this.cbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSexo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Location = new System.Drawing.Point(497, 123);
@@ -206,6 +207,7 @@ namespace CarrosFacil
             // 
             // cbCargo
             // 
+            this.cbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCargo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbCargo.FormattingEnabled = true;
             this.cbCargo.Location = new System.Drawing.Point(220, 184);
@@ -245,6 +247,7 @@ namespace CarrosFacil
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;
@@ -292,6 +295,7 @@ namespace CarrosFacil
             // 
             // cbTipoAcesso
             // 
+            this.cbTipoAcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoAcesso.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTipoAcesso.FormattingEnabled = true;
             this.cbTipoAcesso.Location = new System.Drawing.Point(6, 126);
@@ -496,6 +500,7 @@ namespace CarrosFacil
             // 
             // cbEstado
             // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(428, 140);
@@ -777,8 +782,20 @@ namespace CarrosFacil
             this.groupBox5.Text = "Dados Pessoais";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
+            // gbDataNascimento
+            // 
+            this.gbDataNascimento.Controls.Add(this.dtpDataNascimento);
+            this.gbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.gbDataNascimento.Location = new System.Drawing.Point(497, 30);
+            this.gbDataNascimento.Name = "gbDataNascimento";
+            this.gbDataNascimento.Size = new System.Drawing.Size(177, 61);
+            this.gbDataNascimento.TabIndex = 27;
+            this.gbDataNascimento.TabStop = false;
+            this.gbDataNascimento.Text = "* Data de Nascimento";
+            // 
             // cbEstadoCivil
             // 
+            this.cbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoCivil.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstadoCivil.FormattingEnabled = true;
             this.cbEstadoCivil.Location = new System.Drawing.Point(449, 184);
@@ -836,17 +853,6 @@ namespace CarrosFacil
             this.lbFoto.TabIndex = 39;
             this.lbFoto.Text = "Sem foto";
             // 
-            // gbDataNascimento
-            // 
-            this.gbDataNascimento.Controls.Add(this.dtpDataNascimento);
-            this.gbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.gbDataNascimento.Location = new System.Drawing.Point(497, 30);
-            this.gbDataNascimento.Name = "gbDataNascimento";
-            this.gbDataNascimento.Size = new System.Drawing.Size(177, 61);
-            this.gbDataNascimento.TabIndex = 27;
-            this.gbDataNascimento.TabStop = false;
-            this.gbDataNascimento.Text = "* Data de Nascimento";
-            // 
             // FormFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -879,10 +885,10 @@ namespace CarrosFacil
             this.gbDadosRegistro.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.gbDataNascimento.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
-            this.gbDataNascimento.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

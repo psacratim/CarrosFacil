@@ -255,6 +255,7 @@ namespace CarrosFacil.Forms
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
             this.cbStatus.FormattingEnabled = true;

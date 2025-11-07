@@ -101,6 +101,7 @@ namespace CarrosFacil.Forms
             // 
             // cbModelo
             // 
+            this.cbModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModelo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbModelo.FormattingEnabled = true;
             this.cbModelo.Location = new System.Drawing.Point(7, 55);
@@ -171,6 +172,7 @@ namespace CarrosFacil.Forms
             // 
             // cbCategoria
             // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(339, 55);
@@ -221,6 +223,7 @@ namespace CarrosFacil.Forms
             // 
             // cbEstadoVeiculo
             // 
+            this.cbEstadoVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoVeiculo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstadoVeiculo.FormattingEnabled = true;
             this.cbEstadoVeiculo.Location = new System.Drawing.Point(7, 120);
@@ -240,6 +243,7 @@ namespace CarrosFacil.Forms
             // 
             // cbTipoCombustivel
             // 
+            this.cbTipoCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoCombustivel.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTipoCombustivel.FormattingEnabled = true;
             this.cbTipoCombustivel.Location = new System.Drawing.Point(8, 54);
@@ -360,6 +364,7 @@ namespace CarrosFacil.Forms
             // 
             // cbColor
             // 
+            this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbColor.FormattingEnabled = true;
             this.cbColor.Location = new System.Drawing.Point(408, 54);
@@ -606,6 +611,7 @@ namespace CarrosFacil.Forms
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;

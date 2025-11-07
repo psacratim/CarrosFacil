@@ -235,6 +235,7 @@ namespace CarrosFacil.Forms
             // 
             // cbEstado
             // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(434, 140);
@@ -539,6 +540,7 @@ namespace CarrosFacil.Forms
             // 
             // cbSexo
             // 
+            this.cbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSexo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Location = new System.Drawing.Point(252, 121);
@@ -546,7 +548,6 @@ namespace CarrosFacil.Forms
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(156, 27);
             this.cbSexo.TabIndex = 11;
-            this.cbSexo.Text = "Não Informado";
             // 
             // label7
             // 
@@ -561,6 +562,7 @@ namespace CarrosFacil.Forms
             // 
             // cbEstadoCivil
             // 
+            this.cbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoCivil.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbEstadoCivil.FormattingEnabled = true;
             this.cbEstadoCivil.Location = new System.Drawing.Point(416, 121);
@@ -591,6 +593,7 @@ namespace CarrosFacil.Forms
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Enabled = false;
             this.cbStatus.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbStatus.FormattingEnabled = true;
@@ -726,7 +729,7 @@ namespace CarrosFacil.Forms
             this.gbDataNascimento.Size = new System.Drawing.Size(191, 54);
             this.gbDataNascimento.TabIndex = 38;
             this.gbDataNascimento.TabStop = false;
-            this.gbDataNascimento.Text = "Data de Nascimento";
+            this.gbDataNascimento.Text = "* Data de Nascimento";
             // 
             // FormCliente
             // 
