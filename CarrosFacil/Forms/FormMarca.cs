@@ -12,6 +12,9 @@ namespace CarrosFacil
 {
     public partial class FormMarca : Form
     {
+        public string tipo;
+        public int status;
+
         public FormMarca()
         {
             InitializeComponent();
@@ -81,6 +84,22 @@ namespace CarrosFacil
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
             cbStatus.SelectedIndex = 1;
+
+            if(tipo == "Atualização")
+            {
+                btnCadastrar.Enabled = false;
+                btnAtualizar.Enabled = true;
+                btnDeletar.Enabled = true;
+
+                cbStatus.Enabled = true;
+                cbStatus.SelectedIndex = status;
+            } else
+            {
+                cbStatus.Enabled = false;
+                btnCadastrar.Enabled = true;
+                btnAtualizar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -95,7 +114,31 @@ namespace CarrosFacil
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                DefinirCorCamposObrigatorios(Color.Red);
 
+                MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            Marca marca = new Marca();
+            marca.id = Convert.ToInt32(tbCodigo.Text);
+            marca.nome = tbNome.Text;
+            marca.observacao = tbObservacao.Text;
+            marca.status = cbStatus.SelectedIndex;
+
+            int resultado = marca.Atualizar();
+            if (resultado == 0)
+            { // ERRO
+                MessageBox.Show("Erro ao cadastrar atualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            MessageBox.Show("Marca: " + marca.nome + " atualizada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DefinirCorCamposObrigatorios(SystemColors.Window);
+            Close();
         }
 
         private void cbMarca_SelectedIndexChanged(object sender, EventArgs e)

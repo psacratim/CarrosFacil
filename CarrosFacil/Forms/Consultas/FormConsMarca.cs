@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarrosFacil.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +11,14 @@ using System.Windows.Forms;
 
 namespace CarrosFacil.Forms.Consultas
 {
-    public partial class FormConsCargo : Form
+    public partial class FormConsMarca : Form
     {
-        public FormConsCargo()
+        public FormConsMarca()
         {
             InitializeComponent();
         }
 
-        private void FormConsCargo_Load(object sender, EventArgs e)
+        private void FormConsMarca_Load(object sender, EventArgs e)
         {
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
@@ -32,7 +33,7 @@ namespace CarrosFacil.Forms.Consultas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var cargo = new Cargo();
+            var marca = new Marca();
             switch (cbOpcoes.SelectedIndex)
             {
                 case 1:
@@ -43,7 +44,7 @@ namespace CarrosFacil.Forms.Consultas
                     }
 
                     var codigo = Convert.ToInt32(tbCodigo.Text);
-                    dgvCargos.DataSource = cargo.ConsultarPorCodigo(codigo);
+                    dgvMarcas.DataSource = marca.ConsultarPorCodigo(codigo);
                     break;
 
                 case 2:
@@ -54,15 +55,15 @@ namespace CarrosFacil.Forms.Consultas
                         return;
                     }
 
-                    dgvCargos.DataSource = cargo.ConsultarPorNome(nome);
+                    dgvMarcas.DataSource = marca.ConsultarPorNome(nome);
                     break;
 
                 case 3:
-                    dgvCargos.DataSource = cargo.ConsultarPorStatus(cbStatus.SelectedIndex);
+                    dgvMarcas.DataSource = marca.ConsultarPorStatus(cbStatus.SelectedIndex);
                     break;
 
                 default:
-                    dgvCargos.DataSource = cargo.ConsultarSemFiltro();
+                    dgvMarcas.DataSource = marca.ConsultarSemFiltro();
                     break;
             }
         }
@@ -72,24 +73,35 @@ namespace CarrosFacil.Forms.Consultas
             Close();
         }
 
-        private void dgvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir o cargo selecionado?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            tbCodigo.Text = "";
+            tbNome.Text = "";
+            cbStatus.SelectedIndex = 1;
+
+            tbCodigo.Enabled = cbOpcoes.SelectedIndex == 1;
+            tbNome.Enabled = cbOpcoes.SelectedIndex == 2;
+            cbStatus.Enabled = cbOpcoes.SelectedIndex == 3;
+        }
+
+        private void dgvMarcas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir a marca selecionada?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resposta == DialogResult.Yes)
             {
-                Cargo cargo = new Cargo();
-                cargo.ConsultaCargo(Convert.ToInt32(dgvCargos.SelectedRows[0].Cells[0].Value));
+                Marca marca = new Marca();
+                marca.ConsultaMarca(Convert.ToInt32(dgvMarcas.SelectedRows[0].Cells[0].Value));
 
-                FormCargo formCargo = new FormCargo();
-                formCargo.tipo = "Atualização";
-                formCargo.status = cargo.status;
+                FormMarca formMarca = new FormMarca();
+                formMarca.tipo = "Atualização";
+                formMarca.status = marca.status;
 
-                formCargo.tbCodigo.Text = cargo.id.ToString();
-                formCargo.tbNome.Text = cargo.nome.ToString();
-                formCargo.tbObservacao.Text = cargo.observacao;
+                formMarca.tbCodigo.Text = marca.id.ToString();
+                formMarca.tbNome.Text = marca.nome;
+                formMarca.tbObservacao.Text = marca.observacao;
 
-                formCargo.ShowDialog();
+                formMarca.ShowDialog();
 
                 btnPesquisar_Click(this, new EventArgs());
             }
@@ -102,13 +114,6 @@ namespace CarrosFacil.Forms.Consultas
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbCodigo.Enabled = cbOpcoes.SelectedIndex == 1;
-            tbNome.Enabled = cbOpcoes.SelectedIndex == 2;
-            cbStatus.Enabled = cbOpcoes.SelectedIndex == 3;
         }
     }
 }

@@ -282,12 +282,9 @@ namespace CarrosFacil
         #endregion
 
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbObservacao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnAtualizar;
@@ -295,7 +292,10 @@ namespace CarrosFacil
         private System.Windows.Forms.GroupBox gbDadosRegistro;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox tbNome;
+        public System.Windows.Forms.TextBox tbObservacao;
+        public System.Windows.Forms.ComboBox cbStatus;
+        public System.Windows.Forms.TextBox tbCodigo;
     }
 }

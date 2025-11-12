@@ -340,7 +340,7 @@ namespace CarrosFacil.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 351);
+            this.ClientSize = new System.Drawing.Size(935, 351);
             this.Controls.Add(this.gbIcone);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDadosRegistro);
@@ -367,7 +367,6 @@ namespace CarrosFacil.Forms
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbDescricao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnDeletar;
@@ -375,20 +374,21 @@ namespace CarrosFacil.Forms
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pbIcon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbDadosRegistro;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox tbCodigo;
-        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lbIcone;
         private System.Windows.Forms.GroupBox gbIcone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.TextBox tbDescricao;
+        public System.Windows.Forms.TextBox tbNome;
+        public System.Windows.Forms.PictureBox pbIcon;
+        public System.Windows.Forms.TextBox tbCodigo;
+        public System.Windows.Forms.ComboBox cbStatus;
+        public System.Windows.Forms.Label lbIcone;
     }
 }

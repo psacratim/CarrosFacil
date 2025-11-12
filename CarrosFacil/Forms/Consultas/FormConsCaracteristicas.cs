@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarrosFacil.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +11,13 @@ using System.Windows.Forms;
 
 namespace CarrosFacil.Forms.Consultas
 {
-    public partial class FormConsCargo : Form
+    public partial class FormConsCaracteristicas : Form
     {
-        public FormConsCargo()
+        public FormConsCaracteristicas()
         {
             InitializeComponent();
         }
-
-        private void FormConsCargo_Load(object sender, EventArgs e)
+        private void FormConsCaracteristicas_Load(object sender, EventArgs e)
         {
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
@@ -32,7 +32,7 @@ namespace CarrosFacil.Forms.Consultas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var cargo = new Cargo();
+            var caracteristica = new Caracteristica();
             switch (cbOpcoes.SelectedIndex)
             {
                 case 1:
@@ -43,7 +43,7 @@ namespace CarrosFacil.Forms.Consultas
                     }
 
                     var codigo = Convert.ToInt32(tbCodigo.Text);
-                    dgvCargos.DataSource = cargo.ConsultarPorCodigo(codigo);
+                    dgvCaracteristicas.DataSource = caracteristica.ConsultarPorCodigo(codigo);
                     break;
 
                 case 2:
@@ -54,15 +54,15 @@ namespace CarrosFacil.Forms.Consultas
                         return;
                     }
 
-                    dgvCargos.DataSource = cargo.ConsultarPorNome(nome);
+                    dgvCaracteristicas.DataSource = caracteristica.ConsultarPorNome(nome);
                     break;
 
                 case 3:
-                    dgvCargos.DataSource = cargo.ConsultarPorStatus(cbStatus.SelectedIndex);
+                    dgvCaracteristicas.DataSource = caracteristica.ConsultarPorStatus(cbStatus.SelectedIndex);
                     break;
 
                 default:
-                    dgvCargos.DataSource = cargo.ConsultarSemFiltro();
+                    dgvCaracteristicas.DataSource = caracteristica.ConsultarSemFiltro();
                     break;
             }
         }
@@ -72,24 +72,37 @@ namespace CarrosFacil.Forms.Consultas
             Close();
         }
 
-        private void dgvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir o cargo selecionado?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            tbCodigo.Text = "";
+            tbNome.Text = "";
+            cbStatus.SelectedIndex = 1;
+
+            tbCodigo.Enabled = cbOpcoes.SelectedIndex == 1;
+            tbNome.Enabled = cbOpcoes.SelectedIndex == 2;
+            cbStatus.Enabled = cbOpcoes.SelectedIndex == 3;
+        }
+
+        private void dgvCaracteristicas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DialogResult resposta = MessageBox.Show("Deseja alterar ou excluir a caracteristica selecionada?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resposta == DialogResult.Yes)
             {
-                Cargo cargo = new Cargo();
-                cargo.ConsultaCargo(Convert.ToInt32(dgvCargos.SelectedRows[0].Cells[0].Value));
+                Caracteristica caracteristica = new Caracteristica();
+                caracteristica.ConsultaCaracteristica(Convert.ToInt32(dgvCaracteristicas.SelectedRows[0].Cells[0].Value));
 
-                FormCargo formCargo = new FormCargo();
-                formCargo.tipo = "Atualização";
-                formCargo.status = cargo.status;
+                FormCaracteristica formCaracteristica = new FormCaracteristica();
+                formCaracteristica.tipo = "Atualização";
+                formCaracteristica.status = caracteristica.status;
 
-                formCargo.tbCodigo.Text = cargo.id.ToString();
-                formCargo.tbNome.Text = cargo.nome.ToString();
-                formCargo.tbObservacao.Text = cargo.observacao;
+                formCaracteristica.tbCodigo.Text = caracteristica.id.ToString();
+                formCaracteristica.tbNome.Text = caracteristica.nome.ToString();
+                formCaracteristica.tbDescricao.Text = caracteristica.descricao.ToString();
+                formCaracteristica.pbIcon.LoadAsync(Uploader.CarregarImagemDoServidor(caracteristica.icone));
+                formCaracteristica.lbIcone.Text = caracteristica.icone;
 
-                formCargo.ShowDialog();
+                formCaracteristica.ShowDialog();
 
                 btnPesquisar_Click(this, new EventArgs());
             }
@@ -102,13 +115,6 @@ namespace CarrosFacil.Forms.Consultas
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void cbOpcoes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbCodigo.Enabled = cbOpcoes.SelectedIndex == 1;
-            tbNome.Enabled = cbOpcoes.SelectedIndex == 2;
-            cbStatus.Enabled = cbOpcoes.SelectedIndex == 3;
         }
     }
 }

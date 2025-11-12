@@ -190,6 +190,33 @@ namespace CarrosFacil
             form.Show();
         }
 
+        private void abrirFormulario<T>(T form, string errorMessage)
+        {
+            if (!(form is Form))
+            {
+                MessageBox.Show("Somente formulários devem ser abertos com abrirFormulario()", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var myForm = form as Form;
+            if (Application.OpenForms.OfType<T>().Count() > 0)
+            {
+                MessageBox.Show(errorMessage, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            myForm.Show();
+        }
+        private void menuConsCaracteristicas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsCaracteristicas(), "A consulta de caracteristicas já está aberta!");
+        }
+
+        private void menuConsMarcas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsMarca(), "A consulta de marcas já está aberta!");
+        }
+
 
         //private void menuCadMDI_Click(object sender, EventArgs e)
         //{

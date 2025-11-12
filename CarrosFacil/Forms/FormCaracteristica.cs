@@ -13,17 +13,38 @@ namespace CarrosFacil.Forms
 {
     public partial class FormCaracteristica : Form
     {
+        public string tipo;
+        public int status;
+
         public FormCaracteristica()
         {
             InitializeComponent();
         }
+
         private void FormCaracteristica_Load(object sender, EventArgs e)
         {
             // Status
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
             cbStatus.SelectedIndex = 1;
+
+            if (tipo == "Atualização")
+            {
+                btnCadastrar.Enabled = false;
+                btnAtualizar.Enabled = true;
+                btnDeletar.Enabled = true;
+
+                cbStatus.Enabled = true;
+                cbStatus.SelectedIndex = status;
+            } else
+            {
+                cbStatus.Enabled = false;
+                btnCadastrar.Enabled = true;
+                btnAtualizar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
         }
+
 
         private void btnSelecionarImagem_Click(object sender, EventArgs e)
         {
@@ -45,12 +66,12 @@ namespace CarrosFacil.Forms
             caracteristica.nome = tbNome.Text;
             caracteristica.descricao = tbDescricao.Text;
             caracteristica.status = cbStatus.SelectedIndex;
-            caracteristica.iconePath = await Uploader.EnviarImagem(lbIcone.Text);
+            caracteristica.icone = await Uploader.EnviarImagem(lbIcone.Text);
 
             int resultado = caracteristica.Cadastrar();
             if (resultado == 0)
             { // ERRO
-                MessageBox.Show("Erro ao cadastrar marca.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Erro ao cadastrar caracteristica.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -86,14 +107,6 @@ namespace CarrosFacil.Forms
             pbIcon.Image = pbIcon.InitialImage;
         }
 
-        private void FormMarca_Load(object sender, EventArgs e)
-        {
-            // Status
-            cbStatus.Items.Add("Desativado");
-            cbStatus.Items.Add("Ativado");
-            cbStatus.SelectedIndex = 1;
-        }
-
         private void label12_Click(object sender, EventArgs e)
         {
 
@@ -119,9 +132,35 @@ namespace CarrosFacil.Forms
             }
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private async void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                DefinirCorCamposObrigatorios(Color.Red);
 
+                MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            Caracteristica caracteristica = new Caracteristica();
+            caracteristica.id = Convert.ToInt32(tbCodigo.Text);
+            caracteristica.nome = tbNome.Text;
+            caracteristica.descricao = tbDescricao.Text;
+            caracteristica.status = cbStatus.SelectedIndex;
+            caracteristica.icone = await Uploader.EnviarImagem(lbIcone.Text);
+
+            int resultado = caracteristica.Atualizar();
+            if (resultado == 0)
+            {
+                MessageBox.Show("Erro ao atualizar caracteristica.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            MessageBox.Show("Caracteristica: " + caracteristica.nome + " atualizada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DefinirCorCamposObrigatorios(SystemColors.Window);
+            Close();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
