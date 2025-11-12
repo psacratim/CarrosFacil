@@ -82,9 +82,7 @@ namespace CarrosFacil.Forms
             this.tbEstoque = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCaracteristicas = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lbFoto = new System.Windows.Forms.Label();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -94,7 +92,7 @@ namespace CarrosFacil.Forms
             this.gbEspecificacoes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
@@ -288,7 +286,6 @@ namespace CarrosFacil.Forms
             this.tbTempoUso.Name = "tbTempoUso";
             this.tbTempoUso.Size = new System.Drawing.Size(184, 27);
             this.tbTempoUso.TabIndex = 82;
-            this.tbTempoUso.TextChanged += new System.EventHandler(this.tbTempoUso_TextChanged);
             this.tbTempoUso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTempoUso_KeyPress);
             // 
             // label7
@@ -401,7 +398,6 @@ namespace CarrosFacil.Forms
             this.tbDescricao.Name = "tbDescricao";
             this.tbDescricao.Size = new System.Drawing.Size(653, 76);
             this.tbDescricao.TabIndex = 102;
-            this.tbDescricao.TextChanged += new System.EventHandler(this.tbDescricao_TextChanged);
             // 
             // label18
             // 
@@ -668,7 +664,6 @@ namespace CarrosFacil.Forms
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do veículo";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tbEstoque
             // 
@@ -691,9 +686,7 @@ namespace CarrosFacil.Forms
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvCaracteristicas);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox2.Location = new System.Drawing.Point(713, 92);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -702,44 +695,16 @@ namespace CarrosFacil.Forms
             this.groupBox2.Size = new System.Drawing.Size(597, 287);
             this.groupBox2.TabIndex = 114;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Características:";
+            this.groupBox2.Text = "Características: (Clique em uma para adicionar ou remover)";
             // 
-            // button2
+            // dgvCaracteristicas
             // 
-            this.button2.Enabled = false;
-            this.button2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(396, 33);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(194, 38);
-            this.button2.TabIndex = 115;
-            this.button2.Text = "Deletar Selecionado";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(7, 33);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(3);
-            this.button1.Size = new System.Drawing.Size(230, 38);
-            this.button1.TabIndex = 115;
-            this.button1.Text = "Adicionar característica";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(583, 203);
-            this.dataGridView1.TabIndex = 115;
+            this.dgvCaracteristicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaracteristicas.Location = new System.Drawing.Point(7, 26);
+            this.dgvCaracteristicas.Name = "dgvCaracteristicas";
+            this.dgvCaracteristicas.Size = new System.Drawing.Size(583, 254);
+            this.dgvCaracteristicas.TabIndex = 115;
+            this.dgvCaracteristicas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCaracteristicas_CellMouseClick);
             // 
             // groupBox4
             // 
@@ -815,7 +780,7 @@ namespace CarrosFacil.Forms
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
@@ -867,9 +832,7 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.GroupBox gbEspecificacoes;
         public System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dgvCaracteristicas;
         private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.TextBox tbPrecoDesconto;
         public System.Windows.Forms.Label label20;

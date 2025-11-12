@@ -20,6 +20,7 @@ namespace CarrosFacil.Forms
 
         public int status, id_modelo;
         public string tipo, tipo_combustivel, tipo_cambio, cor, categoria, estado_do_veiculo;
+        public List<int> caracteristicasSelecionadas = new List<int>()
 
         private void FormVeiculo_Load(object sender, EventArgs e)
         {
@@ -123,11 +124,16 @@ namespace CarrosFacil.Forms
                 Modelo modelo = new Modelo();
                 DataTable modelos = modelo.CarregarModelos();
 
+                Caracteristica caracteristica = new Caracteristica();
+                DataTable caracteristicas = caracteristica.CarregarCaracteristicas();
+
                 this.Invoke((Action)(() =>
                 {
                     cbModelo.DataSource = modelos;
                     cbModelo.DisplayMember = "nome";
                     cbModelo.ValueMember = "id";
+
+                    dgvCaracteristicas.DataSource = caracteristicas;
 
                     // Atualiza os dados após carregar tudo
                     if (tipo == "Atualização")
@@ -289,12 +295,6 @@ namespace CarrosFacil.Forms
             lbFoto.Text = "Nenhuma foto selecionada";
             pbFoto.Image = pbFoto.InitialImage;
         }
-
-        private void tbDescricao_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbPercentualLucro_TextChanged(object sender, EventArgs e)
         {
             AtualizarPrecoVendas();
@@ -356,11 +356,6 @@ namespace CarrosFacil.Forms
             }
         }
 
-        private void tbTempoUso_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
@@ -420,6 +415,11 @@ namespace CarrosFacil.Forms
             }
         }
 
+        private void dgvCaracteristicas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
         private void tbPercentualLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 27 && e.KeyChar != 01)
@@ -445,11 +445,6 @@ namespace CarrosFacil.Forms
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private async void btnAtualizar_Click(object sender, EventArgs e)
@@ -533,6 +528,16 @@ namespace CarrosFacil.Forms
                 MessageBox.Show("Veiculo atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
+        }
+
+        private void btnAddCaracteristica_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelCaracteristica_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

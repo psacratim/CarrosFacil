@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CarrosFacil.Entities;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,6 +33,7 @@ namespace CarrosFacil
         public int estoque { get; set; }
         public DateTime data_cadastro { get; set; }
         public int status { get; set; }
+        public List<int> caracteristicas { get; set; }
 
 
         public Veiculo()
@@ -118,38 +122,46 @@ namespace CarrosFacil
 
         public bool ConsultaVeiculo(int id)
         {
-            string query = "SELECT * FROM veiculo WHERE id = " + id;
+            string queryVeiculo = "SELECT * FROM veiculo WHERE id = " + id;
 
             Conexao conexao = new Conexao();
-            DataTable dt = conexao.RetornaDados(query);
+            DataTable dtVeiculo = conexao.RetornaDados(queryVeiculo);
 
-            if (dt.Rows.Count > 0)
+            string queryCaracteristicas = "SELECT id_caracteristica FROM caracteristica_carro WHERE id_veiculo = " + id;
+            Conexao conexao2 = new Conexao();
+            DataTable dtCaracteristicas = conexao2.RetornaDados(queryCaracteristicas);
+
+            if (dtVeiculo.Rows.Count > 0)
             {
-                this.id = Convert.ToInt32(dt.Rows[0]["id"]);
-                id_modelo = Convert.ToInt32(dt.Rows[0]["id_modelo"]);
-                categoria = Convert.ToString(dt.Rows[0]["categoria"]);
-                estado_do_veiculo = Convert.ToString(dt.Rows[0]["estado_do_veiculo"]);
-                tempo_de_uso = Convert.ToInt32(dt.Rows[0]["tempo_de_uso"]);
-                preco_custo = Convert.ToDecimal(dt.Rows[0]["preco_custo"]);
-                preco_venda = Convert.ToDecimal(dt.Rows[0]["preco_venda"]);
-                preco_desconto = Convert.ToDecimal(dt.Rows[0]["preco_desconto"]);
-                desconto = Convert.ToInt32(dt.Rows[0]["desconto"]);
-                tem_desconto = Convert.ToBoolean(dt.Rows[0]["tem_desconto"]);
-                lucro = Convert.ToInt32(dt.Rows[0]["lucro"]);
-                kms_rodado = Convert.ToInt32(dt.Rows[0]["kms_rodado"]);
-                final_placa = Convert.ToString(dt.Rows[0]["final_placa"]);
-                cor = Convert.ToString(dt.Rows[0]["cor"]);
-                descricao = Convert.ToString(dt.Rows[0]["descricao"]);
-                ano = Convert.ToInt32(dt.Rows[0]["ano"]);
-                tipo_cambio = Convert.ToString(dt.Rows[0]["tipo_cambio"]);
-                tipo_combustivel = Convert.ToString(dt.Rows[0]["tipo_combustivel"]);
-                foto = Convert.ToString(dt.Rows[0]["foto"]);
-                estoque = Convert.ToInt32(dt.Rows[0]["estoque"]);
-                data_cadastro = Convert.ToDateTime(dt.Rows[0]["data_cadastro"]);
-                status = Convert.ToInt32(dt.Rows[0]["status"]);
+                this.id = Convert.ToInt32(dtVeiculo.Rows[0]["id"]);
+                id_modelo = Convert.ToInt32(dtVeiculo.Rows[0]["id_modelo"]);
+                categoria = Convert.ToString(dtVeiculo.Rows[0]["categoria"]);
+                estado_do_veiculo = Convert.ToString(dtVeiculo.Rows[0]["estado_do_veiculo"]);
+                tempo_de_uso = Convert.ToInt32(dtVeiculo.Rows[0]["tempo_de_uso"]);
+                preco_custo = Convert.ToDecimal(dtVeiculo.Rows[0]["preco_custo"]);
+                preco_venda = Convert.ToDecimal(dtVeiculo.Rows[0]["preco_venda"]);
+                preco_desconto = Convert.ToDecimal(dtVeiculo.Rows[0]["preco_desconto"]);
+                desconto = Convert.ToInt32(dtVeiculo.Rows[0]["desconto"]);
+                tem_desconto = Convert.ToBoolean(dtVeiculo.Rows[0]["tem_desconto"]);
+                lucro = Convert.ToInt32(dtVeiculo.Rows[0]["lucro"]);
+                kms_rodado = Convert.ToInt32(dtVeiculo.Rows[0]["kms_rodado"]);
+                final_placa = Convert.ToString(dtVeiculo.Rows[0]["final_placa"]);
+                cor = Convert.ToString(dtVeiculo.Rows[0]["cor"]);
+                descricao = Convert.ToString(dtVeiculo.Rows[0]["descricao"]);
+                ano = Convert.ToInt32(dtVeiculo.Rows[0]["ano"]);
+                tipo_cambio = Convert.ToString(dtVeiculo.Rows[0]["tipo_cambio"]);
+                tipo_combustivel = Convert.ToString(dtVeiculo.Rows[0]["tipo_combustivel"]);
+                foto = Convert.ToString(dtVeiculo.Rows[0]["foto"]);
+                estoque = Convert.ToInt32(dtVeiculo.Rows[0]["estoque"]);
+                data_cadastro = Convert.ToDateTime(dtVeiculo.Rows[0]["data_cadastro"]);
+                status = Convert.ToInt32(dtVeiculo.Rows[0]["status"]);
 
                 return true;
             }
+
+            this.caracteristicas = dtCaracteristicas.AsEnumerable()
+                .Select(row => row.Field<int>("id_caracteristica"))
+                .ToList();
 
             return false;
         }
