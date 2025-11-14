@@ -260,5 +260,10 @@ namespace CarrosFacil.Forms
                 btnPesquisar_Click(this, new EventArgs());
             }
         }
+
+        private void dgvFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

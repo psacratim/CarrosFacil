@@ -41,7 +41,6 @@ namespace CarrosFacil.Forms
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbDadosRegistro = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -62,92 +61,105 @@ namespace CarrosFacil.Forms
             // 
             // tbDescricao
             // 
-            this.tbDescricao.Font = new System.Drawing.Font("Calibri", 14F);
+            this.tbDescricao.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbDescricao.Location = new System.Drawing.Point(7, 123);
             this.tbDescricao.MaxLength = 250;
             this.tbDescricao.Name = "tbDescricao";
-            this.tbDescricao.Size = new System.Drawing.Size(414, 30);
+            this.tbDescricao.Size = new System.Drawing.Size(414, 29);
             this.tbDescricao.TabIndex = 72;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.Location = new System.Drawing.Point(7, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 23);
+            this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 73;
             this.label2.Text = "Descrição:";
             // 
             // btnSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnSair.ForeColor = System.Drawing.Color.Black;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(560, 297);
+            this.btnSair.Location = new System.Drawing.Point(572, 297);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
-            this.btnSair.Size = new System.Drawing.Size(89, 46);
+            this.btnSair.Size = new System.Drawing.Size(77, 46);
             this.btnSair.TabIndex = 70;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnDeletar
             // 
+            this.btnDeletar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnDeletar.Enabled = false;
-            this.btnDeletar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnDeletar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnDeletar.ForeColor = System.Drawing.Color.Black;
             this.btnDeletar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletar.Image")));
             this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeletar.Location = new System.Drawing.Point(321, 297);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Padding = new System.Windows.Forms.Padding(7);
             this.btnDeletar.Size = new System.Drawing.Size(111, 46);
             this.btnDeletar.TabIndex = 69;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnAtualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnAtualizar.ForeColor = System.Drawing.Color.Black;
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAtualizar.Location = new System.Drawing.Point(174, 297);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Padding = new System.Windows.Forms.Padding(7);
             this.btnAtualizar.Size = new System.Drawing.Size(122, 46);
             this.btnAtualizar.TabIndex = 68;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.UseVisualStyleBackColor = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnCadastrar.ForeColor = System.Drawing.Color.Black;
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrar.Location = new System.Drawing.Point(17, 297);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Padding = new System.Windows.Forms.Padding(7);
             this.btnCadastrar.Size = new System.Drawing.Size(132, 46);
             this.btnCadastrar.TabIndex = 67;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 22F);
-            this.label12.Location = new System.Drawing.Point(270, 16);
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.label12.Location = new System.Drawing.Point(316, 16);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(367, 37);
+            this.label12.Size = new System.Drawing.Size(345, 32);
             this.label12.TabIndex = 65;
             this.label12.Text = "Cadastrar nova característica";
             this.label12.Click += new System.EventHandler(this.label12_Click);
@@ -155,30 +167,30 @@ namespace CarrosFacil.Forms
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Calibri", 16F);
-            this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(260, 58);
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label26.Location = new System.Drawing.Point(283, 58);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(387, 27);
+            this.label26.Size = new System.Drawing.Size(411, 30);
             this.label26.TabIndex = 64;
             this.label26.Text = "Todos os campos com * são obrigatorios.";
             // 
             // tbNome
             // 
-            this.tbNome.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbNome.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbNome.Location = new System.Drawing.Point(7, 57);
             this.tbNome.MaxLength = 80;
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(414, 27);
+            this.tbNome.Size = new System.Drawing.Size(414, 29);
             this.tbNome.TabIndex = 60;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.Location = new System.Drawing.Point(7, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 23);
+            this.label3.Size = new System.Drawing.Size(67, 21);
             this.label3.TabIndex = 61;
             this.label3.Text = "* Nome:";
             // 
@@ -186,7 +198,7 @@ namespace CarrosFacil.Forms
             // 
             this.pbIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbIcon.Image")));
             this.pbIcon.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbIcon.InitialImage")));
-            this.pbIcon.Location = new System.Drawing.Point(22, 57);
+            this.pbIcon.Location = new System.Drawing.Point(40, 57);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(222, 148);
             this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -194,23 +206,13 @@ namespace CarrosFacil.Forms
             this.pbIcon.TabStop = false;
             this.pbIcon.Click += new System.EventHandler(this.pbIcon_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label1.Location = new System.Drawing.Point(14, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 23);
-            this.label1.TabIndex = 78;
-            this.label1.Text = "Clique na imagem para mudar";
-            // 
             // gbDadosRegistro
             // 
             this.gbDadosRegistro.Controls.Add(this.label27);
             this.gbDadosRegistro.Controls.Add(this.label28);
             this.gbDadosRegistro.Controls.Add(this.tbCodigo);
             this.gbDadosRegistro.Controls.Add(this.cbStatus);
-            this.gbDadosRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbDadosRegistro.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.gbDadosRegistro.Location = new System.Drawing.Point(17, 99);
             this.gbDadosRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.gbDadosRegistro.Name = "gbDadosRegistro";
@@ -223,45 +225,45 @@ namespace CarrosFacil.Forms
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label27.Location = new System.Drawing.Point(8, 99);
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label27.Location = new System.Drawing.Point(7, 94);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(63, 23);
+            this.label27.Size = new System.Drawing.Size(55, 21);
             this.label27.TabIndex = 39;
             this.label27.Text = "Status:";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label28.Location = new System.Drawing.Point(7, 30);
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label28.Location = new System.Drawing.Point(7, 28);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(177, 23);
+            this.label28.Size = new System.Drawing.Size(160, 21);
             this.label28.TabIndex = 37;
             this.label28.Text = "Código Caracteristica:";
             // 
             // tbCodigo
             // 
             this.tbCodigo.Enabled = false;
-            this.tbCodigo.Font = new System.Drawing.Font("Calibri", 12F);
+            this.tbCodigo.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbCodigo.Location = new System.Drawing.Point(7, 57);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodigo.MaxLength = 20;
             this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(178, 27);
+            this.tbCodigo.Size = new System.Drawing.Size(178, 29);
             this.tbCodigo.TabIndex = 31;
             // 
             // cbStatus
             // 
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.Enabled = false;
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.7F);
+            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(7, 123);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(178, 30);
+            this.cbStatus.Size = new System.Drawing.Size(178, 29);
             this.cbStatus.TabIndex = 36;
             // 
             // groupBox1
@@ -270,7 +272,7 @@ namespace CarrosFacil.Forms
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbDescricao);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.groupBox1.Location = new System.Drawing.Point(218, 99);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -283,10 +285,10 @@ namespace CarrosFacil.Forms
             // lbIcone
             // 
             this.lbIcone.AutoSize = true;
-            this.lbIcone.Font = new System.Drawing.Font("Calibri", 10F);
-            this.lbIcone.Location = new System.Drawing.Point(54, 215);
+            this.lbIcone.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbIcone.Location = new System.Drawing.Point(65, 215);
             this.lbIcone.Name = "lbIcone";
-            this.lbIcone.Size = new System.Drawing.Size(158, 17);
+            this.lbIcone.Size = new System.Drawing.Size(173, 19);
             this.lbIcone.TabIndex = 79;
             this.lbIcone.Text = "Nenhum ícone selecionado";
             // 
@@ -297,34 +299,33 @@ namespace CarrosFacil.Forms
             this.gbIcone.Controls.Add(this.label7);
             this.gbIcone.Controls.Add(this.pictureBox1);
             this.gbIcone.Controls.Add(this.pbIcon);
-            this.gbIcone.Controls.Add(this.label1);
-            this.gbIcone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbIcone.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.gbIcone.Location = new System.Drawing.Point(659, 99);
             this.gbIcone.Margin = new System.Windows.Forms.Padding(4);
             this.gbIcone.Name = "gbIcone";
             this.gbIcone.Padding = new System.Windows.Forms.Padding(4);
-            this.gbIcone.Size = new System.Drawing.Size(265, 244);
+            this.gbIcone.Size = new System.Drawing.Size(300, 244);
             this.gbIcone.TabIndex = 117;
             this.gbIcone.TabStop = false;
-            this.gbIcone.Text = "Ícone da característica";
+            this.gbIcone.Text = "Ícone (Clique na imagem para mudar)";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.Location = new System.Drawing.Point(500, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 17);
+            this.label5.Size = new System.Drawing.Size(173, 19);
             this.label5.TabIndex = 79;
             this.label5.Text = "Nenhum ícone selecionado";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label7.Location = new System.Drawing.Point(460, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(239, 23);
+            this.label7.Size = new System.Drawing.Size(268, 25);
             this.label7.TabIndex = 78;
             this.label7.Text = "Clique na imagem para mudar";
             // 
@@ -340,7 +341,7 @@ namespace CarrosFacil.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 351);
+            this.ClientSize = new System.Drawing.Size(972, 351);
             this.Controls.Add(this.gbIcone);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDadosRegistro);
@@ -351,6 +352,7 @@ namespace CarrosFacil.Forms
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label26);
             this.Name = "FormCaracteristica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciando - Caracteristica";
             this.Load += new System.EventHandler(this.FormCaracteristica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
@@ -375,7 +377,6 @@ namespace CarrosFacil.Forms
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbDadosRegistro;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;

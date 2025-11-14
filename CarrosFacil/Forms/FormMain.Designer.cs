@@ -62,6 +62,7 @@ namespace CarrosFacil
             // 
             // menuPrincipal
             // 
+            this.menuPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.menuPrincipal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.menuPrincipal.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -72,8 +73,8 @@ namespace CarrosFacil
             this.menuSair});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuPrincipal.Size = new System.Drawing.Size(764, 40);
+            this.menuPrincipal.Padding = new System.Windows.Forms.Padding(7);
+            this.menuPrincipal.Size = new System.Drawing.Size(764, 50);
             this.menuPrincipal.TabIndex = 0;
             this.menuPrincipal.Text = "menus";
             // 
@@ -236,6 +237,7 @@ namespace CarrosFacil
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLbHora,
@@ -251,20 +253,26 @@ namespace CarrosFacil
             // 
             // statusLbHora
             // 
+            this.statusLbHora.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.statusLbHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.statusLbHora.Name = "statusLbHora";
-            this.statusLbHora.Size = new System.Drawing.Size(57, 25);
+            this.statusLbHora.Size = new System.Drawing.Size(53, 25);
             this.statusLbHora.Text = "Hora";
             // 
             // statusLbData
             // 
+            this.statusLbData.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.statusLbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.statusLbData.Name = "statusLbData";
-            this.statusLbData.Size = new System.Drawing.Size(53, 25);
+            this.statusLbData.Size = new System.Drawing.Size(51, 25);
             this.statusLbData.Text = "Data";
             // 
             // statusLbMensagem
             // 
+            this.statusLbMensagem.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.statusLbMensagem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.statusLbMensagem.Name = "statusLbMensagem";
-            this.statusLbMensagem.Size = new System.Drawing.Size(109, 25);
+            this.statusLbMensagem.Size = new System.Drawing.Size(105, 25);
             this.statusLbMensagem.Text = "Mensagem";
             // 
             // timerPrincipal
@@ -276,7 +284,7 @@ namespace CarrosFacil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(764, 478);
             this.Controls.Add(this.statusStrip1);
@@ -284,6 +292,7 @@ namespace CarrosFacil
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuPrincipal;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema - Carros Fácil";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuPrincipal.ResumeLayout(false);

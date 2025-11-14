@@ -117,7 +117,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 tbNome.Focus();
                 return;
             }
@@ -126,7 +126,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 dtpDataNascimento.Focus();
                 return;
             }
@@ -174,7 +174,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 tbNome.Focus();
                 return;
             }
@@ -183,7 +183,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, insira uma data de nascimento verdadeira.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 dtpDataNascimento.Focus();
                 return;
             }

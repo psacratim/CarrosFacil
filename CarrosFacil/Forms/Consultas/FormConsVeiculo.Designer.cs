@@ -62,10 +62,10 @@ namespace CarrosFacil.Forms.Consultas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label1.Location = new System.Drawing.Point(80, 34);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.label1.Location = new System.Drawing.Point(76, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.Size = new System.Drawing.Size(211, 32);
             this.label1.TabIndex = 57;
             this.label1.Text = "Filtros de Pesquisa";
             // 
@@ -73,10 +73,10 @@ namespace CarrosFacil.Forms.Consultas
             // 
             this.rbMenor.AutoSize = true;
             this.rbMenor.Checked = true;
-            this.rbMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMenor.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMenor.Location = new System.Drawing.Point(75, 20);
             this.rbMenor.Name = "rbMenor";
-            this.rbMenor.Size = new System.Drawing.Size(66, 21);
+            this.rbMenor.Size = new System.Drawing.Size(68, 23);
             this.rbMenor.TabIndex = 8;
             this.rbMenor.TabStop = true;
             this.rbMenor.Text = "Menor";
@@ -85,41 +85,43 @@ namespace CarrosFacil.Forms.Consultas
             // rbMaior
             // 
             this.rbMaior.AutoSize = true;
-            this.rbMaior.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMaior.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMaior.Location = new System.Drawing.Point(6, 20);
             this.rbMaior.Name = "rbMaior";
-            this.rbMaior.Size = new System.Drawing.Size(61, 21);
+            this.rbMaior.Size = new System.Drawing.Size(63, 23);
             this.rbMaior.TabIndex = 7;
             this.rbMaior.Text = "Maior";
             this.rbMaior.UseVisualStyleBackColor = true;
             // 
             // cbStatus
             // 
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(170, 221);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(147, 24);
+            this.cbStatus.Size = new System.Drawing.Size(147, 25);
             this.cbStatus.TabIndex = 34;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.Location = new System.Drawing.Point(170, 200);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 17);
+            this.label5.Size = new System.Drawing.Size(50, 19);
             this.label5.TabIndex = 33;
             this.label5.Text = "Status:";
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnPesquisar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnPesquisar.ForeColor = System.Drawing.Color.Black;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesquisar.Location = new System.Drawing.Point(13, 251);
+            this.btnPesquisar.Location = new System.Drawing.Point(13, 252);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Padding = new System.Windows.Forms.Padding(7);
             this.btnPesquisar.Size = new System.Drawing.Size(132, 46);
             this.btnPesquisar.TabIndex = 28;
             this.btnPesquisar.Text = "Pesquisar";
@@ -129,12 +131,14 @@ namespace CarrosFacil.Forms.Consultas
             // 
             // btnSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnSair.ForeColor = System.Drawing.Color.Black;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(228, 251);
+            this.btnSair.Location = new System.Drawing.Point(228, 252);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
             this.btnSair.Size = new System.Drawing.Size(89, 46);
             this.btnSair.TabIndex = 31;
             this.btnSair.Text = "Sair";
@@ -144,40 +148,40 @@ namespace CarrosFacil.Forms.Consultas
             // 
             // cbOpcoes
             // 
-            this.cbOpcoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOpcoes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbOpcoes.FormattingEnabled = true;
             this.cbOpcoes.Location = new System.Drawing.Point(13, 34);
             this.cbOpcoes.Name = "cbOpcoes";
-            this.cbOpcoes.Size = new System.Drawing.Size(147, 24);
+            this.cbOpcoes.Size = new System.Drawing.Size(147, 25);
             this.cbOpcoes.TabIndex = 20;
             this.cbOpcoes.SelectedIndexChanged += new System.EventHandler(this.cbOpcoes_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label9.Location = new System.Drawing.Point(13, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.Size = new System.Drawing.Size(43, 19);
             this.label9.TabIndex = 19;
             this.label9.Text = "Filtro:";
             // 
             // cbEstadoVeiculo
             // 
-            this.cbEstadoVeiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstadoVeiculo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstadoVeiculo.FormattingEnabled = true;
             this.cbEstadoVeiculo.Location = new System.Drawing.Point(13, 221);
             this.cbEstadoVeiculo.Name = "cbEstadoVeiculo";
-            this.cbEstadoVeiculo.Size = new System.Drawing.Size(147, 24);
+            this.cbEstadoVeiculo.Size = new System.Drawing.Size(147, 25);
             this.cbEstadoVeiculo.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.Location = new System.Drawing.Point(13, 200);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 17);
+            this.label8.Size = new System.Drawing.Size(119, 19);
             this.label8.TabIndex = 15;
             this.label8.Text = "Estado do veículo:";
             // 
@@ -185,7 +189,7 @@ namespace CarrosFacil.Forms.Consultas
             // 
             this.gbTipoBusca.Controls.Add(this.rbMenor);
             this.gbTipoBusca.Controls.Add(this.rbMaior);
-            this.gbTipoBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTipoBusca.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTipoBusca.Location = new System.Drawing.Point(13, 136);
             this.gbTipoBusca.Name = "gbTipoBusca";
             this.gbTipoBusca.Size = new System.Drawing.Size(147, 45);
@@ -196,11 +200,11 @@ namespace CarrosFacil.Forms.Consultas
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(539, 36);
+            this.label11.Location = new System.Drawing.Point(535, 15);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(249, 24);
+            this.label11.Size = new System.Drawing.Size(255, 25);
             this.label11.TabIndex = 59;
             this.label11.Text = "Clique no veiculo para editar";
             // 
@@ -223,83 +227,83 @@ namespace CarrosFacil.Forms.Consultas
             this.panel1.Controls.Add(this.cbCategoria);
             this.panel1.Controls.Add(this.tbEstoque);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(17, 73);
+            this.panel1.Location = new System.Drawing.Point(13, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 313);
+            this.panel1.Size = new System.Drawing.Size(332, 303);
             this.panel1.TabIndex = 58;
             // 
             // cbDesconto
             // 
-            this.cbDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDesconto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDesconto.FormattingEnabled = true;
             this.cbDesconto.Location = new System.Drawing.Point(170, 34);
             this.cbDesconto.Name = "cbDesconto";
-            this.cbDesconto.Size = new System.Drawing.Size(147, 24);
+            this.cbDesconto.Size = new System.Drawing.Size(147, 25);
             this.cbDesconto.TabIndex = 36;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label6.Location = new System.Drawing.Point(170, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 17);
+            this.label6.Size = new System.Drawing.Size(70, 19);
             this.label6.TabIndex = 35;
             this.label6.Text = "Desconto:";
             // 
             // cbModelo
             // 
-            this.cbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbModelo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbModelo.FormattingEnabled = true;
             this.cbModelo.Location = new System.Drawing.Point(170, 98);
             this.cbModelo.Name = "cbModelo";
-            this.cbModelo.Size = new System.Drawing.Size(147, 24);
+            this.cbModelo.Size = new System.Drawing.Size(147, 25);
             this.cbModelo.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label3.Location = new System.Drawing.Point(170, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
+            this.label3.Size = new System.Drawing.Size(59, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Modelo:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label4.Location = new System.Drawing.Point(170, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 11;
             this.label4.Text = "Estoque:";
             // 
             // cbCategoria
             // 
-            this.cbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(13, 98);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(147, 24);
+            this.cbCategoria.Size = new System.Drawing.Size(147, 25);
             this.cbCategoria.TabIndex = 3;
             // 
             // tbEstoque
             // 
-            this.tbEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEstoque.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEstoque.Location = new System.Drawing.Point(170, 158);
             this.tbEstoque.Name = "tbEstoque";
-            this.tbEstoque.Size = new System.Drawing.Size(147, 23);
+            this.tbEstoque.Size = new System.Drawing.Size(147, 25);
             this.tbEstoque.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label2.Location = new System.Drawing.Point(13, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(71, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Categoria:";
             // 
@@ -315,21 +319,21 @@ namespace CarrosFacil.Forms.Consultas
             this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVeiculos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVeiculos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvVeiculos.Location = new System.Drawing.Point(355, 73);
+            this.dgvVeiculos.Location = new System.Drawing.Point(351, 52);
             this.dgvVeiculos.MultiSelect = false;
             this.dgvVeiculos.Name = "dgvVeiculos";
             this.dgvVeiculos.ReadOnly = true;
             this.dgvVeiculos.RowHeadersVisible = false;
             this.dgvVeiculos.RowHeadersWidth = 51;
             this.dgvVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVeiculos.Size = new System.Drawing.Size(641, 313);
+            this.dgvVeiculos.Size = new System.Drawing.Size(641, 303);
             this.dgvVeiculos.TabIndex = 60;
             this.dgvVeiculos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVeiculos_CellMouseClick);
             // 
@@ -337,12 +341,15 @@ namespace CarrosFacil.Forms.Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 400);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(1004, 366);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvVeiculos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormConsVeiculo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormConsVeiculo";
             this.Load += new System.EventHandler(this.FormConsVeiculo_Load);
             this.gbTipoBusca.ResumeLayout(false);

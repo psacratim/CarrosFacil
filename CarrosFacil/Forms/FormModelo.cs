@@ -70,7 +70,7 @@ namespace CarrosFacil
         {
             if (!ValidarCampos())
             {
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
 
                 MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -114,7 +114,7 @@ namespace CarrosFacil
         {
             if (!ValidarCampos())
             {
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
 
                 MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,21 +21,11 @@ namespace CarrosFacil
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbNomeSocial_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
             {
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
 
                 MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -80,6 +71,7 @@ namespace CarrosFacil
 
         private void FormMarca_Load(object sender, EventArgs e)
         {
+
             // Status
             cbStatus.Items.Add("Desativado");
             cbStatus.Items.Add("Ativado");
@@ -116,7 +108,7 @@ namespace CarrosFacil
         {
             if (!ValidarCampos())
             {
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
 
                 MessageBox.Show("Por favor, preencha todos os campos obrigatorios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -141,44 +133,42 @@ namespace CarrosFacil
             Close();
         }
 
-        private void cbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        // Mover formulário que não tem bordas.
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void FormMarca_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
-        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        // Pequena borda manual
+        protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
 
-        }
+            // Cor e espessura da borda
+            Color borderColor = Color.FromArgb(200, 200, 200);
+            int borderSize = 2;
 
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            using (Pen pen = new Pen(borderColor, borderSize))
+            {
+                Rectangle rect = new Rectangle(
+                    borderSize / 2,
+                    borderSize / 2,
+                    this.Width - borderSize,
+                    this.Height - borderSize
+                );
+                e.Graphics.DrawRectangle(pen, rect);
+            }
         }
     }
 }

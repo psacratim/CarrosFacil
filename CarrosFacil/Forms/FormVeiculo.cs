@@ -20,7 +20,7 @@ namespace CarrosFacil.Forms
 
         public int status, id_modelo;
         public string tipo, tipo_combustivel, tipo_cambio, cor, categoria, estado_do_veiculo;
-        public List<int> caracteristicasSelecionadas = new List<int>()
+        public List<int> caracteristicasSelecionadas = new List<int>();
 
         private void FormVeiculo_Load(object sender, EventArgs e)
         {
@@ -170,7 +170,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Aviso - Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 tbTempoUso.Focus();
                 return;
             }
@@ -453,7 +453,7 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                DefinirCorCamposObrigatorios(Color.Red);
+                DefinirCorCamposObrigatorios(Color.FromArgb(179, 221, 255));
                 tbTempoUso.Focus();
                 return;
             }

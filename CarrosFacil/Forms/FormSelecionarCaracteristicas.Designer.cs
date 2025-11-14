@@ -30,7 +30,7 @@ namespace CarrosFacil.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelecionarCaracteristicas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,21 +52,21 @@ namespace CarrosFacil.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.label1.Location = new System.Drawing.Point(41, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.Size = new System.Drawing.Size(211, 32);
             this.label1.TabIndex = 73;
             this.label1.Text = "Filtros de Pesquisa";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(381, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(321, 24);
+            this.label11.Size = new System.Drawing.Size(322, 25);
             this.label11.TabIndex = 75;
             this.label11.Text = "Clique para selecionar/desselecionar";
             // 
@@ -89,52 +89,52 @@ namespace CarrosFacil.Forms
             // 
             // cbStatus
             // 
-            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(13, 145);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(248, 24);
+            this.cbStatus.Size = new System.Drawing.Size(248, 25);
             this.cbStatus.TabIndex = 39;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label3.Location = new System.Drawing.Point(13, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.Size = new System.Drawing.Size(50, 19);
             this.label3.TabIndex = 38;
             this.label3.Text = "Status:";
             // 
             // tbNome
             // 
-            this.tbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNome.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNome.Location = new System.Drawing.Point(13, 200);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(248, 23);
+            this.tbNome.Size = new System.Drawing.Size(248, 25);
             this.tbNome.TabIndex = 37;
             // 
             // tbCodigo
             // 
-            this.tbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCodigo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCodigo.Location = new System.Drawing.Point(13, 90);
             this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(248, 23);
+            this.tbCodigo.Size = new System.Drawing.Size(248, 25);
             this.tbCodigo.TabIndex = 36;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label6.Location = new System.Drawing.Point(13, 68);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 17);
+            this.label6.Size = new System.Drawing.Size(122, 19);
             this.label6.TabIndex = 35;
             this.label6.Text = "Cód. Caracteristica";
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnPesquisar.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPesquisar.Location = new System.Drawing.Point(13, 229);
@@ -149,7 +149,7 @@ namespace CarrosFacil.Forms
             // 
             // btnSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.Location = new System.Drawing.Point(172, 229);
@@ -164,31 +164,31 @@ namespace CarrosFacil.Forms
             // 
             // cbOpcoes
             // 
-            this.cbOpcoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOpcoes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbOpcoes.FormattingEnabled = true;
             this.cbOpcoes.Location = new System.Drawing.Point(13, 34);
             this.cbOpcoes.Name = "cbOpcoes";
-            this.cbOpcoes.Size = new System.Drawing.Size(248, 24);
+            this.cbOpcoes.Size = new System.Drawing.Size(248, 25);
             this.cbOpcoes.TabIndex = 20;
             this.cbOpcoes.SelectedIndexChanged += new System.EventHandler(this.cbOpcoes_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label9.Location = new System.Drawing.Point(13, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.Size = new System.Drawing.Size(43, 19);
             this.label9.TabIndex = 19;
             this.label9.Text = "Filtro:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label2.Location = new System.Drawing.Point(13, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
+            this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome:";
             // 
@@ -202,14 +202,14 @@ namespace CarrosFacil.Forms
             this.dgvCaracteristicas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvCaracteristicas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCaracteristicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCaracteristicas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCaracteristicas.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCaracteristicas.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvCaracteristicas.Location = new System.Drawing.Point(294, 55);
             this.dgvCaracteristicas.MultiSelect = false;
@@ -232,6 +232,7 @@ namespace CarrosFacil.Forms
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCaracteristicas);
             this.Name = "FormSelecionarCaracteristicas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSelecionarCaracteristicas";
             this.Load += new System.EventHandler(this.FormSelecionarCaracteristicas_Load);
             this.panel1.ResumeLayout(false);
