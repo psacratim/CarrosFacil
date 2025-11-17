@@ -40,7 +40,7 @@ namespace CarrosFacil.Forms
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
+            this.btnPronto = new System.Windows.Forms.Button();
             this.cbOpcoes = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@ namespace CarrosFacil.Forms
             this.panel1.Controls.Add(this.tbCodigo);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnPesquisar);
-            this.panel1.Controls.Add(this.btnSair);
+            this.panel1.Controls.Add(this.btnPronto);
             this.panel1.Controls.Add(this.cbOpcoes);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label2);
@@ -147,20 +147,20 @@ namespace CarrosFacil.Forms
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // btnSair
+            // btnPronto
             // 
-            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(172, 229);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Padding = new System.Windows.Forms.Padding(7);
-            this.btnSair.Size = new System.Drawing.Size(89, 46);
-            this.btnSair.TabIndex = 31;
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnPronto.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnPronto.Image = ((System.Drawing.Image)(resources.GetObject("btnPronto.Image")));
+            this.btnPronto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPronto.Location = new System.Drawing.Point(151, 229);
+            this.btnPronto.Name = "btnPronto";
+            this.btnPronto.Padding = new System.Windows.Forms.Padding(7);
+            this.btnPronto.Size = new System.Drawing.Size(110, 46);
+            this.btnPronto.TabIndex = 31;
+            this.btnPronto.Text = "Pronto";
+            this.btnPronto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPronto.UseVisualStyleBackColor = true;
+            this.btnPronto.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // cbOpcoes
             // 
@@ -254,7 +254,7 @@ namespace CarrosFacil.Forms
         private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnPronto;
         private System.Windows.Forms.ComboBox cbOpcoes;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;

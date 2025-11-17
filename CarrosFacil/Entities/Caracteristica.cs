@@ -108,5 +108,39 @@ namespace CarrosFacil.Entities
             Conexao conexao = new Conexao();
             return conexao.ExecutaQuery(query);
         }
+
+        public DataTable ConsultarPorVeiculo(int codigoVeiculo)
+        {
+            string query = string.Format("SELECT cc.id_caracteristica '#', c.nome 'Nome' FROM caracteristica_carro AS cc INNER JOIN caracteristica AS c ON cc.id_caracteristica = c.id WHERE cc.id_veiculo = {0};", codigoVeiculo);
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable ConsultarPorCodigos(List<int> caracteristicasSelecionadas)
+        {
+            // 1. Verifica se a lista está vazia para evitar um erro SQL (ex: "IN ()")
+            if (caracteristicasSelecionadas == null || caracteristicasSelecionadas.Count == 0)
+            {
+                // Retorna uma tabela vazia se não houver IDs para consultar
+                return new DataTable();
+            }
+
+            // 2. Converte a lista de inteiros [1, 5, 10] para uma string "1,5,10"
+            string ids = string.Join(",", caracteristicasSelecionadas);
+
+            // 3. Monta a query usando a cláusula IN.
+            //    Incluí "status = 1" para manter a consistência com o método "ConsultarPorCodigo" (singular).
+            string query = string.Format(
+                "SELECT id '#', nome 'Nome'" +
+                "FROM caracteristica " +
+                "WHERE id IN ({0}) AND status = 1",
+                ids
+            );
+
+            // 4. Executa a consulta e retorna os dados
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }

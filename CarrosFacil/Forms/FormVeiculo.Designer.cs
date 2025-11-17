@@ -86,6 +86,8 @@ namespace CarrosFacil.Forms
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lbFoto = new System.Windows.Forms.Label();
             this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.tbAdicionar = new System.Windows.Forms.Button();
+            this.tbRemoverSelecionado = new System.Windows.Forms.Button();
             this.gbPrecoVenda.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gbDadosRegistro.SuspendLayout();
@@ -710,7 +712,7 @@ namespace CarrosFacil.Forms
             this.groupBox2.Size = new System.Drawing.Size(597, 287);
             this.groupBox2.TabIndex = 114;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Características: (Clique em uma para adicionar ou remover)";
+            this.groupBox2.Text = "Características:";
             // 
             // dgvCaracteristicas
             // 
@@ -762,11 +764,49 @@ namespace CarrosFacil.Forms
             this.pbFoto.TabStop = false;
             this.pbFoto.Click += new System.EventHandler(this.pbFoto_Click);
             // 
+            // tbAdicionar
+            // 
+            this.tbAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tbAdicionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tbAdicionar.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.tbAdicionar.ForeColor = System.Drawing.Color.Black;
+            this.tbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tbAdicionar.Image")));
+            this.tbAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tbAdicionar.Location = new System.Drawing.Point(956, 51);
+            this.tbAdicionar.Name = "tbAdicionar";
+            this.tbAdicionar.Size = new System.Drawing.Size(124, 39);
+            this.tbAdicionar.TabIndex = 117;
+            this.tbAdicionar.Text = "Adicionar";
+            this.tbAdicionar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tbAdicionar.UseVisualStyleBackColor = false;
+            this.tbAdicionar.Click += new System.EventHandler(this.tbAdicionar_Click);
+            // 
+            // tbRemoverSelecionado
+            // 
+            this.tbRemoverSelecionado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tbRemoverSelecionado.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRemoverSelecionado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tbRemoverSelecionado.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.tbRemoverSelecionado.ForeColor = System.Drawing.Color.Black;
+            this.tbRemoverSelecionado.Image = ((System.Drawing.Image)(resources.GetObject("tbRemoverSelecionado.Image")));
+            this.tbRemoverSelecionado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tbRemoverSelecionado.Location = new System.Drawing.Point(1086, 51);
+            this.tbRemoverSelecionado.Name = "tbRemoverSelecionado";
+            this.tbRemoverSelecionado.Size = new System.Drawing.Size(224, 39);
+            this.tbRemoverSelecionado.TabIndex = 118;
+            this.tbRemoverSelecionado.Text = "Remover selecionado";
+            this.tbRemoverSelecionado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tbRemoverSelecionado.UseVisualStyleBackColor = false;
+            this.tbRemoverSelecionado.Click += new System.EventHandler(this.tbRemoverSelecionado_Click);
+            // 
             // FormVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1327, 688);
+            this.Controls.Add(this.tbRemoverSelecionado);
+            this.Controls.Add(this.tbAdicionar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -862,5 +902,7 @@ namespace CarrosFacil.Forms
         public System.Windows.Forms.Label lbFoto;
         public System.Windows.Forms.RadioButton rbDescontoNao;
         public System.Windows.Forms.RadioButton rbDescontoSim;
+        public System.Windows.Forms.Button tbAdicionar;
+        public System.Windows.Forms.Button tbRemoverSelecionado;
     }
 }

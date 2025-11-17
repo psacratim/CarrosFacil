@@ -124,20 +124,18 @@ namespace CarrosFacil.Forms
                 Modelo modelo = new Modelo();
                 DataTable modelos = modelo.CarregarModelos();
 
-                Caracteristica caracteristica = new Caracteristica();
-                DataTable caracteristicas = caracteristica.CarregarCaracteristicas();
-
                 this.Invoke((Action)(() =>
                 {
                     cbModelo.DataSource = modelos;
                     cbModelo.DisplayMember = "nome";
                     cbModelo.ValueMember = "id";
 
-                    dgvCaracteristicas.DataSource = caracteristicas;
+                    AtualizarCaracteristicasUsadas();
 
                     // Atualiza os dados após carregar tudo
                     if (tipo == "Atualização")
                     {
+
                         cbModelo.SelectedValue = id_modelo;
                         cbEstadoVeiculo.SelectedItem = estado_do_veiculo;
                         cbColor.SelectedItem = cor;
@@ -210,6 +208,7 @@ namespace CarrosFacil.Forms
             veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
             veiculo.estoque = Convert.ToInt32(tbEstoque.Text);
             veiculo.status = 1;
+            veiculo.caracteristicas = caracteristicasSelecionadas;
 
             // SALVANDO A FOTO NO BANCO DE DADOS!
             string fotoVeiculo = await Uploader.EnviarImagem(lbFoto.Text);
@@ -420,12 +419,45 @@ namespace CarrosFacil.Forms
 
         }
 
+        private void tbAdicionar_Click(object sender, EventArgs e)
+        {
+            var formSelecionarCaracteristicas = new FormSelecionarCaracteristicas(this);
+            formSelecionarCaracteristicas.Show();
+        }
+
         private void tbPercentualLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 27 && e.KeyChar != 01)
             {
                 e.Handled = true;
                 MessageBox.Show("Esse campo aceita somente números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tbRemoverSelecionado_Click(object sender, EventArgs e)
+        {
+            if (dgvCaracteristicas.CurrentCell == null)
+            {
+                MessageBox.Show("Por favor, clique na característica que deseja remover.", "Nenhuma seleção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                DataGridViewRow currentRow = dgvCaracteristicas.Rows[dgvCaracteristicas.CurrentCell.RowIndex];
+
+                int idParaRemover = Convert.ToInt32(currentRow.Cells[0].Value);
+
+                if (caracteristicasSelecionadas.Contains(idParaRemover))
+                {
+                    caracteristicasSelecionadas.Remove(idParaRemover);
+                }
+
+                AtualizarCaracteristicasUsadas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao remover a característica: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -506,6 +538,7 @@ namespace CarrosFacil.Forms
             veiculo.tipo_combustivel = cbTipoCombustivel.SelectedItem.ToString();
             veiculo.estoque = Convert.ToInt32(tbEstoque.Text);
             veiculo.status = cbStatus.SelectedIndex;
+            veiculo.caracteristicas = caracteristicasSelecionadas;
 
             // SALVANDO A FOTO NO BANCO DE DADOS!
             string fotoVeiculo = await Uploader.EnviarImagem(lbFoto.Text);
@@ -527,6 +560,37 @@ namespace CarrosFacil.Forms
             {
                 MessageBox.Show("Veiculo atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
+            }
+        }
+
+        public void AtualizarCaracteristicasUsadas()
+        {
+
+            if (caracteristicasSelecionadas.Count > 0)
+            {
+                dgvCaracteristicas.DataSource = new Caracteristica().ConsultarPorCodigos(caracteristicasSelecionadas);
+            }
+            else
+            {
+                dgvCaracteristicas.DataSource = null;
+            }
+
+            foreach (DataGridViewRow row in dgvCaracteristicas.SelectedRows)
+            {
+                int codigoCaracteristica = Convert.ToInt32(row.Cells[0].Value);
+                if (caracteristicasSelecionadas.Contains(codigoCaracteristica))
+                {
+                    caracteristicasSelecionadas.Remove(codigoCaracteristica);
+                }
+                else
+                {
+                    caracteristicasSelecionadas.Add(codigoCaracteristica);
+                }
+
+                // Muda a cor da celula pra verde caso esteja selecionado
+                var cor = caracteristicasSelecionadas.Contains(codigoCaracteristica) ? Color.Green : Color.Gray;
+                dgvCaracteristicas.SelectedRows[0].DefaultCellStyle.BackColor = cor;
+                dgvCaracteristicas.SelectedRows[0].DefaultCellStyle.SelectionBackColor = cor;
             }
         }
 

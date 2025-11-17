@@ -93,6 +93,38 @@ namespace CarrosFacil
             }
         }
 
+        public int ExecutaQuery(string query, bool retornaId)
+        {
+            try
+            {
+                Conectar();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexao))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    if (retornaId)
+                    {
+                        return (int)cmd.LastInsertedId;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                erro = ex.Message;
+                return 0;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         //MÉTODO PARA EXECUTAR TODOS OS COMANDOS DE CONSULTA        
         // Executa uma consulta SELECT e retorna um DataTable com os resultados       
         public DataTable RetornaDados(string query)

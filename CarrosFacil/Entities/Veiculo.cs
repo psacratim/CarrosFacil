@@ -57,7 +57,8 @@ namespace CarrosFacil
             this.tipo_combustivel = null;
             this.estoque = 0;
             this.data_cadastro = DateTime.Now;
-            this.status = 0;
+            this.status = 0; 
+            this.caracteristicas = new List<int>();
         }
 
         public int Cadastrar()
@@ -89,6 +90,38 @@ namespace CarrosFacil
             Conexao conexao = new Conexao();
             return conexao.ExecutaQuery(query);
         }
+
+        public int InserirCaracteristicas(int idVeiculo)
+        {
+            if (caracteristicas == null || caracteristicas.Count == 0)
+            {
+                return 0;
+            }
+
+            List<string> valores = new List<string>();
+            foreach (int idCaracteristica in caracteristicas)
+            {
+                valores.Add($"({idVeiculo}, {idCaracteristica})");
+            }
+
+            if (valores.Count > 0)
+            {
+                Conexao conexao = new Conexao();
+                conexao.ExecutaQuery("DELETE FROM caracteristica_carro WHERE id_veiculo = " + idVeiculo + ";");
+
+
+                string valoresString = string.Join(", ", valores);
+                string query = string.Format(
+                    "INSERT INTO caracteristica_carro (id_veiculo, id_caracteristica) VALUES {0};",
+                    valoresString
+                );
+
+                return conexao.ExecutaQuery(query);
+            }
+
+            return 1;
+        }
+
         public int AtualizarVeiculo()
         {
             string query = string.Format(
@@ -117,7 +150,10 @@ namespace CarrosFacil
             );
 
             Conexao conexao = new Conexao();
-            return conexao.ExecutaQuery(query);
+            int result = conexao.ExecutaQuery(query);
+            if (result == 0) return result;
+
+            return InserirCaracteristicas(id);
         }
 
         public bool ConsultaVeiculo(int id)

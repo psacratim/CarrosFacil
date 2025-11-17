@@ -109,13 +109,6 @@ namespace CarrosFacil
             return conexao.ExecutaQuery(query);
         }
 
-        public DataTable ConsultarPorCidade(string cidade)
-        {
-            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.cidade = '" + cidade + "' ORDER BY funcionario.nome;";
-
-            Conexao conexao = new Conexao();
-            return conexao.RetornaDados(query);
-        }
 
         public DataTable ConsultarPorCargo(int idCargo)
         {
@@ -124,15 +117,20 @@ namespace CarrosFacil
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+        public DataTable ConsultarPorCidade(string cidade)
+        {
+            string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.cidade = '" + cidade + "' ORDER BY funcionario.nome;";
 
-        internal object ConsultarPorUsuario(string usuario)
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable ConsultarPorUsuario(string usuario)
         {
             string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.usuario = '" + usuario + "' ORDER BY funcionario.nome;";
 
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
-
         public DataTable ConsultarPorSexo(string sexo)
         {
             string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.sexo = '" + sexo + "' ORDER BY funcionario.nome;";
@@ -149,7 +147,7 @@ namespace CarrosFacil
             return conexao.RetornaDados(query);
         }
 
-        internal object ConsultarPorSexoCidade(string cidade, string sexo)
+        public DataTable ConsultarPorSexoCidade(string cidade, string sexo)
         {
             string query = "SELECT funcionario.id '#', funcionario.nome 'Nome', cargo.nome 'Cargo', funcionario.cpf 'CPF', funcionario.telefone_Recado 'T. Recado', funcionario.data_nascimento 'Data Nascimento', funcionario.status 'Status' FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.sexo = '" + sexo + "' AND funcionario.cidade = '" + cidade + "' ORDER BY funcionario.nome;";
 
@@ -290,6 +288,67 @@ namespace CarrosFacil
 
             Conexao conexao = new Conexao();
             return conexao.ExecutaQuery(query);
+        }
+
+
+        /*
+         * 
+         * MÉTODOS DE RELATORIO
+         *
+         */
+        public DataTable RelatorioPorSexo(string sexo)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.sexo = '" + sexo + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorStatus(int status)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = " + status + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorCidade(string cidade)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.cidade = '" + cidade + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorDataAdmissao(DateTime inicio, DateTime fim)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.data_cadastro BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' AND '" + fim.ToString("yyyy-MM-dd") + "' ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorCargo(int idCargo)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND funcionario.id_cargo = " + idCargo + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorMesAniversario(int mes)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND MONTH(funcionario.data_nascimento) = " + mes + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorIdade(int minima, int maxima)
+        {
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = 1 AND TIMESTAMPDIFF(YEAR, funcionario.data_nascimento, NOW()) BETWEEN " + minima+ " AND " + maxima + " ORDER BY funcionario.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
         }
     }
 }

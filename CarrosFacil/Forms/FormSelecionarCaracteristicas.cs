@@ -37,7 +37,7 @@ namespace CarrosFacil.Forms
             cbOpcoes.SelectedIndex = 0;
 
             // Carrega todas as caracteristicas do form
-            dgvCaracteristicas.DataSource = new Caracteristica().ConsultarPorStatus(1);
+            dgvCaracteristicas.DataSource = new Caracteristica().CarregarCaracteristicas();
 
             // Muda a cor das selecionadas
             foreach (DataGridViewRow row in dgvCaracteristicas.Rows)
@@ -89,6 +89,8 @@ namespace CarrosFacil.Forms
 
         private void btnSair_Click(object sender, EventArgs e)
         {
+            formVeiculo.dgvCaracteristicas.DataSource = dgvCaracteristicas.DataSource;
+            formVeiculo.AtualizarCaracteristicasUsadas();
             Close();
         }
 
