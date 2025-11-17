@@ -2,7 +2,7 @@
 using System.Data;
 using System.Threading.Tasks;
 
-namespace CarrosFacil
+namespace CarrosFacil.Entities
 {
     class Cargo
     {
