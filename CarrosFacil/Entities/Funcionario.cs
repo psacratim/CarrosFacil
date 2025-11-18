@@ -306,7 +306,7 @@ namespace CarrosFacil.Entities
 
         public DataTable RelatorioPorStatus(int status)
         {
-            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = " + status + " ORDER BY funcionario.nome;";
+            string query = "SELECT funcionario.cpf, funcionario.nome, cargo.nome 'id_cargo', funcionario.data_nascimento, funcionario.cidade, funcionario.sexo, funcionario.data_cadastro FROM funcionario INNER JOIN cargo ON cargo.id = funcionario.id_cargo WHERE funcionario.status = " + status + " ORDER BY funcionario.nome;";
 
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);

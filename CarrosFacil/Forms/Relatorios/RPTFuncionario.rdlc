@@ -6,30 +6,30 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.68073cm</Width>
+              <Width>4.52305cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.06677cm</Width>
+              <Width>2.90909cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.3049cm</Width>
+              <Width>2.51726cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.39178cm</Width>
+              <Width>2.2341cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.6774cm</Width>
+              <Width>2.61165cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.81511cm</Width>
+              <Width>2.65743cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.81511cm</Width>
+              <Width>2.46844cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.02333cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -139,7 +139,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Estado Civil</Value>
+                              <Value>Sexo</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -265,7 +265,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.02333cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -362,21 +362,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="estado_civil">
+                    <Textbox Name="sexo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!estado_civil.Value</Value>
+                              <Value>=iif(Fields!sexo.Value = "F", "Feminino", iif(Fields!sexo.Value = "M", "Masculino", "Não informado"))</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>estado_civil</rd:DefaultName>
+                      <rd:DefaultName>sexo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -510,9 +510,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsFuncionario</DataSetName>
-        <Top>0.76729cm</Top>
-        <Height>1.2cm</Height>
-        <Width>20.7518cm</Width>
+        <Top>0.37041cm</Top>
+        <Height>2.04666cm</Height>
+        <Width>19.92103cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -523,7 +523,7 @@
     <Height>1.11458in</Height>
     <Style />
   </Body>
-  <Width>8.17in</Width>
+  <Width>7.84292in</Width>
   <Page>
     <PageHeader>
       <Height>2.79328cm</Height>
@@ -551,8 +551,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
           <Top>0.88759cm</Top>
+          <Left>0.54168cm</Left>
           <Height>1.03257cm</Height>
-          <Width>20.7518cm</Width>
+          <Width>16.4602cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -569,6 +570,7 @@
           <Value>logotipo</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.55245cm</Top>
+          <Left>0.54168cm</Left>
           <Height>1.73813cm</Height>
           <Width>4.80729cm</Width>
           <ZIndex>1</ZIndex>
@@ -610,7 +612,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
           <Top>0.77542cm</Top>
-          <Left>13.75355cm</Left>
+          <Left>11.39552cm</Left>
           <Height>0.89146cm</Height>
           <Width>6.63163cm</Width>
           <Style>
@@ -644,7 +646,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
           <Top>0.77542cm</Top>
-          <Left>0.31321cm</Left>
+          <Left>0.54168cm</Left>
           <Height>0.89146cm</Height>
           <Width>6.63163cm</Width>
           <ZIndex>1</ZIndex>

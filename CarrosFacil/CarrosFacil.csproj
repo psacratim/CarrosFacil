@@ -251,6 +251,12 @@
     <Compile Include="Forms\FormVeiculo.Designer.cs">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Relatorios\FormRelFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelFuncionario.Designer.cs">
+      <DependentUpon>FormRelFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVeiculo.resx">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelFuncionario.resx">
+      <DependentUpon>FormRelFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\RPTFuncionario.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -56,6 +56,7 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.menuRelFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,6 +215,8 @@ namespace CarrosFacil
             // 
             // menuRelatorios
             // 
+            this.menuRelatorios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuRelFuncionario});
             this.menuRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("menuRelatorios.Image")));
             this.menuRelatorios.Name = "menuRelatorios";
             this.menuRelatorios.Size = new System.Drawing.Size(145, 36);
@@ -280,6 +283,13 @@ namespace CarrosFacil
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
             // 
+            // menuRelFuncionario
+            // 
+            this.menuRelFuncionario.Name = "menuRelFuncionario";
+            this.menuRelFuncionario.Size = new System.Drawing.Size(191, 30);
+            this.menuRelFuncionario.Text = "Funcionário";
+            this.menuRelFuncionario.Click += new System.EventHandler(this.menuRelFuncionario_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -331,6 +341,7 @@ namespace CarrosFacil
         private System.Windows.Forms.ToolStripMenuItem menuConsCargos;
         private System.Windows.Forms.ToolStripMenuItem menuConsCaracteristicas;
         private System.Windows.Forms.ToolStripMenuItem menuConsMarcas;
+        private System.Windows.Forms.ToolStripMenuItem menuRelFuncionario;
     }
 }
 

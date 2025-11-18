@@ -1,5 +1,6 @@
 ﻿using CarrosFacil.Forms;
 using CarrosFacil.Forms.Consultas;
+using CarrosFacil.Forms.Relatorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,153 +43,6 @@ namespace CarrosFacil
                 Application.Exit();
             }
         }
-
-        private void menuCadCargos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormCargo>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de cargos já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            FormCargo formCargo = new FormCargo();
-            formCargo.Show();
-        }
-
-        private void menuCadFuncionarios_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormFuncionario>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de funcionários já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            FormFuncionario formFuncionario = new FormFuncionario();
-            formFuncionario.Show();
-        }
-
-        private void menuCadMarcas_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormMarca>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de marcas já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormMarca formMarca = new FormMarca();
-            formMarca.Show();
-        }
-
-        private void menuCadModelos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormModelo>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de modelos já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormModelo formModelo = new FormModelo();
-            formModelo.Show();
-        }
-
-        private void menuCadCaracteristicas_Click(object sender, EventArgs e)
-        {
-
-            if (Application.OpenForms.OfType<FormCaracteristica>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de características já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormCaracteristica formCaracteristicas = new FormCaracteristica();
-            formCaracteristicas.Show();
-        }
-
-        private void menuCadCliente_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormCliente>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de cliente já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormCliente formCliente = new FormCliente();
-            formCliente.Show();
-        }
-
-        private void menuCadVeiculo_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormVeiculo>().Count() > 0)
-            {
-                MessageBox.Show("O cadastro de veículos já está aberto.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormVeiculo formVeiculo = new FormVeiculo();
-            formVeiculo.Show();
-        }
-
-        private void menuConsFuncionarios_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormConsFuncionario>().Count() > 0)
-            {
-                MessageBox.Show("A consulta de funcionarios já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormConsFuncionario form = new FormConsFuncionario();
-            form.Show();
-        }
-
-        private void menuConsClientes_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormConsCliente>().Count() > 0)
-            {
-                MessageBox.Show("A consulta de clientes já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormConsCliente form = new FormConsCliente();
-            form.Show();
-        }
-
-        private void menuConsVeiculos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormConsVeiculo>().Count() > 0)
-            {
-                MessageBox.Show("A consulta de veiculos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormConsVeiculo form = new FormConsVeiculo();
-            form.Show();
-        }
-
-        private void menuConsModelos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<FormConsModelo>().Count() > 0)
-            {
-                MessageBox.Show("A consulta de modelos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormConsModelo form = new FormConsModelo();
-            form.Show();
-        }
-
-        private void menuConsCargos_Click(object sender, EventArgs e)
-        {
-
-            if (Application.OpenForms.OfType<FormConsCargo>().Count() > 0)
-            {
-                MessageBox.Show("A consulta de cargos já está aberta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            FormConsCargo form = new FormConsCargo();
-            form.Show();
-        }
-
         private void abrirFormulario<T>(T form, string errorMessage)
         {
             if (!(form is Form))
@@ -206,6 +60,66 @@ namespace CarrosFacil
 
             myForm.Show();
         }
+        private void menuCadCargos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormCargo(), "O cadastro de cargos já está aberto.");
+        }
+
+        private void menuCadFuncionarios_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormFuncionario(), "O cadastro de funcionários já está aberto.");
+        }
+
+        private void menuCadMarcas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormMarca(), "O cadastro de marcas já está aberto.");
+        }
+
+        private void menuCadModelos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormModelo(), "O cadastro de modelos já está aberto.");
+        }
+
+        private void menuCadCaracteristicas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormCaracteristica(), "O cadastro de características já está aberto.");
+        }
+
+        private void menuCadCliente_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormCliente(), "O cadastro de cliente já está aberto.");
+        }
+
+        private void menuCadVeiculo_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormVeiculo(), "O cadastro de veículos já está aberto.");
+        }
+
+        private void menuConsFuncionarios_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsFuncionario(), "A consulta de funcionarios já está aberta.");
+        }
+
+        private void menuConsClientes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsCliente(), "A consulta de clientes já está aberta.");
+        }
+
+        private void menuConsVeiculos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsVeiculo(), "A consulta de veiculos já está aberta.");
+        }
+
+        private void menuConsModelos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsModelo(), "A consulta de modelos já está aberta.");
+        }
+
+        private void menuConsCargos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormConsCargo(), "A consulta de cargos já está aberta.");
+        }
+
         private void menuConsCaracteristicas_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormConsCaracteristicas(), "A consulta de caracteristicas já está aberta!");
@@ -216,18 +130,9 @@ namespace CarrosFacil
             abrirFormulario(new FormConsMarca(), "A consulta de marcas já está aberta!");
         }
 
-
-        //private void menuCadMDI_Click(object sender, EventArgs e)
-        //{
-        //    FormMDI formMDI = new FormMDI();
-        //    formMDI.MdiParent = this; // O Parent deve ser isMdiContainer.
-        //    formMDI.Show();
-        //}
-
-        //private void menuCadSDI_Click(object sender, EventArgs e)
-        //{
-        //    FormSDI formSDI = new FormSDI();
-        //    formSDI.Show();
-        //}
+        private void menuRelFuncionario_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormRelFuncionario(), "O relátorio de funcionário já está aberto!");
+        }
     }
 }

@@ -10,7 +10,6 @@ using System.IO;
 using Newtonsoft.Json;
 using CarrosFacil.Entities;
 using System.Threading.Tasks;
-using Nito.AsyncEx;
 
 namespace CarrosFacil
 {
