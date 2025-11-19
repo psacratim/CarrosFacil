@@ -1,6 +1,6 @@
 ﻿namespace CarrosFacil.Forms.Relatorios
 {
-    partial class FormRelFuncionario
+    partial class FormRelCaracteristicas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelFuncionario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelCaracteristicas));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.gbCargo = new System.Windows.Forms.GroupBox();
             this.cbCargo = new System.Windows.Forms.ComboBox();
@@ -58,8 +58,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbTipoRel = new System.Windows.Forms.GroupBox();
             this.btSair = new System.Windows.Forms.Button();
-            this.FuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rvFuncionario = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.FuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbCargo.SuspendLayout();
             this.gbSexo.SuspendLayout();
             this.gbDataAdmissao.SuspendLayout();
@@ -330,7 +330,6 @@
             this.pnTituloFuncionario.Name = "pnTituloFuncionario";
             this.pnTituloFuncionario.Size = new System.Drawing.Size(1014, 34);
             this.pnTituloFuncionario.TabIndex = 121;
-            this.pnTituloFuncionario.Paint += new System.Windows.Forms.PaintEventHandler(this.pnTituloFuncionario_Paint);
             // 
             // lbTitulo
             // 
@@ -370,23 +369,23 @@
             this.btSair.UseVisualStyleBackColor = true;
             this.btSair.Click += new System.EventHandler(this.btSair_Click);
             // 
-            // FuncionarioBindingSource
-            // 
-            this.FuncionarioBindingSource.DataSource = typeof(CarrosFacil.Entities.Funcionario);
-            // 
             // rvFuncionario
             // 
             reportDataSource1.Name = "dsFuncionario";
             reportDataSource1.Value = this.FuncionarioBindingSource;
             this.rvFuncionario.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvFuncionario.LocalReport.ReportEmbeddedResource = "CarrosFacil.Forms.Relatorios.RDLCs.RPTFuncionario.rdlc";
+            this.rvFuncionario.LocalReport.ReportEmbeddedResource = "CarrosFacil.Forms.Relatorios.RPTFuncionario.rdlc";
             this.rvFuncionario.Location = new System.Drawing.Point(267, 52);
             this.rvFuncionario.Name = "rvFuncionario";
             this.rvFuncionario.ServerReport.BearerToken = null;
             this.rvFuncionario.Size = new System.Drawing.Size(759, 658);
             this.rvFuncionario.TabIndex = 135;
             // 
-            // FormRelFuncionario
+            // FuncionarioBindingSource
+            // 
+            this.FuncionarioBindingSource.DataSource = typeof(CarrosFacil.Entities.Funcionario);
+            // 
+            // FormRelCaracteristicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -406,10 +405,10 @@
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormRelFuncionario";
+            this.Name = "FormRelCaracteristicas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formRelFuncionario";
-            this.Load += new System.EventHandler(this.formRelFuncionario_Load);
+            this.Text = "FormRelCaracteristicas";
+            this.Load += new System.EventHandler(this.FormRelCaracteristicas_Load);
             this.gbCargo.ResumeLayout(false);
             this.gbSexo.ResumeLayout(false);
             this.gbDataAdmissao.ResumeLayout(false);
@@ -457,7 +456,7 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.GroupBox gbTipoRel;
         private System.Windows.Forms.Button btSair;
-        private System.Windows.Forms.BindingSource FuncionarioBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer rvFuncionario;
+        private System.Windows.Forms.BindingSource FuncionarioBindingSource;
     }
 }

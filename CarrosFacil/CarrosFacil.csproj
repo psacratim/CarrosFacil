@@ -251,11 +251,47 @@
     <Compile Include="Forms\FormVeiculo.Designer.cs">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Relatorios\FormRelCaracteristicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelCaracteristicas.Designer.cs">
+      <DependentUpon>FormRelCaracteristicas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelCargo.Designer.cs">
+      <DependentUpon>FormRelCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelClientes.Designer.cs">
+      <DependentUpon>FormRelClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Relatorios\FormRelFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Relatorios\FormRelFuncionario.Designer.cs">
       <DependentUpon>FormRelFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelMarca.Designer.cs">
+      <DependentUpon>FormRelMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelModelo.Designer.cs">
+      <DependentUpon>FormRelModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\FormRelVeiculos.Designer.cs">
+      <DependentUpon>FormRelVeiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,10 +345,30 @@
     <EmbeddedResource Include="Forms\FormVeiculo.resx">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelCaracteristicas.resx">
+      <DependentUpon>FormRelCaracteristicas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelCargo.resx">
+      <DependentUpon>FormRelCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelClientes.resx">
+      <DependentUpon>FormRelClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\FormRelFuncionario.resx">
       <DependentUpon>FormRelFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Relatorios\RPTFuncionario.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\FormRelMarca.resx">
+      <DependentUpon>FormRelMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelModelo.resx">
+      <DependentUpon>FormRelModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelVeiculos.resx">
+      <DependentUpon>FormRelVeiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\RDLCs\RPTCliente.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\RDLCs\RPTFuncionario.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\RDLCs\RPTVeiculos.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -324,7 +380,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CarrosFacil.Entities.Cliente.datasource" />
     <None Include="Properties\DataSources\CarrosFacil.Entities.Funcionario.datasource" />
+    <None Include="Properties\DataSources\CarrosFacil.Entities.Veiculo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -273,5 +273,48 @@ namespace CarrosFacil.Entities
             return conexao.ExecutaQuery(query);
         }
 
+        /*
+         * 
+         * MÉTODOS DE RELATORIO
+         *
+        */
+        public DataTable RelatorioPorSexo(string sexo)
+        {
+            string query = "SELECT cliente.cpf, cliente.nome_completo, cliente.estado_civil, cliente.data_nascimento, cliente.cidade, cliente.sexo FROM cliente WHERE cliente.status = 1 AND cliente.sexo = '" + sexo + "' ORDER BY cliente.nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorStatus(int status)
+        {
+            string query = "SELECT cliente.cpf, cliente.nome_completo, cliente.estado_civil, cliente.data_nascimento, cliente.cidade, cliente.sexo FROM cliente WHERE cliente.status = " + status + " ORDER BY cliente.nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorCidade(string cidade)
+        {
+            string query = "SELECT cliente.cpf, cliente.nome_completo, cliente.estado_civil, cliente.data_nascimento, cliente.cidade, cliente.sexo FROM cliente WHERE cliente.status = 1 AND cliente.cidade = '" + cidade + "' ORDER BY cliente.nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorMesAniversario(int mes)
+        {
+            string query = "SELECT cliente.cpf, cliente.nome_completo, cliente.estado_civil, cliente.data_nascimento, cliente.cidade, cliente.sexo FROM cliente WHERE cliente.status = 1 AND MONTH(cliente.data_nascimento) = " + mes + " ORDER BY cliente.nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable RelatorioPorIdade(int minima, int maxima)
+        {
+            string query = "SELECT cliente.cpf, cliente.nome_completo, cliente.estado_civil, cliente.data_nascimento, cliente.cidade, cliente.sexo FROM cliente WHERE cliente.status = 1 AND TIMESTAMPDIFF(YEAR, cliente.data_nascimento, NOW()) BETWEEN " + minima + " AND " + maxima + " ORDER BY cliente.nome_completo;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }

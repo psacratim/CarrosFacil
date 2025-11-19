@@ -1,6 +1,6 @@
 ﻿namespace CarrosFacil.Forms.Relatorios
 {
-    partial class FormRelFuncionario
+    partial class FormRelClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelFuncionario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelClientes));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.gbCargo = new System.Windows.Forms.GroupBox();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btGerarRelatorio = new System.Windows.Forms.Button();
             this.gbSexo = new System.Windows.Forms.GroupBox();
             this.cbSexo = new System.Windows.Forms.ComboBox();
-            this.gbDataAdmissao = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
-            this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
             this.cbTipoRel = new System.Windows.Forms.ComboBox();
             this.gbCidade = new System.Windows.Forms.GroupBox();
             this.cbCidade = new System.Windows.Forms.ComboBox();
@@ -58,41 +52,20 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbTipoRel = new System.Windows.Forms.GroupBox();
             this.btSair = new System.Windows.Forms.Button();
-            this.FuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rvFuncionario = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.gbCargo.SuspendLayout();
+            this.rvCliente = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
             this.gbSexo.SuspendLayout();
-            this.gbDataAdmissao.SuspendLayout();
             this.gbCidade.SuspendLayout();
             this.gbAniversariantes.SuspendLayout();
             this.gbIdade.SuspendLayout();
             this.gbStatus.SuspendLayout();
             this.pnTituloFuncionario.SuspendLayout();
             this.gbTipoRel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbCargo
+            // ClienteBindingSource
             // 
-            this.gbCargo.Controls.Add(this.cbCargo);
-            this.gbCargo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCargo.Location = new System.Drawing.Point(33, 196);
-            this.gbCargo.Name = "gbCargo";
-            this.gbCargo.Size = new System.Drawing.Size(207, 66);
-            this.gbCargo.TabIndex = 128;
-            this.gbCargo.TabStop = false;
-            this.gbCargo.Text = "Cargo:";
-            // 
-            // cbCargo
-            // 
-            this.cbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCargo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Location = new System.Drawing.Point(9, 28);
-            this.cbCargo.Margin = new System.Windows.Forms.Padding(4);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(185, 27);
-            this.cbCargo.TabIndex = 66;
+            this.ClienteBindingSource.DataSource = typeof(CarrosFacil.Entities.Cliente);
             // 
             // btGerarRelatorio
             // 
@@ -100,7 +73,7 @@
             this.btGerarRelatorio.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btGerarRelatorio.Image")));
             this.btGerarRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGerarRelatorio.Location = new System.Drawing.Point(12, 667);
+            this.btGerarRelatorio.Location = new System.Drawing.Point(12, 499);
             this.btGerarRelatorio.Name = "btGerarRelatorio";
             this.btGerarRelatorio.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btGerarRelatorio.Size = new System.Drawing.Size(169, 43);
@@ -114,7 +87,7 @@
             // 
             this.gbSexo.Controls.Add(this.cbSexo);
             this.gbSexo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSexo.Location = new System.Drawing.Point(33, 523);
+            this.gbSexo.Location = new System.Drawing.Point(33, 340);
             this.gbSexo.Name = "gbSexo";
             this.gbSexo.Size = new System.Drawing.Size(207, 66);
             this.gbSexo.TabIndex = 123;
@@ -132,57 +105,6 @@
             this.cbSexo.Size = new System.Drawing.Size(184, 27);
             this.cbSexo.TabIndex = 79;
             // 
-            // gbDataAdmissao
-            // 
-            this.gbDataAdmissao.Controls.Add(this.label6);
-            this.gbDataAdmissao.Controls.Add(this.label8);
-            this.gbDataAdmissao.Controls.Add(this.dtpDataFinal);
-            this.gbDataAdmissao.Controls.Add(this.dtpDataInicial);
-            this.gbDataAdmissao.Location = new System.Drawing.Point(33, 340);
-            this.gbDataAdmissao.Name = "gbDataAdmissao";
-            this.gbDataAdmissao.Size = new System.Drawing.Size(206, 105);
-            this.gbDataAdmissao.TabIndex = 126;
-            this.gbDataAdmissao.TabStop = false;
-            this.gbDataAdmissao.Text = "Data de Admissão:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 71);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 19);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "Até:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 32);
-            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 19);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "De:";
-            // 
-            // dtpDataFinal
-            // 
-            this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(45, 67);
-            this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(116, 27);
-            this.dtpDataFinal.TabIndex = 1;
-            // 
-            // dtpDataInicial
-            // 
-            this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(45, 28);
-            this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(116, 27);
-            this.dtpDataInicial.TabIndex = 0;
-            // 
             // cbTipoRel
             // 
             this.cbTipoRel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -199,7 +121,7 @@
             // 
             this.gbCidade.Controls.Add(this.cbCidade);
             this.gbCidade.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCidade.Location = new System.Drawing.Point(33, 268);
+            this.gbCidade.Location = new System.Drawing.Point(33, 196);
             this.gbCidade.Name = "gbCidade";
             this.gbCidade.Size = new System.Drawing.Size(207, 66);
             this.gbCidade.TabIndex = 127;
@@ -244,7 +166,7 @@
             this.gbIdade.Controls.Add(this.txtIdadeInicial);
             this.gbIdade.Controls.Add(this.label13);
             this.gbIdade.Controls.Add(this.label14);
-            this.gbIdade.Location = new System.Drawing.Point(33, 451);
+            this.gbIdade.Location = new System.Drawing.Point(33, 268);
             this.gbIdade.Name = "gbIdade";
             this.gbIdade.Size = new System.Drawing.Size(206, 66);
             this.gbIdade.TabIndex = 124;
@@ -294,7 +216,7 @@
             this.gbStatus.Controls.Add(this.rbInativo);
             this.gbStatus.Controls.Add(this.rbAtivo);
             this.gbStatus.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbStatus.Location = new System.Drawing.Point(33, 595);
+            this.gbStatus.Location = new System.Drawing.Point(32, 412);
             this.gbStatus.Name = "gbStatus";
             this.gbStatus.Size = new System.Drawing.Size(207, 66);
             this.gbStatus.TabIndex = 122;
@@ -330,7 +252,6 @@
             this.pnTituloFuncionario.Name = "pnTituloFuncionario";
             this.pnTituloFuncionario.Size = new System.Drawing.Size(1014, 34);
             this.pnTituloFuncionario.TabIndex = 121;
-            this.pnTituloFuncionario.Paint += new System.Windows.Forms.PaintEventHandler(this.pnTituloFuncionario_Paint);
             // 
             // lbTitulo
             // 
@@ -339,9 +260,9 @@
             this.lbTitulo.Location = new System.Drawing.Point(408, 2);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(270, 29);
+            this.lbTitulo.Size = new System.Drawing.Size(221, 29);
             this.lbTitulo.TabIndex = 65;
-            this.lbTitulo.Text = "Relatório de Funcionários";
+            this.lbTitulo.Text = "Relatório de Clientes";
             // 
             // gbTipoRel
             // 
@@ -360,7 +281,7 @@
             this.btSair.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSair.Image = ((System.Drawing.Image)(resources.GetObject("btSair.Image")));
             this.btSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSair.Location = new System.Drawing.Point(187, 667);
+            this.btSair.Location = new System.Drawing.Point(187, 499);
             this.btSair.Name = "btSair";
             this.btSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btSair.Size = new System.Drawing.Size(74, 43);
@@ -370,34 +291,28 @@
             this.btSair.UseVisualStyleBackColor = true;
             this.btSair.Click += new System.EventHandler(this.btSair_Click);
             // 
-            // FuncionarioBindingSource
+            // rvCliente
             // 
-            this.FuncionarioBindingSource.DataSource = typeof(CarrosFacil.Entities.Funcionario);
+            reportDataSource1.Name = "dsClientes";
+            reportDataSource1.Value = this.ClienteBindingSource;
+            this.rvCliente.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvCliente.LocalReport.ReportEmbeddedResource = "CarrosFacil.Forms.Relatorios.RDLCs.RPTCliente.rdlc";
+            this.rvCliente.Location = new System.Drawing.Point(267, 52);
+            this.rvCliente.Name = "rvCliente";
+            this.rvCliente.ServerReport.BearerToken = null;
+            this.rvCliente.Size = new System.Drawing.Size(759, 490);
+            this.rvCliente.TabIndex = 135;
             // 
-            // rvFuncionario
-            // 
-            reportDataSource1.Name = "dsFuncionario";
-            reportDataSource1.Value = this.FuncionarioBindingSource;
-            this.rvFuncionario.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvFuncionario.LocalReport.ReportEmbeddedResource = "CarrosFacil.Forms.Relatorios.RDLCs.RPTFuncionario.rdlc";
-            this.rvFuncionario.Location = new System.Drawing.Point(267, 52);
-            this.rvFuncionario.Name = "rvFuncionario";
-            this.rvFuncionario.ServerReport.BearerToken = null;
-            this.rvFuncionario.Size = new System.Drawing.Size(759, 658);
-            this.rvFuncionario.TabIndex = 135;
-            // 
-            // FormRelFuncionario
+            // FormRelClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 734);
-            this.Controls.Add(this.rvFuncionario);
+            this.ClientSize = new System.Drawing.Size(1051, 552);
+            this.Controls.Add(this.rvCliente);
             this.Controls.Add(this.btSair);
             this.Controls.Add(this.gbTipoRel);
-            this.Controls.Add(this.gbCargo);
             this.Controls.Add(this.btGerarRelatorio);
             this.Controls.Add(this.gbSexo);
-            this.Controls.Add(this.gbDataAdmissao);
             this.Controls.Add(this.gbCidade);
             this.Controls.Add(this.gbAniversariantes);
             this.Controls.Add(this.gbIdade);
@@ -406,14 +321,12 @@
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormRelFuncionario";
+            this.Name = "FormRelClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formRelFuncionario";
-            this.Load += new System.EventHandler(this.formRelFuncionario_Load);
-            this.gbCargo.ResumeLayout(false);
+            this.Text = "a";
+            this.Load += new System.EventHandler(this.FormRelClientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
             this.gbSexo.ResumeLayout(false);
-            this.gbDataAdmissao.ResumeLayout(false);
-            this.gbDataAdmissao.PerformLayout();
             this.gbCidade.ResumeLayout(false);
             this.gbAniversariantes.ResumeLayout(false);
             this.gbIdade.ResumeLayout(false);
@@ -423,23 +336,14 @@
             this.pnTituloFuncionario.ResumeLayout(false);
             this.pnTituloFuncionario.PerformLayout();
             this.gbTipoRel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.FuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbCargo;
-        private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.Button btGerarRelatorio;
         private System.Windows.Forms.GroupBox gbSexo;
         private System.Windows.Forms.ComboBox cbSexo;
-        private System.Windows.Forms.GroupBox gbDataAdmissao;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtpDataFinal;
-        private System.Windows.Forms.DateTimePicker dtpDataInicial;
         public System.Windows.Forms.ComboBox cbTipoRel;
         private System.Windows.Forms.GroupBox gbCidade;
         private System.Windows.Forms.ComboBox cbCidade;
@@ -457,7 +361,7 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.GroupBox gbTipoRel;
         private System.Windows.Forms.Button btSair;
-        private System.Windows.Forms.BindingSource FuncionarioBindingSource;
-        private Microsoft.Reporting.WinForms.ReportViewer rvFuncionario;
+        private System.Windows.Forms.BindingSource ClienteBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer rvCliente;
     }
 }

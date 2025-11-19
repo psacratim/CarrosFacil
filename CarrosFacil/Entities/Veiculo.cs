@@ -91,6 +91,22 @@ namespace CarrosFacil.Entities
             return conexao.ExecutaQuery(query);
         }
 
+        public DataTable CarregarModelos()
+        {
+            string query = "SELECT DISTINCT m.id, m.nome 'nome' FROM modelo AS m INNER JOIN veiculo AS v ON m.id = v.id_modelo ORDER BY nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
+        public DataTable CarregarCategorias()
+        {
+            string query = "SELECT DISTINCT categoria FROM veiculo ORDER BY categoria;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+
         public int InserirCaracteristicas(int idVeiculo)
         {
             if (caracteristicas == null || caracteristicas.Count == 0)
@@ -300,5 +316,55 @@ namespace CarrosFacil.Entities
             return conexao.RetornaDados(query);
         }
 
+        /*
+         * 
+         * MÉTODOS DE RELATORIO
+         *
+        */
+        public DataTable RelatorioPorStatus(int status)
+        {
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.status = " + status + " ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorModelo(int idModelo)
+        {
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.id_modelo = " + idModelo + " ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorCategoria(string categoria)
+        {
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.categoria = '" + categoria + "' ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorEstado(string estado)
+        {
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.estado_do_veiculo = '" + estado + "' ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorTemDesconto(bool temDesconto)
+        {
+            // Converte o bool para o valor booleano (ou 0/1) esperado pelo banco de dados
+            int valorDesconto = temDesconto ? 1 : 0;
+
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.tem_desconto = " + valorDesconto + " ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
+        public DataTable RelatorioPorLucro(int minimo, int maximo)
+        {
+            string query = "SELECT modelo.nome 'id_modelo', veiculo.categoria, veiculo.estado_do_veiculo, veiculo.tem_desconto, IF (veiculo.preco_desconto > 0, veiculo.preco_desconto, veiculo.preco_venda) 'preco_venda', veiculo.lucro, veiculo.status FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.lucro BETWEEN "+minimo+" AND "+maximo+" ORDER BY modelo.nome;";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }

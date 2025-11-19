@@ -132,7 +132,17 @@ namespace CarrosFacil
 
         private void menuRelFuncionario_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormRelFuncionario(), "O relátorio de funcionário já está aberto!");
+            abrirFormulario(new FormRelFuncionario(), "O relátorio de funcionários já está aberto!");
+        }
+
+        private void menuRelClientes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormRelClientes(), "O relátorio de clientes já está aberto!");
+        }
+
+        private void menuRelVeiculos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormRelVeiculo(), "O relátorio de veiculos já está aberto!");
         }
     }
 }

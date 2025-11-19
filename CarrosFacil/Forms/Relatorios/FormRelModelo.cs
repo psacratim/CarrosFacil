@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace CarrosFacil.Forms.Relatorios
 {
-    public partial class FormRelFuncionario : Form
+    public partial class FormRelModelo : Form
     {
-        public FormRelFuncionario()
+        public FormRelModelo()
         {
             InitializeComponent();
         }
 
-        private void formRelFuncionario_Load(object sender, EventArgs e)
+        private void FormRelModelo_Load(object sender, EventArgs e)
         {
             //CARREGAR COMBO TIPO DE RELATÓRIO
             cbTipoRel.Items.Add("Aniversariantes do Mês");     
@@ -79,10 +79,9 @@ namespace CarrosFacil.Forms.Relatorios
                     cbCidade.DataSource = cidades;
                     cbCidade.DisplayMember = "cidade";
                     cbCidade.ValueMember = "cidade";
-                    cbCidade.SelectedIndex = -1;
+                    cbCidade.SelectedValue = "Piracicaba";
                 }));
             });
-            this.rvFuncionario.RefreshReport();
             this.rvFuncionario.RefreshReport();
         }
 
@@ -192,12 +191,6 @@ namespace CarrosFacil.Forms.Relatorios
                     break;
 
                 case 2:
-                    if (cbCidade.SelectedIndex == -1)
-                    {
-                        MessageBox.Show("Por favor, selecione uma cidade válida.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
                     string cidade = cbCidade.SelectedValue.ToString();
 
                     FuncionarioBindingSource.DataSource = funcionario.RelatorioPorCidade(cidade);
@@ -277,11 +270,6 @@ namespace CarrosFacil.Forms.Relatorios
                     rvFuncionario.RefreshReport();
                     break;
             }
-        }
-
-        private void pnTituloFuncionario_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

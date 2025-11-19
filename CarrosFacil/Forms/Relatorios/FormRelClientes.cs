@@ -11,20 +11,19 @@ using System.Windows.Forms;
 
 namespace CarrosFacil.Forms.Relatorios
 {
-    public partial class FormRelFuncionario : Form
+    public partial class FormRelClientes : Form
     {
-        public FormRelFuncionario()
+        public FormRelClientes()
         {
             InitializeComponent();
         }
 
-        private void formRelFuncionario_Load(object sender, EventArgs e)
+        private void FormRelClientes_Load(object sender, EventArgs e)
         {
             //CARREGAR COMBO TIPO DE RELATÓRIO
-            cbTipoRel.Items.Add("Aniversariantes do Mês");     
-            cbTipoRel.Items.Add("Cargo");
+            // TODO: 1. Relátorio de compras e 
+            cbTipoRel.Items.Add("Aniversariantes do Mês");  
             cbTipoRel.Items.Add("Cidade");
-            cbTipoRel.Items.Add("Data de Admissão");
             cbTipoRel.Items.Add("Idade");
             cbTipoRel.Items.Add("Sexo");
             cbTipoRel.Items.Add("Status");
@@ -53,37 +52,25 @@ namespace CarrosFacil.Forms.Relatorios
             cbSexo.Items.Add("Não Informado");
             cbSexo.SelectedIndex = 0;
 
-
-            //CARREGAR COMBO CARGO
-
-
             //CARREGAR COMBO CIDADE E CARGO DE FORMA ASYNC (ASYNC EVITA: O SISTEMA NÃO IRÁ TRAVAR POR CONTA DO BANCO LENTO).
             _ = Task.Run(() => 
             {
                 // OBTENDO AS CIDADES DO BANCO
-                Funcionario funcionario = new Funcionario();
-                DataTable cidades = funcionario.CarregarCidades();
-
-                // OBTENDO OS CARGOS DO BANCO
-                Cargo cargo = new Cargo();
-                DataTable cargos = cargo.CarregarCargo();
+                Cliente cliente = new Cliente();
+                DataTable cidades = cliente.CarregarCidades();
 
                 // VOLTANDO AO THREAD ANTERIOR
                 this.Invoke((Action)(() =>
                 {
-                    cbCargo.DataSource = cargos;
-                    cbCargo.DisplayMember = "nome";
-                    cbCargo.ValueMember = "id";
-                    if (cbCargo.Items.Count > 0) cbCargo.SelectedIndex = 0;
-
                     cbCidade.DataSource = cidades;
                     cbCidade.DisplayMember = "cidade";
                     cbCidade.ValueMember = "cidade";
-                    cbCidade.SelectedIndex = -1;
+                    cbCidade.SelectedValue = "Piracicaba";
                 }));
             });
-            this.rvFuncionario.RefreshReport();
-            this.rvFuncionario.RefreshReport();
+            this.rvCliente.RefreshReport();
+            this.rvCliente.RefreshReport();
+            this.rvCliente.RefreshReport();
         }
 
         private void cbTipoRel_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,80 +79,50 @@ namespace CarrosFacil.Forms.Relatorios
             {
                 gbAniversariantes.Enabled = true;
                 gbIdade.Enabled = false;
-                gbDataAdmissao.Enabled = false;
                 gbStatus.Enabled = false;
                 gbSexo.Enabled = false;
-                gbCargo.Enabled = false;
-                gbCidade.Enabled = false;
-            }
-           
-            if (cbTipoRel.SelectedIndex == 1)//Cargo
-            {
-                gbAniversariantes.Enabled = false;
-                gbIdade.Enabled = false;
-                gbDataAdmissao.Enabled = false;
-                gbStatus.Enabled = false;
-                gbSexo.Enabled = false;
-                gbCargo.Enabled = true;
                 gbCidade.Enabled = false;
             }
 
-            if (cbTipoRel.SelectedIndex == 2)//Cidade
+            if (cbTipoRel.SelectedIndex == 1)//Cidade
             {
                 gbAniversariantes.Enabled = false;
                 gbIdade.Enabled = false;
-                gbDataAdmissao.Enabled = false;
                 gbStatus.Enabled = false;
                 gbSexo.Enabled = false;
-                gbCargo.Enabled = false;
                 gbCidade.Enabled = true;
             }
 
-            if (cbTipoRel.SelectedIndex == 3)//Data de Admissão
-            {
-                gbAniversariantes.Enabled = false;
-                gbDataAdmissao.Enabled = true;
-                gbStatus.Enabled = false;
-                gbSexo.Enabled = false;
-                gbCargo.Enabled = false;
-                gbCidade.Enabled = false;
-            }
-            if (cbTipoRel.SelectedIndex == 4)//Idade
+            if (cbTipoRel.SelectedIndex == 2)//Idade
             {
                 gbAniversariantes.Enabled = false;
                 gbIdade.Enabled = true;
-                gbDataAdmissao.Enabled = false;
                 gbStatus.Enabled = false;
                 gbSexo.Enabled = false;
-                gbCargo.Enabled = false;
                 gbCidade.Enabled = false;
             }
 
-            if (cbTipoRel.SelectedIndex == 5)//Sexo
+            if (cbTipoRel.SelectedIndex == 3)//Sexo
             {
                 gbAniversariantes.Enabled = false;
                 gbIdade.Enabled = false;
-                gbDataAdmissao.Enabled = false;
                 gbStatus.Enabled = false;
                 gbSexo.Enabled = true;
-                gbCargo.Enabled = false;
                 gbCidade.Enabled = false;
             }
-            if (cbTipoRel.SelectedIndex == 6)//Status
+            if (cbTipoRel.SelectedIndex == 4)//Status
             {
                 gbAniversariantes.Enabled = false;
                 gbIdade.Enabled = false;
-                gbDataAdmissao.Enabled = false;
                 gbStatus.Enabled = true;
                 gbSexo.Enabled = false;
-                gbCargo.Enabled = false;
                 gbCidade.Enabled = false;
             }
         }
 
         private void btSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja fechar o relatório de funcionário???", "Sistema Loja Cosméticos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja fechar o relatório de clientes?", "Sistema Carros Fácil", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -173,46 +130,19 @@ namespace CarrosFacil.Forms.Relatorios
 
         private void btGerarRelatorio_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
+            Cliente cliente = new Cliente();
             int relatorio = Convert.ToInt32(cbTipoRel.SelectedIndex);
 
             switch (relatorio)
             {
                 case 1:
-                    int cargo = Convert.ToInt32(cbCargo.SelectedValue);
-                    if (cargo == 0)
-                    {
-                        MessageBox.Show("Por favor, selecione um cargo válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    string cidade = cbCidade.SelectedValue.ToString();
 
-
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorCargo(cargo);
-                    rvFuncionario.RefreshReport();
+                    ClienteBindingSource.DataSource = cliente.RelatorioPorCidade(cidade);
+                    rvCliente.RefreshReport();
                     break;
 
                 case 2:
-                    if (cbCidade.SelectedIndex == -1)
-                    {
-                        MessageBox.Show("Por favor, selecione uma cidade válida.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    string cidade = cbCidade.SelectedValue.ToString();
-
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorCidade(cidade);
-                    rvFuncionario.RefreshReport();
-                    break;
-
-                case 3:
-                    DateTime dataInicio = dtpDataInicial.Value;
-                    DateTime dataFim = dtpDataFinal.Value;
-
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorDataAdmissao(dataInicio, dataFim);
-                    rvFuncionario.RefreshReport();
-                    break;
-
-                case 4:
                     if (string.IsNullOrEmpty(txtIdadeInicial.Text) || string.IsNullOrEmpty(txtIdadeFinal.Text))
                     {
                         MessageBox.Show("Por favor, insira as duas idades válidas.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -227,11 +157,11 @@ namespace CarrosFacil.Forms.Relatorios
                         return;
                     }
 
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorIdade(idadeInicial, idadeFinal);
-                    rvFuncionario.RefreshReport();
+                    ClienteBindingSource.DataSource = cliente.RelatorioPorIdade(idadeInicial, idadeFinal);
+                    rvCliente.RefreshReport();
                     break;
 
-                case 5:
+                case 3:
                     if (cbSexo.SelectedIndex == 0)
                     {
                         MessageBox.Show("Por favor, selecione um sexo válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -253,15 +183,15 @@ namespace CarrosFacil.Forms.Relatorios
                     }
 
 
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorSexo(sexo);
-                    rvFuncionario.RefreshReport();
+                    ClienteBindingSource.DataSource = cliente.RelatorioPorSexo(sexo);
+                    rvCliente.RefreshReport();
                     break;
 
-                case 6:
+                case 4:
                     int status = rbAtivo.Checked ? 1 : 0;
 
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorStatus(status);
-                    rvFuncionario.RefreshReport();
+                    ClienteBindingSource.DataSource = cliente.RelatorioPorStatus(status);
+                    rvCliente.RefreshReport();
                     break;
 
                 default:
@@ -273,15 +203,10 @@ namespace CarrosFacil.Forms.Relatorios
                     }
 
 
-                    FuncionarioBindingSource.DataSource = funcionario.RelatorioPorMesAniversario(mes);
-                    rvFuncionario.RefreshReport();
+                    ClienteBindingSource.DataSource = cliente.RelatorioPorMesAniversario(mes);
+                    rvCliente.RefreshReport();
                     break;
             }
-        }
-
-        private void pnTituloFuncionario_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

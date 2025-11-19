@@ -58,7 +58,7 @@ namespace CarrosFacil.Forms
                     cbCargo.DataSource = cargos;
                     cbCargo.DisplayMember = "nome";
                     cbCargo.ValueMember = "id";
-                    if (cbCidade.Items.Count > 0) cbCargo.SelectedIndex = 0;
+                    if (cbCargo.Items.Count > 0) cbCargo.SelectedIndex = 0;
 
                     cbCidade.DataSource = cidades;
                     cbCidade.DisplayMember = "cidade";
