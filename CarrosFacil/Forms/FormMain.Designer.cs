@@ -50,6 +50,8 @@ namespace CarrosFacil
             this.menuConsMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRelClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRelVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -57,8 +59,6 @@ namespace CarrosFacil
             this.statusLbData = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLbMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
-            this.menuRelClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -233,12 +233,27 @@ namespace CarrosFacil
             this.menuRelFuncionario.Text = "Funcionários";
             this.menuRelFuncionario.Click += new System.EventHandler(this.menuRelFuncionario_Click);
             // 
+            // menuRelClientes
+            // 
+            this.menuRelClientes.Name = "menuRelClientes";
+            this.menuRelClientes.Size = new System.Drawing.Size(199, 30);
+            this.menuRelClientes.Text = "Clientes";
+            this.menuRelClientes.Click += new System.EventHandler(this.menuRelClientes_Click);
+            // 
+            // menuRelVeiculos
+            // 
+            this.menuRelVeiculos.Name = "menuRelVeiculos";
+            this.menuRelVeiculos.Size = new System.Drawing.Size(199, 30);
+            this.menuRelVeiculos.Text = "Veiculos";
+            this.menuRelVeiculos.Click += new System.EventHandler(this.menuRelVeiculos_Click);
+            // 
             // menuVendas
             // 
             this.menuVendas.Image = ((System.Drawing.Image)(resources.GetObject("menuVendas.Image")));
             this.menuVendas.Name = "menuVendas";
             this.menuVendas.Size = new System.Drawing.Size(120, 36);
             this.menuVendas.Text = "Vendas";
+            this.menuVendas.Click += new System.EventHandler(this.menuVendas_Click);
             // 
             // menuSair
             // 
@@ -293,20 +308,6 @@ namespace CarrosFacil
             // 
             this.timerPrincipal.Enabled = true;
             this.timerPrincipal.Tick += new System.EventHandler(this.timerPrincipal_Tick);
-            // 
-            // menuRelClientes
-            // 
-            this.menuRelClientes.Name = "menuRelClientes";
-            this.menuRelClientes.Size = new System.Drawing.Size(199, 30);
-            this.menuRelClientes.Text = "Clientes";
-            this.menuRelClientes.Click += new System.EventHandler(this.menuRelClientes_Click);
-            // 
-            // menuRelVeiculos
-            // 
-            this.menuRelVeiculos.Name = "menuRelVeiculos";
-            this.menuRelVeiculos.Size = new System.Drawing.Size(199, 30);
-            this.menuRelVeiculos.Text = "Veiculos";
-            this.menuRelVeiculos.Click += new System.EventHandler(this.menuRelVeiculos_Click);
             // 
             // FormMain
             // 

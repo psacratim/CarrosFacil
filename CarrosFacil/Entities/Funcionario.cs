@@ -350,5 +350,14 @@ namespace CarrosFacil.Entities
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+
+        //VENDAS
+        public DataTable BuscarFuncionario()
+        {
+            string query = "SELECT id, nome FROM funcionario WHERE status = 1 ORDER BY nome";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }

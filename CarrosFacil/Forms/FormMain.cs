@@ -144,5 +144,10 @@ namespace CarrosFacil
         {
             abrirFormulario(new FormRelVeiculo(), "O relátorio de veiculos já está aberto!");
         }
+
+        private void menuVendas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormVenda(), "O menu de veiculos já está aberto!");
+        }
     }
 }

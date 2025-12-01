@@ -316,5 +316,14 @@ namespace CarrosFacil.Entities
             Conexao conexao = new Conexao();
             return conexao.RetornaDados(query);
         }
+
+        //VENDAS
+        public DataTable CarregaGridClient(string nomec)
+        {
+            string query = "SELECT id, cpf, nome_completo FROM cliente WHERE nome_completo LIKE '%"+nomec+ "%' AND status = 1 ORDER BY nome_completo";
+
+            Conexao conexao = new Conexao();
+            return conexao.RetornaDados(query);
+        }
     }
 }

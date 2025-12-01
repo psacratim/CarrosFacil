@@ -144,12 +144,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Caracteristica.cs" />
+    <Compile Include="Entities\PagamentoVenda.cs" />
+    <Compile Include="Entities\ItemVenda.cs" />
     <Compile Include="Entities\Veiculo.cs" />
     <Compile Include="Entities\Cargo.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Entities\Cep.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Modelo.cs" />
+    <Compile Include="Entities\Venda.cs" />
     <Compile Include="FormElements\C_GroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -251,6 +254,12 @@
     <Compile Include="Forms\FormVeiculo.Designer.cs">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVenda.Designer.cs">
+      <DependentUpon>FormVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Relatorios\FormRelCaracteristicas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVeiculo.resx">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVenda.resx">
+      <DependentUpon>FormVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\FormRelCaracteristicas.resx">
       <DependentUpon>FormRelCaracteristicas.cs</DependentUpon>
