@@ -287,6 +287,7 @@ namespace CarrosFacil.Forms
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(499, 212);
             this.dgvProduto.TabIndex = 0;
+            this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellClick);
             // 
             // txtPesqProduto
             // 
@@ -306,6 +307,7 @@ namespace CarrosFacil.Forms
             this.btBuscaProduto.Size = new System.Drawing.Size(44, 42);
             this.btBuscaProduto.TabIndex = 3;
             this.btBuscaProduto.UseVisualStyleBackColor = true;
+            this.btBuscaProduto.Click += new System.EventHandler(this.btBuscaProduto_Click);
             // 
             // btFechaVenda
             // 
@@ -440,6 +442,7 @@ namespace CarrosFacil.Forms
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(95, 27);
             this.txtQtde.TabIndex = 199;
+            this.txtQtde.TextChanged += new System.EventHandler(this.txtQtde_TextChanged);
             // 
             // label4
             // 
