@@ -381,27 +381,23 @@ namespace CarrosFacil.Entities
             return conexao.RetornaDados(query);
         }
 
-        public string BuscarModeloVeiculo(int id) // BuscarNomeProduto
-        {
-            string query = "SELECT veiculo.id_modelo, modelo.nome FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.id = " + id;
-            string modelo = "";
-
-            Conexao conexao = new Conexao();
-            DataTable dt = conexao.RetornaDados(query);
-            if (dt.Rows.Count > 0)
-            {
-                modelo = dt.Rows[0]["nome"].ToString();
-            }
-
-            return modelo;
-        }
-
         public bool AtualizarEstoque(int id, int quantidade) // BuscarNomeProduto
         {
             string query = "UPDATE veiculo SET estoque = "+ quantidade + " WHERE id = "+ id;
 
             Conexao conexao = new Conexao();
             return conexao.ExecutaQuery(query) == 1;
+        }
+
+
+        private string[] IDS_CACHE = { };
+        public string ObterNomeModelo(int id)
+        {
+            string query = "SELECT veiculo.id_modelo, modelo.nome FROM veiculo INNER JOIN modelo ON modelo.id = veiculo.id_modelo WHERE veiculo.id = " + id;
+
+            Conexao conexao = new Conexao();
+            DataTable dt = conexao.RetornaDados(query);
+            return dt.Rows[0]["nome"].ToString();
         }
     }
 }

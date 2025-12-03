@@ -214,6 +214,7 @@ namespace CarrosFacil.Forms
             this.txtPercentualDesconto.Name = "txtPercentualDesconto";
             this.txtPercentualDesconto.Size = new System.Drawing.Size(42, 30);
             this.txtPercentualDesconto.TabIndex = 216;
+            this.txtPercentualDesconto.TextChanged += new System.EventHandler(this.txtPercentualDesconto_TextChanged);
             // 
             // txtValorTotal
             // 
@@ -499,6 +500,7 @@ namespace CarrosFacil.Forms
             this.btAdicionar.Size = new System.Drawing.Size(45, 48);
             this.btAdicionar.TabIndex = 229;
             this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
             // pnTituloVenda
             // 
