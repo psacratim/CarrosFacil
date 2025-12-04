@@ -27,10 +27,10 @@ namespace CarrosFacil.Entities
 
         public bool Cadastrar()
         {
-            string query = string.Format("INSERT INTO venda VALUES (0, {0}, {1}, {2}, NOW(), 1); SELECT LAST_INSERT_ID;",
+            string query = string.Format("INSERT INTO venda VALUES (0, {0}, {1}, {2}, NOW(), 1); SELECT LAST_INSERT_ID();",
                 id_funcionario,
                 id_cliente,
-                valor_total
+                valor_total.ToString().Replace(",", ".")
             );
 
             Conexao conexao = new Conexao();

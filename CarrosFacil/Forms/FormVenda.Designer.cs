@@ -74,6 +74,11 @@ namespace CarrosFacil.Forms
             this.txtDataVenda = new System.Windows.Forms.TextBox();
             this.gbPagamneto = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.labelTroco = new System.Windows.Forms.Label();
+            this.txtTroco = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtQuantiaDinheiro = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.gbProdutos.SuspendLayout();
@@ -95,8 +100,9 @@ namespace CarrosFacil.Forms
             this.cbFormaPagamento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbFormaPagamento.Location = new System.Drawing.Point(6, 55);
             this.cbFormaPagamento.Name = "cbFormaPagamento";
-            this.cbFormaPagamento.Size = new System.Drawing.Size(230, 30);
+            this.cbFormaPagamento.Size = new System.Drawing.Size(183, 30);
             this.cbFormaPagamento.TabIndex = 224;
+            this.cbFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.cbFormaPagamento_SelectedIndexChanged);
             // 
             // lbFormaPagamento
             // 
@@ -169,7 +175,7 @@ namespace CarrosFacil.Forms
             // 
             this.txtTotalVenda.Enabled = false;
             this.txtTotalVenda.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalVenda.Location = new System.Drawing.Point(604, 55);
+            this.txtTotalVenda.Location = new System.Drawing.Point(801, 55);
             this.txtTotalVenda.Name = "txtTotalVenda";
             this.txtTotalVenda.Size = new System.Drawing.Size(165, 30);
             this.txtTotalVenda.TabIndex = 220;
@@ -178,7 +184,7 @@ namespace CarrosFacil.Forms
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(604, 27);
+            this.label11.Location = new System.Drawing.Point(800, 27);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(161, 23);
             this.label11.TabIndex = 219;
@@ -188,7 +194,7 @@ namespace CarrosFacil.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(476, 59);
+            this.label2.Location = new System.Drawing.Point(692, 59);
             this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 23);
@@ -199,7 +205,7 @@ namespace CarrosFacil.Forms
             // 
             this.txtTotalDesconto.Enabled = false;
             this.txtTotalDesconto.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDesconto.Location = new System.Drawing.Point(496, 55);
+            this.txtTotalDesconto.Location = new System.Drawing.Point(716, 55);
             this.txtTotalDesconto.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalDesconto.Name = "txtTotalDesconto";
             this.txtTotalDesconto.Size = new System.Drawing.Size(80, 30);
@@ -208,7 +214,7 @@ namespace CarrosFacil.Forms
             // txtPercentualDesconto
             // 
             this.txtPercentualDesconto.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPercentualDesconto.Location = new System.Drawing.Point(431, 55);
+            this.txtPercentualDesconto.Location = new System.Drawing.Point(645, 55);
             this.txtPercentualDesconto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPercentualDesconto.MaxLength = 2;
             this.txtPercentualDesconto.Name = "txtPercentualDesconto";
@@ -220,16 +226,16 @@ namespace CarrosFacil.Forms
             // 
             this.txtValorTotal.Enabled = false;
             this.txtValorTotal.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorTotal.Location = new System.Drawing.Point(258, 55);
+            this.txtValorTotal.Location = new System.Drawing.Point(510, 55);
             this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(151, 30);
+            this.txtValorTotal.Size = new System.Drawing.Size(130, 30);
             this.txtValorTotal.TabIndex = 215;
             // 
             // txtQtdeItens
             // 
             this.txtQtdeItens.Enabled = false;
             this.txtQtdeItens.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQtdeItens.Location = new System.Drawing.Point(796, 55);
+            this.txtQtdeItens.Location = new System.Drawing.Point(971, 55);
             this.txtQtdeItens.Name = "txtQtdeItens";
             this.txtQtdeItens.Size = new System.Drawing.Size(94, 30);
             this.txtQtdeItens.TabIndex = 214;
@@ -239,9 +245,9 @@ namespace CarrosFacil.Forms
             this.txtQtdeEstoque.BackColor = System.Drawing.SystemColors.Window;
             this.txtQtdeEstoque.Enabled = false;
             this.txtQtdeEstoque.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQtdeEstoque.Location = new System.Drawing.Point(456, 53);
+            this.txtQtdeEstoque.Location = new System.Drawing.Point(587, 53);
             this.txtQtdeEstoque.Name = "txtQtdeEstoque";
-            this.txtQtdeEstoque.Size = new System.Drawing.Size(98, 27);
+            this.txtQtdeEstoque.Size = new System.Drawing.Size(136, 27);
             this.txtQtdeEstoque.TabIndex = 213;
             // 
             // txtProduto
@@ -250,7 +256,7 @@ namespace CarrosFacil.Forms
             this.txtProduto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProduto.Location = new System.Drawing.Point(9, 53);
             this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Size = new System.Drawing.Size(441, 27);
+            this.txtProduto.Size = new System.Drawing.Size(572, 27);
             this.txtProduto.TabIndex = 211;
             // 
             // gbProdutos
@@ -316,18 +322,19 @@ namespace CarrosFacil.Forms
             this.btFechaVenda.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btFechaVenda.Image = ((System.Drawing.Image)(resources.GetObject("btFechaVenda.Image")));
             this.btFechaVenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btFechaVenda.Location = new System.Drawing.Point(918, 26);
+            this.btFechaVenda.Location = new System.Drawing.Point(1071, 26);
             this.btFechaVenda.Name = "btFechaVenda";
             this.btFechaVenda.Size = new System.Drawing.Size(180, 59);
             this.btFechaVenda.TabIndex = 209;
             this.btFechaVenda.Text = "       Fechar Venda";
             this.btFechaVenda.UseVisualStyleBackColor = true;
+            this.btFechaVenda.Click += new System.EventHandler(this.btFechaVenda_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(431, 27);
+            this.label13.Location = new System.Drawing.Point(648, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(115, 23);
             this.label13.TabIndex = 208;
@@ -337,7 +344,7 @@ namespace CarrosFacil.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(258, 27);
+            this.label10.Location = new System.Drawing.Point(511, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 23);
             this.label10.TabIndex = 207;
@@ -347,7 +354,7 @@ namespace CarrosFacil.Forms
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(796, 27);
+            this.label9.Location = new System.Drawing.Point(971, 27);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 23);
             this.label9.TabIndex = 206;
@@ -359,7 +366,7 @@ namespace CarrosFacil.Forms
             this.gbItensVenda.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItensVenda.Location = new System.Drawing.Point(540, 230);
             this.gbItensVenda.Name = "gbItensVenda";
-            this.gbItensVenda.Size = new System.Drawing.Size(576, 388);
+            this.gbItensVenda.Size = new System.Drawing.Size(729, 388);
             this.gbItensVenda.TabIndex = 205;
             this.gbItensVenda.TabStop = false;
             this.gbItensVenda.Text = "* Itens da Venda:";
@@ -382,14 +389,14 @@ namespace CarrosFacil.Forms
             this.dgvItens.RowHeadersVisible = false;
             this.dgvItens.RowHeadersWidth = 51;
             this.dgvItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItens.Size = new System.Drawing.Size(563, 354);
+            this.dgvItens.Size = new System.Drawing.Size(716, 354);
             this.dgvItens.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(291, 86);
+            this.label7.Location = new System.Drawing.Point(221, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 19);
             this.label7.TabIndex = 204;
@@ -400,7 +407,7 @@ namespace CarrosFacil.Forms
             this.txtTotal.BackColor = System.Drawing.Color.White;
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(291, 107);
+            this.txtTotal.Location = new System.Drawing.Point(221, 107);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(105, 27);
             this.txtTotal.TabIndex = 203;
@@ -409,7 +416,7 @@ namespace CarrosFacil.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(145, 86);
+            this.label6.Location = new System.Drawing.Point(110, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 19);
             this.label6.TabIndex = 202;
@@ -420,7 +427,7 @@ namespace CarrosFacil.Forms
             this.txtValor.BackColor = System.Drawing.Color.White;
             this.txtValor.Enabled = false;
             this.txtValor.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(145, 107);
+            this.txtValor.Location = new System.Drawing.Point(110, 107);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(105, 27);
             this.txtValor.TabIndex = 201;
@@ -449,7 +456,7 @@ namespace CarrosFacil.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(456, 31);
+            this.label4.Location = new System.Drawing.Point(587, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 198;
@@ -481,12 +488,13 @@ namespace CarrosFacil.Forms
             this.btRemover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btRemover.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btRemover.Image = ((System.Drawing.Image)(resources.GetObject("btRemover.Image")));
-            this.btRemover.Location = new System.Drawing.Point(509, 96);
+            this.btRemover.Location = new System.Drawing.Point(678, 95);
             this.btRemover.Margin = new System.Windows.Forms.Padding(2);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(45, 48);
             this.btRemover.TabIndex = 230;
             this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // btAdicionar
             // 
@@ -495,7 +503,7 @@ namespace CarrosFacil.Forms
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btAdicionar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("btAdicionar.Image")));
-            this.btAdicionar.Location = new System.Drawing.Point(456, 96);
+            this.btAdicionar.Location = new System.Drawing.Point(625, 95);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(45, 48);
             this.btAdicionar.TabIndex = 229;
@@ -508,7 +516,7 @@ namespace CarrosFacil.Forms
             this.pnTituloVenda.Controls.Add(this.lbTitulo);
             this.pnTituloVenda.Location = new System.Drawing.Point(12, 8);
             this.pnTituloVenda.Name = "pnTituloVenda";
-            this.pnTituloVenda.Size = new System.Drawing.Size(1104, 51);
+            this.pnTituloVenda.Size = new System.Drawing.Size(1257, 51);
             this.pnTituloVenda.TabIndex = 231;
             // 
             // btSair
@@ -516,7 +524,7 @@ namespace CarrosFacil.Forms
             this.btSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btSair.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSair.Location = new System.Drawing.Point(1064, 0);
+            this.btSair.Location = new System.Drawing.Point(1218, 0);
             this.btSair.Name = "btSair";
             this.btSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btSair.Size = new System.Drawing.Size(39, 51);
@@ -574,6 +582,11 @@ namespace CarrosFacil.Forms
             // 
             // gbPagamneto
             // 
+            this.gbPagamneto.Controls.Add(this.label1);
+            this.gbPagamneto.Controls.Add(this.labelTroco);
+            this.gbPagamneto.Controls.Add(this.txtQuantiaDinheiro);
+            this.gbPagamneto.Controls.Add(this.txtTroco);
+            this.gbPagamneto.Controls.Add(this.label8);
             this.gbPagamneto.Controls.Add(this.cbFormaPagamento);
             this.gbPagamneto.Controls.Add(this.lbFormaPagamento);
             this.gbPagamneto.Controls.Add(this.txtValorTotal);
@@ -590,7 +603,7 @@ namespace CarrosFacil.Forms
             this.gbPagamneto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPagamneto.Location = new System.Drawing.Point(12, 624);
             this.gbPagamneto.Name = "gbPagamneto";
-            this.gbPagamneto.Size = new System.Drawing.Size(1104, 97);
+            this.gbPagamneto.Size = new System.Drawing.Size(1257, 97);
             this.gbPagamneto.TabIndex = 206;
             this.gbPagamneto.TabStop = false;
             this.gbPagamneto.Text = "Pagamento:";
@@ -614,16 +627,70 @@ namespace CarrosFacil.Forms
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(576, 153);
+            this.groupBox5.Size = new System.Drawing.Size(729, 153);
             this.groupBox5.TabIndex = 211;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "* Produto Selecionado:";
+            // 
+            // labelTroco
+            // 
+            this.labelTroco.AutoSize = true;
+            this.labelTroco.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTroco.Location = new System.Drawing.Point(367, 27);
+            this.labelTroco.Name = "labelTroco";
+            this.labelTroco.Size = new System.Drawing.Size(90, 23);
+            this.labelTroco.TabIndex = 225;
+            this.labelTroco.Text = "Troco (R$)";
+            // 
+            // txtTroco
+            // 
+            this.txtTroco.Enabled = false;
+            this.txtTroco.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTroco.Location = new System.Drawing.Point(364, 55);
+            this.txtTroco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTroco.MaxLength = 12;
+            this.txtTroco.Name = "txtTroco";
+            this.txtTroco.Size = new System.Drawing.Size(141, 30);
+            this.txtTroco.TabIndex = 227;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(340, 59);
+            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 23);
+            this.label8.TabIndex = 228;
+            this.label8.Text = "=";
+            // 
+            // txtQuantiaDinheiro
+            // 
+            this.txtQuantiaDinheiro.Enabled = false;
+            this.txtQuantiaDinheiro.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantiaDinheiro.Location = new System.Drawing.Point(194, 55);
+            this.txtQuantiaDinheiro.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQuantiaDinheiro.MaxLength = 12;
+            this.txtQuantiaDinheiro.Name = "txtQuantiaDinheiro";
+            this.txtQuantiaDinheiro.Size = new System.Drawing.Size(141, 30);
+            this.txtQuantiaDinheiro.TabIndex = 226;
+            this.txtQuantiaDinheiro.TextChanged += new System.EventHandler(this.txtQuantiaDinheiro_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(192, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 23);
+            this.label1.TabIndex = 229;
+            this.label1.Text = "Quantia Dinheiro";
             // 
             // FormVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 739);
+            this.ClientSize = new System.Drawing.Size(1281, 739);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gbPagamneto);
             this.Controls.Add(this.groupBox3);
@@ -706,5 +773,10 @@ namespace CarrosFacil.Forms
         private System.Windows.Forms.TextBox txtDataVenda;
         private System.Windows.Forms.GroupBox gbPagamneto;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label labelTroco;
+        private System.Windows.Forms.TextBox txtTroco;
+        private System.Windows.Forms.TextBox txtQuantiaDinheiro;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
     }
 }
